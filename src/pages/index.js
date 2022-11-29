@@ -57,7 +57,7 @@ const IndexPage = () => (
   <Layout>
     <div className={styles.textCenter}>
       <h1>
-        Welcome to <b>Taehyun's blog</b>
+        Welcome To <b>Taehyun's blog</b>
       </h1>
     </div>
     <ul className={styles.list}>
