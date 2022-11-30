@@ -39,9 +39,8 @@ const Layout = ({ children }) => {
             fontSize: `var(--font-sm)`,
           }}
         >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <hr></hr>
+          <b>© TaehyunJeon. All rights reserved.<br></br>Built with Gatsby</b><br></br>
         </footer>
       </div>
     </>
