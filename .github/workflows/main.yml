@@ -21,6 +21,6 @@ jobs:
       - name: deploy
         uses: maxheld83/ghpages@v0.2.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.AUTO_DEPLOY }}
           GH_PAT: ${{ secrets.AUTO_DEPLOY }}
           BUILD_DIR: 'public/'
