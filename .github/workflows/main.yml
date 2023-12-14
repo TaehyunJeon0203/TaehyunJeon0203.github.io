@@ -1,26 +1,33 @@
+name: build gatsby
 on:
   push:
     branches:
-      - gh-pages
-name: build gatsby
+      - master
+
 jobs:
-  build_gatsby:
-    name: build
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-
-      - name: yarn install
-        run: yarn install
-
-      - name: gatsby build
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Cache node_modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{runner.OS}}-build-${{hashFiles('**/yarn.lock')}}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ runner.OS }}-
+      - name: Install dependencies
+        run: yarn install --prod --pure-lockfile
+      - name: Build
+        run: yarn build --prefix-paths
         env:
-          GH_API_KEY: ${{ secrets.AUTO_DEPLOY }}
-        run: yarn build
-
-      - name: deploy
-        uses: maxheld83/ghpages@v0.2.1
+          NODE_ENV: production
+      - uses: peaceiris/actions-gh-pages@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.AUTO_DEPLOY }}
-          GH_PAT: ${{ secrets.AUTO_DEPLOY }}
-          BUILD_DIR: 'public/'
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./public
