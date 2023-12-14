@@ -26,10 +26,10 @@ jobs:
         run: yarn install --prod --pure-lockfile
       - name: Build
         run: yarn build --prefix-paths
-        env:
+        with:
           NODE_ENV: production
       - uses: peaceiris/actions-gh-pages@v3
-        env:
+        with:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
