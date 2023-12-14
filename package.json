@@ -1,5 +1,5 @@
 {
-  "name": "TaehyunJeon",
+  "name": "taehyunjeon",
   "private": true,
   "description": "Personal Blog",
   "version": "0.1.0",
@@ -40,12 +40,12 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "dev": "gatsby clean && gatsby develop",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby build && gh-pages -d public -b master -r 'git@github.com:TaehyunJeon0203/https://taehyunjeon0203.github.io.git'"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }
 }
