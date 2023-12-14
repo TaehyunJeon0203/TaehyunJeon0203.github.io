@@ -1,15 +1,15 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "TaehyunJeon",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Personal Blog",
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://taehyunjeon0203.github.io"
   },
   "dependencies": {
-    "@fontsource/merriweather": "^5.0.3",
     "@fontsource-variable/montserrat": "^5.0.4",
+    "@fontsource/merriweather": "^5.0.3",
     "gatsby": "^5.12.12",
     "gatsby-plugin-feed": "^5.12.3",
     "gatsby-plugin-image": "^3.12.3",
@@ -26,6 +26,7 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.0",
     "prettier": "^2.8.8"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -44,6 +45,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "gatsby build && gh-pages -d public -b master -r 'git@github.com:TaehyunJeon0203/https://taehyunjeon0203.github.io.git'"
   }
 }
