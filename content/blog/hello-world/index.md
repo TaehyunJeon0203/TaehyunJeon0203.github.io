@@ -9,6 +9,7 @@ This is my first post on my new fake blog! How exciting!
 다시한번
 하아 
 이번엔 될까요
+제발
 I'm sure I'll write a lot more interesting things in the future.
 
 Oh, and here's a great quote from this Wikipedia on
