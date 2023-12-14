@@ -5,6 +5,7 @@ description: "Hello World"
 ---
 
 This is my first post on my new fake blog! How exciting!
+과연 잘 작동 할까요?
 
 I'm sure I'll write a lot more interesting things in the future.
 
