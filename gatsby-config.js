@@ -14,10 +14,10 @@ module.exports = {
       name: `TaehyunJeon`,
       summary: ``,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: ``,
+    siteUrl: ``,
     social: {
-      twitter: `kylemathews`,
+      instagram: `jeonxogus`,
     },
   },
   plugins: [
