@@ -15,7 +15,7 @@ module.exports = {
       summary: ``,
     },
     description: ``,
-    siteUrl: ``,
+    siteUrl: `taehyunjeon0203.github.io`,
     social: {
       instagram: `jeonxogus`,
     },
