@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://taehyunjeon0203.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 15 Dec 2023 07:52:01 GMT</lastBuildDate><item><title><![CDATA[배포 후 첫 번째 글]]></title><description><![CDATA[…]]></description><link>https://taehyunjeon0203.github.io/first-posting/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/first-posting/</guid><pubDate>Fri, 15 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;첫 글을 드디어 올려봅니다&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://taehyunjeon0203.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 15 Dec 2023 08:03:55 GMT</lastBuildDate><item><title><![CDATA[배포 후 첫 번째 글]]></title><description><![CDATA[…]]></description><link>https://taehyunjeon0203.github.io/first-posting/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/first-posting/</guid><pubDate>Fri, 15 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;첫 글을 드디어 올려봅니다&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;갑자기 왜?&lt;/h3&gt;
 &lt;p&gt;아주 오래 전부터 개인 블로그를 직접 만들어보고 싶었습니다. 사실 이렇게 뚝딱 할 수 있는 것이었는데, 과거의 저는 너무 나태했던 것 같습니다.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;사실 군대에서도 만들어보려 했었지만.. 수많은 훈련들과 피곤함 때문에 쉽지 않았습니다.&lt;/p&gt;
+&lt;p&gt;사실 군대에서도 만들어보려 했었지만.. 모두 아시다시피 군대라는 곳이..&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;그렇게 시간을 흘려보내다가 제주도 여행에서 만난 누군가를 보고 좀 더 열심히 살아봐야겠다는 생각을 했습니다.&lt;/p&gt;
+&lt;p&gt;그렇게 시간을 흘려보내다가 전역 후 제주도 여행에서 만난 많은 사람들을 보고 좀 더 열심히 살아봐야겠다는 생각을 했습니다.&lt;/p&gt;
 &lt;p&gt;그 때 제일 먼저 떠오른 것이&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&quot;원래 하려고 했던 것 부터 시작해보자&quot;
