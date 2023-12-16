@@ -9,7 +9,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `TH's TecH`,
+    title: `TH Blog`,
     author: {
       name: `TaehyunJeon`,
       summary: ``,
