@@ -3,7 +3,7 @@
 .global-wrapper {
     max-width: 960px; /* 적절한 가로 최대 너비 설정 */
     margin: 0 auto; /* 가운데 정렬을 위해 */
-    padding: 0 20px; /* 콘텐츠와의 간격을 위해 */
+    padding: 56px 20px 0; /* 콘텐츠와의 간격을 위해 */
   }
   
   .global-header {
@@ -11,9 +11,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #333; /* 헤더 배경색 설정 */
+    background-color: var(--color-heading-black); /* 헤더 배경색 설정 */
     color: #fff; /* 헤더 텍스트 색상 설정 */
-    padding: 10px 0; /* 헤더 내부 간격 설정 */
+    padding: 10px 7px; /* 헤더 내부 간격 설정 */
     z-index: 1000; /* 다른 요소 위에 표시하기 위해 */
   }
   

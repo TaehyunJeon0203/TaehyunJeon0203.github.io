@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-const Header = ({ title, isRootPath }) => (
+const Header = ({ title }) => (
   <header className="global-header">
     <nav className="navbar">
       <Link to="/" className="navbar-brand">
