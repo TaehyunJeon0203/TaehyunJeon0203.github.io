@@ -286,6 +286,9 @@ a:focus {
   border-radius: 100%;
 }
 
+.blog-post {
+  padding-top: 56px;
+}
 .blog-post header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }

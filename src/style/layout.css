@@ -13,7 +13,7 @@
     width: 100%;
     background-color: var(--color-heading-black); /* 헤더 배경색 설정 */
     color: #fff; /* 헤더 텍스트 색상 설정 */
-    padding: 10px 7px; /* 헤더 내부 간격 설정 */
+    padding: 10px 20px; /* 헤더 내부 간격 설정 */
     z-index: 1000; /* 다른 요소 위에 표시하기 위해 */
   }
   
