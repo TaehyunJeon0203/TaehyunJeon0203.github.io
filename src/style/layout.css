@@ -8,24 +8,12 @@
   
   .global-header {
     position: fixed;
+    display: flex;
     top: 0;
     left: 0;
     width: 100%;
     background-color: var(--color-heading-black); /* 헤더 배경색 설정 */
     color: #fff; /* 헤더 텍스트 색상 설정 */
-    padding: 10px 20px; /* 헤더 내부 간격 설정 */
-    z-index: 1000; /* 다른 요소 위에 표시하기 위해 */
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .navbar-brand {
-    color: #fff; /* 로고 텍스트 색상 설정 */
-    text-decoration: none;
-    font-size: 1.5rem; /* 적절한 폰트 크기 설정 */
+    padding: 8px 20px; /* 헤더 내부 간격 설정 */
   }
   
