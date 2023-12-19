@@ -1,8 +1,8 @@
 // Layout.js
 import React from "react"
 import Header from "./Header"
+import Footer from "./Footer"
 import "../style/layout.css"
-import Logo from './Logo';
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -12,9 +12,7 @@ const Layout = ({ location, title, children }) => {
     <div className={`global-wrapper ${isRootPath ? "root" : "subpage"}`}>
       <Header />
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, TaehyunJeon all rights reserved.
-      </footer>
+      <Footer />
     </div>
   )
 }

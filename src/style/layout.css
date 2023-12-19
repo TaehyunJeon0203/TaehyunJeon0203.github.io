@@ -17,3 +17,6 @@
     padding: 8px 20px; /* 헤더 내부 간격 설정 */
   }
   
+  .global-footer {
+    text-align: center;
+  }
