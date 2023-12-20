@@ -4,16 +4,18 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Header from "../components/Header"
-import Footer from "../components/Footer"
+import PostFooter from "../components/PostFooter"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
+  data,
   location,
 }) => {
-  const siteTitle = site.siteMetadata?.title || `Title`
+  const siteUrl = data.site.siteMetadata.siteUrl
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <div>
+      <Header />
       <article
         className="blog-post"
         itemScope
@@ -55,7 +57,8 @@ const BlogPostTemplate = ({
           </li>
         </ul>
       </nav>
-    </Layout>
+      <PostFooter siteUrl={siteUrl} path={location.pathname} />
+    </div>
   )
 }
 
@@ -79,6 +82,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(id: { eq: $id }) {

@@ -1,22 +1,22 @@
 /* layout.css */
 
 .global-wrapper {
-    max-width: 960px; /* 적절한 가로 최대 너비 설정 */
-    margin: 0 auto; /* 가운데 정렬을 위해 */
-    padding: 56px 20px 0; /* 콘텐츠와의 간격을 위해 */
-  }
-  
-  .global-header {
-    position: fixed;
-    display: flex;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-heading-black); /* 헤더 배경색 설정 */
-    color: #fff; /* 헤더 텍스트 색상 설정 */
-    padding: 8px 20px; /* 헤더 내부 간격 설정 */
-  }
-  
-  .global-footer {
-    text-align: center;
-  }
+  max-width: 960px; /* 적절한 가로 최대 너비 설정 */
+  margin: 0 auto; /* 가운데 정렬을 위해 */
+  padding: 56px 20px 0; /* 콘텐츠와의 간격을 위해 */
+}
+
+.global-header {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-heading-black); /* 헤더 배경색 설정 */
+  color: #fff; /* 헤더 텍스트 색상 설정 */
+  padding: 8px 20px; /* 헤더 내부 간격 설정 */
+}
+
+.global-footer {
+  text-align: center;
+}
