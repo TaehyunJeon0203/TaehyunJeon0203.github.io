@@ -14,7 +14,7 @@ const BlogPostTemplate = ({
   const siteUrl = data.site.siteMetadata.siteUrl
 
   return (
-    <div>
+    <div className="global-wrapper">
       <Header />
       <article
         className="blog-post"
@@ -57,7 +57,11 @@ const BlogPostTemplate = ({
           </li>
         </ul>
       </nav>
-      <PostFooter siteUrl={siteUrl} path={location.pathname} />
+      <PostFooter
+        siteUrl={siteUrl}
+        path={location.pathname}
+        className="global-footer"
+      />
     </div>
   )
 }
