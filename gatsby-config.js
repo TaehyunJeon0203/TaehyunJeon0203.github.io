@@ -22,6 +22,8 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,9 +43,12 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 630,
+              loading: "lazy",
+              linkImagesToOriginal: true,
+              disableBgImageOnAlpha: true,
+              showCaptions: true,
             },
           },
           {
@@ -56,8 +61,7 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+
     {
       resolve: `gatsby-plugin-feed`,
       options: {
