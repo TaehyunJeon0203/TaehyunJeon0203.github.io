@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://taehyunjeon0203.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 21 Dec 2023 06:38:49 GMT</lastBuildDate><item><title><![CDATA[겨울, 그리고 삽질]]></title><description><![CDATA[…]]></description><link>https://taehyunjeon0203.github.io/snowman/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/snowman/</guid><pubDate>Mon, 18 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;드디어 제대로 된 겨울이 왔습니다&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://taehyunjeon0203.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 21 Dec 2023 06:42:45 GMT</lastBuildDate><item><title><![CDATA[겨울, 그리고 삽질]]></title><description><![CDATA[…]]></description><link>https://taehyunjeon0203.github.io/snowman/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/snowman/</guid><pubDate>Mon, 18 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;드디어 제대로 된 겨울이 왔습니다&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;img src=&quot;https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/41206e91-aa61-47db-b307-381d7f80fde0&quot; alt=&quot;겨울&quot;&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -29,7 +29,7 @@
 &lt;p&gt;여기까진 좋았지만 &apos;SVG&apos;를 처음 사용해보는 제가 이 녀석을 사용할 때 알아야 할 &apos;Viewbox&apos;, &apos;Viewport&apos; 개념을 알 리가 없었습니다.&lt;/p&gt;
 &lt;p&gt;코드 한 줄만 수정하면 될 문제를 구글링에 ChatGPT 까지 써가면서 5시간을 넘게 허우적댔습니다.&lt;/p&gt;
 &lt;p&gt;오늘 새벽 5시에 해결하고 친구한테 디엠으로 &apos;결국 내가 이겼죠? 하찮은 코드녀석&apos; 외치고 바로 취침했답니다.&lt;/p&gt;
-&lt;h5&gt;블로그는 대기업에서 만든 네이버블로그 쓰세요..&lt;/h5&gt;
+&lt;h5&gt;블로그는 대기업에서 만든 거 쓰세요..&lt;/h5&gt;
 &lt;p&gt;아 제목에 삽질 보고 제설 생각하신 분들 계실텐데, 제설은 부대에서 너무 많이 했습니다.. 이젠 안할래요.&lt;/p&gt;
 &lt;p&gt;추운 날씨에 나라 지키시는 군인분들 화이팅입니다.&lt;/p&gt;
 &lt;p&gt;모두 감기 조심하세요.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[배포 후 첫 번째 글]]></title><description><![CDATA[…]]></description><link>https://taehyunjeon0203.github.io/first-posting/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/first-posting/</guid><pubDate>Fri, 15 Dec 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;첫 글을 드디어 올려봅니다&lt;/strong&gt;&lt;/p&gt;
