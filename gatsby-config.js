@@ -24,7 +24,16 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: `https://taehyunjeon0203.github.io/`,
+        sitemap: "https://taehyunjeon0203.github.io/sitemap-index.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
