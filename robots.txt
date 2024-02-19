@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://taehyunjeon0203.github.io/sitemap-index.xml
+Host: https://taehyunjeon0203.github.io
