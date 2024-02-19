@@ -30,7 +30,7 @@ module.exports = {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: `https://taehyunjeon0203.github.io/`,
-        sitemap: "https://taehyunjeon0203.github.io/sitemap-index.xml",
+        sitemap: "https://taehyunjeon0203.github.io/sitemap-index-0.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
