@@ -27,6 +27,7 @@ const BlogIndex = ({ data, location }) => {
           title={post.frontmatter.title}
           description={post.frontmatter.description}
           date={post.frontmatter.date}
+          slug={post.fields.slug}
         />
       ))}
     </Layout>
