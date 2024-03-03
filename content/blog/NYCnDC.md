@@ -1,5 +1,6 @@
 ---
 title: "세계의 수도에서 미국의 수도로"
+titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/ad253c9a-23f0-4e72-a021-f2b926e6fc05"
 date: "2024-01-11"
 description: "뉴욕에서 워싱턴 D.C.로"
 ---

@@ -1,5 +1,6 @@
 ---
 title: "뉴욕의 모든 것이 처음이라"
+titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/334a763a-385a-4023-a191-0ce97c3b09a7"
 date: "2024-01-04"
 description: "뉴욕에서부터 미국 동부 여행을 시작하다"
 ---
