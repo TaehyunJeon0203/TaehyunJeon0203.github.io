@@ -53,11 +53,12 @@
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
   --color-primary: #023327;
-  --color-text: #2e353f;
+  --color-text: #ffffff;
   --color-text-light: #4f5969;
-  --color-heading: #1a202c;
-  --color-heading-black: black;
+  --color-heading: #d1dce5;
+  --color-heading-black: #ffffff;
   --color-accent: #d1dce5;
+  --color-background: #121212;
 }
 
 /* HTML elements */
@@ -79,6 +80,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 footer {
