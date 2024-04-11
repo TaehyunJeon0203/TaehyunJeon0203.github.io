@@ -15,7 +15,7 @@ description: "9살 어린 동생과의 도쿄 여행"
 
 ### 1일차
 
-> ![비행풍경](https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/a4c2e36b-e0af-42bc-b205-4bcc08012731) > ![welcome](https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/ab56b6aa-c116-4eb1-a061-bbbb230cd530)
+> ![비행풍경](https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/a4c2e36b-e0af-42bc-b205-4bcc08012731) ![welcome](https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/ab56b6aa-c116-4eb1-a061-bbbb230cd530)
 
 미국을 다녀오며 장거리 비행을 해봤기에, 도쿄까지 가는 2시간 30분은 정말 짧게 느껴졌습니다.
 
@@ -90,7 +90,7 @@ description: "9살 어린 동생과의 도쿄 여행"
 
 중간중간 불꽃도 튀어나옵니다 저거.
 
-> ![회전목마](https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/b0a915a3-b0f5-4467-9267-95f4051ce08f) > ![회전목마](https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/f9b43b36-5cf1-41fd-bbd4-d6c7b3546217)
+> ![회전목마](https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/b0a915a3-b0f5-4467-9267-95f4051ce08f) ![회전목마](https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/f9b43b36-5cf1-41fd-bbd4-d6c7b3546217)
 
 사춘기가 부쩍 다가온 동생을 강제로 회전목마에 태웠더니 표정이 좋지 않습니다..
 
