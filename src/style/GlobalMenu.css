@@ -1,0 +1,41 @@
+.menu-container {
+  position: fixed;
+  top: 20px;
+  right: -200px;
+  transition: right 0.3s ease;
+}
+
+.menu-icon {
+  cursor: pointer;
+  align-items: center;
+  top: 20px; /* 헤더 상단으로부터의 위치 조정 */
+  right: 20px; /* 헤더 우측으로부터의 위치 조정 */
+  z-index: 1000; /* 다른 요소 위에 나타나도록 z-index 설정 */
+  width: 25px;
+  height: 25px;
+}
+
+.menu {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: #333333;
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+.menu-item:hover {
+  color: #007bff;
+}
+
+.menu-container.open {
+  right: 20px;
+}
