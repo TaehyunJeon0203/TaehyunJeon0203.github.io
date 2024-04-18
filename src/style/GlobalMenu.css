@@ -9,12 +9,27 @@
 
 .menu-icon {
   cursor: pointer;
+  transition: transform 0.2s ease;
   align-items: center;
   top: 20px; /* 헤더 상단으로부터의 위치 조정 */
   right: 20px; /* 헤더 우측으로부터의 위치 조정 */
   z-index: 1000; /* 다른 요소 위에 나타나도록 z-index 설정 */
   width: 25px;
   height: 25px;
+}
+
+.menu-icon-menu,
+.menu-icon-close {
+  position: absolute;
+  transition: transform 0.3s ease;
+}
+
+.hide {
+  transform: scale(0);
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
 }
 
 .menu {
