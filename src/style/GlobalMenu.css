@@ -1,8 +1,10 @@
 .menu-container {
   position: fixed;
-  top: 20px;
-  right: -200px;
-  transition: right 0.3s ease;
+  top: 42px;
+  right: -350px;
+  width: 350px;
+  height: 100%;
+  transition: right 0.7s ease;
 }
 
 .menu-icon {
@@ -16,8 +18,9 @@
 }
 
 .menu {
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
+  background-color: var(--color-background-light);
+  color: var(--color-text);
+  height: 100%;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -27,7 +30,6 @@
 
 .menu-item {
   text-decoration: none;
-  color: #333333;
   padding: 8px 0;
   font-size: 16px;
 }
@@ -37,5 +39,21 @@
 }
 
 .menu-container.open {
-  right: 20px;
+  right: 0px;
+  width: 350px;
+  height: 100%;
+}
+
+.GlobalMenuItem {
+  border-top: 1px solid #4f5969;
+}
+
+.GlobalMenuFooter {
+  border-top: 1px solid #4f5969;
+  margin-top: auto;
+}
+
+.GlobalMenuFooter p {
+  color: var(--color-text-light);
+  font-size: 13px;
 }

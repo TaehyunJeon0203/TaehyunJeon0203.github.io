@@ -1,7 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Menu } from "react-feather"
 import "../style/GlobalMenu.css"
+import GlobalMenuHeader from "./GlobalMenuHeader"
+import GlobalMenuFooter from "./GlobalMenuFooter"
+import GlobalMenuItem from "./GlobalMenuItem"
 
 const GlobalMenu = ({ isOpen, toggleMenu }) => {
   const handleClick = () => {
@@ -11,15 +13,9 @@ const GlobalMenu = ({ isOpen, toggleMenu }) => {
   return (
     <div className={`menu-container ${isOpen ? "open" : ""}`}>
       <div className="menu">
-        <Link to="/" className="menu-item">
-          Home
-        </Link>
-        <Link to="/about" className="menu-item">
-          About
-        </Link>
-        <Link to="/contact" className="menu-item">
-          Contact
-        </Link>
+        <GlobalMenuHeader />
+        <GlobalMenuItem />
+        <GlobalMenuFooter />
       </div>
     </div>
   )

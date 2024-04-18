@@ -12,7 +12,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: black; /* 헤더 배경색 설정 */
+  background-color: var(--color-background-light); /* 헤더 배경색 설정 */
   color: #fff; /* 헤더 텍스트 색상 설정 */
   padding: 8px 20px; /* 헤더 내부 간격 설정 */
 }
