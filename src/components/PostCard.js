@@ -9,6 +9,7 @@ const PostCard = ({
   date,
   tags = [],
   slug,
+  timeToRead,
 }) => {
   return (
     <Link to={slug} className="post-card-link">
@@ -26,6 +27,7 @@ const PostCard = ({
           <p className="post-description">{description}</p>
           <div className="post-meta">
             <span className="post-date">{date}</span>
+            <span className="post-read-time">{timeToRead} min read</span>
             <ul className="post-tags">
               {tags.map((tag, index) => (
                 <li key={index} className="tag">

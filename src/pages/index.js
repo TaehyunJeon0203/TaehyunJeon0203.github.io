@@ -28,6 +28,7 @@ const BlogIndex = ({ data, location }) => {
           description={post.frontmatter.description}
           date={post.frontmatter.date}
           slug={post.fields.slug}
+          timeToRead={post.timeToRead}
         />
       ))}
     </Layout>
@@ -57,6 +58,7 @@ export const pageQuery = graphql`
           titleImage
           description
         }
+        timeToRead
       }
     }
   }

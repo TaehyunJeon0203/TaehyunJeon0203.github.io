@@ -26,13 +26,14 @@
 
 .post-meta {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
-.post-date {
+.post-date,
+.post-read-time {
   font-size: 0.8rem;
   color: #999;
+  margin-right: 15px;
 }
 
 .post-tags {

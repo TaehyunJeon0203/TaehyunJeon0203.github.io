@@ -7,11 +7,13 @@ import Header from "../components/Header"
 import PostFooter from "../components/PostFooter"
 
 const BlogPostTemplate = ({
-  data: { previous, next, site, markdownRemark: post },
-  data,
+  data: { previous, next, site, markdownRemark: post, allMarkdownRemark },
   location,
 }) => {
-  const siteUrl = data.site.siteMetadata.siteUrl
+  const siteUrl = site.siteMetadata.siteUrl
+  const timeToRead = allMarkdownRemark.edges.find(
+    edge => edge.node.id === post.id
+  ).node.timeToRead
 
   return (
     <div className="global-wrapper">
@@ -24,6 +26,7 @@ const BlogPostTemplate = ({
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
+          <p>{timeToRead} min read</p>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -113,6 +116,14 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+      }
+    }
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          timeToRead
+        }
       }
     }
   }
