@@ -53,6 +53,10 @@
   }
 }
 
+body.menu-open {
+  overflow: hidden; /* 세로 스크롤 비활성화 */
+}
+
 .menu-icon {
   cursor: pointer;
   transition: transform 0.2s ease;
