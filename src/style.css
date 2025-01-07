@@ -324,3 +324,27 @@ a:focus {
     list-style-position: inside;
   }
 }
+
+/* 기술 블로그 모드 */
+body.tech-mode {
+  --color-primary: #023327;
+  --color-text: #ffffff;
+  --color-text-light: #4f5969;
+  --color-heading: #d1dce5;
+  --color-heading-black: #ffffff;
+  --color-accent: #d1dce5;
+  --color-background: #212121;
+  --color-background-light: #121212;
+}
+
+/* 일상 블로그 모드 */
+body.daily-mode {
+  --color-primary: #f67280;
+  --color-text: #2d3436;
+  --color-text-light: #636e72;
+  --color-heading: #2d3436;
+  --color-heading-black: #2d3436;
+  --color-accent: #f8b195;
+  --color-background: #fff5f5;
+  --color-background-light: #ffffff;
+}

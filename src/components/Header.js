@@ -1,28 +1,22 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
-import { Menu, X } from "react-feather"
-import Logo from "./Logo"
+import { Menu } from "react-feather"
 import GlobalMenu from "./GlobalMenu"
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [menuIcon, setMenuIcon] = useState(isOpen ? "close" : "menu")
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-    setMenuIcon(menuIcon === "menu" ? "close" : "menu")
+    setIsMenuOpen(!isMenuOpen)
   }
 
   return (
     <header className="global-header">
-      <Link to="/" style={{ height: "26px" }}>
-        <Logo width="90" height="auto" />
+      <Link to="/" className="header-title-link">
+        <h1>TH Blog</h1>
       </Link>
-      <div className="menu-icon" onClick={toggleMenu}>
-        <Menu size={25} className={`menu-icon-menu ${isOpen ? "hide" : ""}`} />
-        <X size={25} className={`menu-icon-close ${isOpen ? "" : "hide"}`} />
-      </div>
-      <GlobalMenu isOpen={isOpen} toggleMenu={toggleMenu} />
+      <Menu className="menu-icon" onClick={toggleMenu} />
+      <GlobalMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
     </header>
   )
 }

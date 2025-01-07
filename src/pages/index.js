@@ -1,9 +1,8 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import PostCard from "../components/PostCard"
+import "../style/PostCard.css"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -20,17 +19,32 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
-      {posts.map(post => (
-        <PostCard
-          key={post.fields.slug}
-          titleImage={post.frontmatter.titleImage}
-          title={post.frontmatter.title}
-          description={post.frontmatter.description}
-          date={post.frontmatter.date}
-          slug={post.fields.slug}
-          timeToRead={post.timeToRead}
-        />
-      ))}
+      <div className="post-cards-container">
+        {posts.map(post => (
+          <Link
+            to={post.fields.slug}
+            className="post-card"
+            key={post.fields.slug}
+          >
+            <div className="post-card-image-container">
+              {post.frontmatter.titleImage && (
+                <img
+                  src={post.frontmatter.titleImage}
+                  alt={post.frontmatter.title}
+                  className="post-card-image"
+                />
+              )}
+            </div>
+            <div className="post-card-content">
+              <h2>{post.frontmatter.title}</h2>
+              <div className="post-card-date">{post.frontmatter.date}</div>
+              <p className="post-card-description">
+                {post.frontmatter.description || post.excerpt}
+              </p>
+            </div>
+          </Link>
+        ))}
+      </div>
     </Layout>
   )
 }
