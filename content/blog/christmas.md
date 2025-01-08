@@ -3,6 +3,7 @@ title: "크리스마스가 뭔데"
 titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/f66ec7f7-9a42-489a-9e7c-5c7e8f34ebdb"
 date: "2023-12-26"
 description: "서울에서 보낸 크리스마스"
+category: "daily"
 ---
 
 **크리스마스가 뭐길래 모두들 즐거워 할까요**

@@ -2,6 +2,7 @@
 title: "배포 후 첫 번째 글"
 date: "2023-12-15"
 description: "블로그를 만들게 된 이유와 첫 포스팅"
+category: "daily"
 ---
 
 **첫 글을 드디어 올려봅니다**

@@ -82,6 +82,7 @@ body {
   font-size: var(--fontSize-1);
   color: var(--color-text);
   background-color: var(--color-background);
+  transition: all 0.3s ease-in-out;
 }
 
 footer {
@@ -347,4 +348,24 @@ body.daily-mode {
   --color-accent: #f8b195;
   --color-background: #fff5f5;
   --color-background-light: #ffffff;
+}
+
+/* 전환 애니메이션 */
+.post-cards-container {
+  transition: all 0.3s ease-in-out;
+}
+
+.post-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

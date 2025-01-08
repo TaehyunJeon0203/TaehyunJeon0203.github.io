@@ -1,3 +1,6 @@
+/* Google Fonts import */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Righteous&family=Russo+One&family=Chakra+Petch:wght@700&family=Major+Mono+Display&display=swap");
+
 .global-wrapper {
   max-width: 960px; /* 적절한 가로 최대 너비 설정 */
   margin: 0 auto; /* 가운데 정렬을 위해 */
@@ -12,21 +15,22 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--color-background-light);
+  background-color: #121212;
   color: #fff;
   padding: 8px 20px;
   z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 1rem; /* 버튼들 사이 간격 */
+  gap: 1rem;
 }
 
 .header-title-link {
   text-decoration: none;
-  color: inherit;
+  color: #fff;
 }
 
 .header-title-link h1 {
@@ -39,6 +43,7 @@
   cursor: pointer;
   width: 24px;
   height: 24px;
+  color: #fff;
 }
 
 .global-footer {

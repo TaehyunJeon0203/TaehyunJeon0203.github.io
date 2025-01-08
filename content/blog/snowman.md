@@ -3,6 +3,7 @@ title: "겨울, 그리고 삽질"
 titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/0817b03c-ace3-46cd-bd54-64c972df1d49"
 date: "2023-12-18"
 description: "야생썰매, 블로그 로고 삽입"
+category: "daily"
 ---
 
 **드디어 제대로 된 겨울이 왔습니다**

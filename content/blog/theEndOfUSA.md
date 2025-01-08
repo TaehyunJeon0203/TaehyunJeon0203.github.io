@@ -3,6 +3,7 @@ title: "16일간의 미국 여행, 그 마무리"
 titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/2eafa4be-deaa-43d3-85b4-d45e62d33b81"
 date: "2024-02-17"
 description: "D.C.와 캐나다의 나이아가라 그리고 또 다시 뉴욕까지"
+category: "daily"
 ---
 
 **미국에서 돌아온 후 한 달이 지났습니다..**

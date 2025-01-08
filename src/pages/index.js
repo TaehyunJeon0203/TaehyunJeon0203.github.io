@@ -7,11 +7,62 @@ import "../style/PostCard.css"
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
+  const [currentCategory, setCurrentCategory] = React.useState(() => {
+    // 초기값을 localStorage에서 가져옴
+    if (typeof window !== "undefined") {
+      const savedType = localStorage.getItem("blogType")
+      return savedType || "tech"
+    }
+    return "tech"
+  })
 
-  if (posts.length === 0) {
+  React.useEffect(() => {
+    // localStorage 변경 감지
+    const handleStorageChange = () => {
+      if (typeof window !== "undefined") {
+        const savedType = localStorage.getItem("blogType")
+        setCurrentCategory(savedType || "tech")
+      }
+    }
+
+    // body 클래스 변경 감지
+    const observer = new MutationObserver(() => {
+      if (typeof window !== "undefined") {
+        const savedType = localStorage.getItem("blogType")
+        setCurrentCategory(savedType || "tech")
+      }
+    })
+
+    if (typeof window !== "undefined") {
+      // Storage 이벤트 리스너 추가
+      window.addEventListener("storage", handleStorageChange)
+
+      // body 클래스 변경 감지
+      observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ["class"],
+      })
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("storage", handleStorageChange)
+        observer.disconnect()
+      }
+    }
+  }, [])
+
+  // 현재 카테고리에 맞는 포스트만 필터링
+  const filteredPosts = posts.filter(
+    post => post.frontmatter.category === currentCategory
+  )
+
+  if (filteredPosts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <p>Sorry! No post..</p>
+        <p>
+          아직 {currentCategory === "tech" ? "기술" : "일상"} 포스트가 없습니다.
+        </p>
       </Layout>
     )
   }
@@ -20,7 +71,7 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
       <div className="post-cards-container">
-        {posts.map(post => (
+        {filteredPosts.map(post => (
           <Link
             to={post.fields.slug}
             className="post-card"
@@ -51,10 +102,8 @@ const BlogIndex = ({ data, location }) => {
 
 export default BlogIndex
 
-export const Head = () => <Seo title="All posts" />
-
 export const pageQuery = graphql`
-  {
+  query {
     site {
       siteMetadata {
         title
@@ -71,8 +120,8 @@ export const pageQuery = graphql`
           title
           titleImage
           description
+          category
         }
-        timeToRead
       }
     }
   }

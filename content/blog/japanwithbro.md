@@ -3,6 +3,7 @@ title: "동경을 동경하며"
 titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets/84451999/ab56b6aa-c116-4eb1-a061-bbbb230cd530"
 date: "2024-04-11"
 description: "9살 어린 동생과의 도쿄 여행"
+category: "daily"
 ---
 
 **9살 어린 제 동생과 도쿄 여행을 다녀왔습니다**
