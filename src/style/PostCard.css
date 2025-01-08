@@ -21,6 +21,46 @@
   height: 200px;
   border-bottom: 1px solid var(--color-text-light);
   background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 이미지가 없을 때 보여줄 패턴 */
+.post-card-image-container:empty {
+  background: linear-gradient(
+    135deg,
+    var(--color-background) 25%,
+    var(--color-background-light) 25%,
+    var(--color-background-light) 50%,
+    var(--color-background) 50%,
+    var(--color-background) 75%,
+    var(--color-background-light) 75%,
+    var(--color-background-light)
+  );
+  background-size: 20px 20px;
+  opacity: 0.1;
+}
+
+/* 이미지가 없을 때 보여줄 아이콘 */
+.post-card-image-container:empty::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234f5969'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.3;
+}
+
+/* 호버 효과 */
+.post-card:hover .post-card-image-container:empty::after {
+  opacity: 0.5;
+  transform: translate(-50%, -50%) scale(1.1);
+  transition: all 0.3s ease;
 }
 
 .post-card-image {
