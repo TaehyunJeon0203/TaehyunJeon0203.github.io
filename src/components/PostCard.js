@@ -13,31 +13,37 @@ const PostCard = ({
 }) => {
   return (
     <Link to={slug} className="post-card-link">
-      <div className="post-card">
+      <article className="post-card">
         {titleImage && (
-          <img
-            src={titleImage}
-            alt={title}
-            className="post-title-image"
-            loading="lazy"
-          />
+          <div className="post-card-image-container">
+            <img
+              src={titleImage}
+              alt={title}
+              className="post-card-image"
+              loading="lazy"
+            />
+          </div>
         )}
-        <div>
-          <h2 className="post-title">{title}</h2>
-          <p className="post-description">{description}</p>
-          <div className="post-meta">
-            <span className="post-date">{date}</span>
-            <span className="post-read-time">{timeToRead} min read</span>
-            <ul className="post-tags">
+        <div className="post-card-content">
+          <header>
+            <h2>{title}</h2>
+            <div className="post-card-meta">
+              <time className="post-card-date">{date}</time>
+              <span className="post-card-read-time">{timeToRead} min read</span>
+            </div>
+          </header>
+          <p className="post-card-description">{description}</p>
+          {tags.length > 0 && (
+            <ul className="post-card-tags">
               {tags.map((tag, index) => (
-                <li key={index} className="tag">
+                <li key={index} className="post-card-tag">
                   {tag}
                 </li>
               ))}
             </ul>
-          </div>
+          )}
         </div>
-      </div>
+      </article>
     </Link>
   )
 }
