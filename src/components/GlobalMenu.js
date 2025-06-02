@@ -34,6 +34,7 @@ const GlobalMenu = ({ isOpen, toggleMenu }) => {
     >
       <div className="menu">
         <GlobalMenuHeader />
+        <hr />
         <GlobalMenuItem />
         <GlobalMenuFooter />
       </div>
