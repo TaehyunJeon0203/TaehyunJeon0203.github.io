@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { Menu, X } from "react-feather"
 import Logo from "./Logo"
 import GlobalMenu from "./GlobalMenu"
-import ThemeToggle from "./ThemeToggle"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -31,13 +30,12 @@ const Header = () => {
     setMenuIcon(menuIcon === "menu" ? "close" : "menu")
   }
 
-  const toggleBlogType = () => {
-    const newType = blogType === "tech" ? "daily" : "tech"
-    setBlogType(newType)
-    document.body.className = newType === "tech" ? "tech-mode" : "daily-mode"
+  const toggleBlogType = type => {
+    setBlogType(type)
+    document.body.className = type === "tech" ? "tech-mode" : "daily-mode"
     // localStorage에 현재 타입 저장
     if (typeof window !== "undefined") {
-      localStorage.setItem("blogType", newType)
+      localStorage.setItem("blogType", type)
     }
   }
 
@@ -47,7 +45,22 @@ const Header = () => {
         <Logo width="90" height="auto" />
       </Link>
       <div className="header-controls">
-        <ThemeToggle currentType={blogType} onToggle={toggleBlogType} />
+        <nav className="theme-menu">
+          <button
+            className={`theme-menu-item ${blogType === "tech" ? "active" : ""}`}
+            onClick={() => toggleBlogType("tech")}
+          >
+            Tech
+          </button>
+          <button
+            className={`theme-menu-item ${
+              blogType === "daily" ? "active" : ""
+            }`}
+            onClick={() => toggleBlogType("daily")}
+          >
+            Daily
+          </button>
+        </nav>
         <div className="menu-icon" onClick={toggleMenu}>
           <Menu
             size={25}
