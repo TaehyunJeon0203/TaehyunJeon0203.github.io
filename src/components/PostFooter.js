@@ -4,11 +4,13 @@ const PostFooter = ({ siteUrl, path }) => {
   useEffect(() => {
     // 부모 요소 생성
     const parentContainer = document.createElement("div")
-    parentContainer.classList.add("global-footer") // 클래스 추가
+    parentContainer.classList.add("global-footer")
 
-    // 페이지가 마운트되었을 때, hits 서비스에 현재 페이지의 URL을 전달
+    // 새로운 hits 서비스 이미지 생성
     const postVisit = document.createElement("img")
-    postVisit.src = `https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=${siteUrl}${path}&count_bg=%23023327&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visit&edge_flat=false`
+    postVisit.src = `https://myhits.vercel.app/api/hit/${encodeURIComponent(
+      siteUrl + path
+    )}?color=gray&label=Visits&size=small`
     postVisit.alt = "postVisit"
 
     const copyrightText = document.createElement("p")
