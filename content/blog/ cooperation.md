@@ -1,6 +1,6 @@
 ---
-title: "Git 협업 실패기: Git Flow에서 개인 브랜치로"
-titleImage: "https://github.com/user-attachments/assets/4b4ff7f0-1213-4eaf-9640-10e30d383a29"
+title: "협업 초보 팀의 Git 협업: 이론과 현실의 차이"
+titleImage: "https://private-user-images.githubusercontent.com/84451999/457414383-e184adf5-e783-4365-b9b0-601d266bff43.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTA0MzIxMzMsIm5iZiI6MTc1MDQzMTgzMywicGF0aCI6Ii84NDQ1MTk5OS80NTc0MTQzODMtZTE4NGFkZjUtZTc4My00MzY1LWI5YjAtNjAxZDI2NmJmZjQzLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MjAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjIwVDE1MDM1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWE1ODU3ZjE2YTcwMTQwYmU5NWQyZGVjNjhiNTljY2M3M2Q4ODEyMGU3MmNiZDA5NzI2M2MwMDU3NmM1MmM4ZWMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.dOf-KDFYxgiBNB9Pmq6Eg722BPnpITJ4AShSSZVwMvg"
 date: "2025-06-20"
 description: "Git 협업 이론은 알았는데, 실제로는 어떻게 될까?"
 category: "tech"
@@ -14,7 +14,7 @@ category: "tech"
 
 "객체지향 프로그래밍" 이번 학기 프로젝트를 진행한 과목이다.
 
-프로젝트 내용은 C++ 언어를 활용하여 자율 주제의 프로그램을 개발하는 것이었는데, 핵심은 팀 단위로 프로젝트를 진행하는 것이었다.
+프로젝트 내용은 C++를 활용하여 자율 주제의 프로그램을 개발하는 것이었는데, 핵심은 팀 단위로 프로젝트를 진행하는 것이었다.
 
 사실 누군가와 함께 프로그램 개발을 진행한다는 게 처음이라 어떤 방식으로 진행해야 할지 감이 잘 잡히지 않았다.
 
@@ -53,10 +53,10 @@ PR을 기반으로 리뷰하는 것도 진행하지 않고 개발 내용을 단�
 
 정리해보자면, 우리 팀의 협업 워크플로우는
 
-1. main -> 개인 브랜치 생성
-2. 개인 브랜치에서 작업
-3. main 브랜치에 merge
-4. 단톡방에 작업 내용 공유
+> 1. main -> 개인 브랜치 생성
+> 2. 개인 브랜치에서 작업
+> 3. main 브랜치에 merge
+> 4. 단톡방에 작업 내용 공유
 
 이런 방식이었다.
 
