@@ -1,6 +1,6 @@
 ---
 title: "Git 협업 실패기: Git Flow에서 개인 브랜치로"
-titleImage: ""
+titleImage: "https://github.com/user-attachments/assets/4b4ff7f0-1213-4eaf-9640-10e30d383a29"
 date: "2025-06-20"
 description: "Git 협업 이론은 알았는데, 실제로는 어떻게 될까?"
 category: "tech"
