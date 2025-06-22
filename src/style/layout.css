@@ -15,11 +15,21 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #121212;
+  background-color: var(--color-background);
   color: #fff;
-  padding: 8px 20px;
+  padding: 8px 0;
   z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-content {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-controls {
@@ -49,8 +59,9 @@
 }
 
 .theme-menu-item.active {
-  background: rgba(255, 255, 255, 0.1);
+  background: none;
   font-weight: 500;
+  border-bottom: 2px solid #fff;
 }
 
 .header-title-link {
@@ -69,6 +80,34 @@
   width: 24px;
   height: 24px;
   color: #fff;
+}
+
+/* Daily 테마일 때 헤더 내용들 색상 변경 */
+body.daily-mode .global-header {
+  color: #2d3436;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+body.daily-mode .theme-menu-item {
+  color: #2d3436;
+}
+
+body.daily-mode .theme-menu-item:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+body.daily-mode .theme-menu-item.active {
+  background: none;
+  color: #2d3436;
+  border-bottom: 2px solid #2d3436;
+}
+
+body.daily-mode .header-title-link {
+  color: #2d3436;
+}
+
+body.daily-mode .menu-icon {
+  color: #2d3436;
 }
 
 .global-footer {

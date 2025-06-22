@@ -41,32 +41,39 @@ const Header = () => {
 
   return (
     <header className="global-header">
-      <Link to="/" style={{ height: "26px" }}>
-        <Logo width="90" height="auto" />
-      </Link>
-      <div className="header-controls">
-        <nav className="theme-menu">
-          <button
-            className={`theme-menu-item ${blogType === "tech" ? "active" : ""}`}
-            onClick={() => toggleBlogType("tech")}
-          >
-            Tech
-          </button>
-          <button
-            className={`theme-menu-item ${
-              blogType === "daily" ? "active" : ""
-            }`}
-            onClick={() => toggleBlogType("daily")}
-          >
-            Daily
-          </button>
-        </nav>
-        <div className="menu-icon" onClick={toggleMenu}>
-          <Menu
-            size={25}
-            className={`menu-icon-menu ${isOpen ? "hide" : ""}`}
-          />
-          <X size={25} className={`menu-icon-close ${isOpen ? "" : "hide"}`} />
+      <div className="header-content">
+        <Link to="/" style={{ height: "26px" }}>
+          <Logo width="90" height="auto" />
+        </Link>
+        <div className="header-controls">
+          <nav className="theme-menu">
+            <button
+              className={`theme-menu-item ${
+                blogType === "tech" ? "active" : ""
+              }`}
+              onClick={() => toggleBlogType("tech")}
+            >
+              Tech
+            </button>
+            <button
+              className={`theme-menu-item ${
+                blogType === "daily" ? "active" : ""
+              }`}
+              onClick={() => toggleBlogType("daily")}
+            >
+              Daily
+            </button>
+          </nav>
+          <div className="menu-icon" onClick={toggleMenu}>
+            <Menu
+              size={25}
+              className={`menu-icon-menu ${isOpen ? "hide" : ""}`}
+            />
+            <X
+              size={25}
+              className={`menu-icon-close ${isOpen ? "" : "hide"}`}
+            />
+          </div>
         </div>
       </div>
       <GlobalMenu isOpen={isOpen} toggleMenu={toggleMenu} />

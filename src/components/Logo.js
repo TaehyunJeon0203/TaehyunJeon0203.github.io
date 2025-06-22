@@ -10,6 +10,9 @@ const Logo = ({ width, height }) => {
   // 블로그 타입에 따른 텍스트 설정
   const logoText = blogType === "tech" ? "TH Tech" : "TH Blog"
 
+  // 블로그 타입에 따른 색상 설정
+  const logoColor = blogType === "tech" ? "white" : "#2d3436"
+
   // Russo One 폰트 적용
   const fontStyle = {
     fontFamily: "'Russo One', sans-serif",
@@ -26,7 +29,7 @@ const Logo = ({ width, height }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <text x="0" y="20" fill="white" style={fontStyle}>
+      <text x="0" y="20" fill={logoColor} style={fontStyle}>
         {logoText}
       </text>
     </svg>
