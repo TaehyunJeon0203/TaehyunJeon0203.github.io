@@ -222,11 +222,18 @@ table {
   width: 100%;
   margin-bottom: var(--spacing-8);
   border-collapse: collapse;
-  border-spacing: 0.25rem;
+  border-spacing: 0;
+  border: 1px solid var(--color-accent);
 }
 
 table thead tr th {
-  border-bottom: 1px solid var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: var(--spacing-2);
+}
+
+table tbody tr td {
+  border: 1px solid var(--color-accent);
+  padding: var(--spacing-2);
 }
 
 /* Link */
@@ -323,6 +330,19 @@ a:focus {
   ul,
   ol {
     list-style-position: inside;
+  }
+
+  /* 모바일 테이블 스타일 */
+  table {
+    font-size: 0.8rem;
+    width: 100%;
+  }
+
+  table thead tr th,
+  table tbody tr td {
+    padding: var(--spacing-1);
+    word-break: break-word;
+    vertical-align: top;
   }
 }
 
