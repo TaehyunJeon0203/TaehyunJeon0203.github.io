@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://taehyunjeon0203.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 22 Jun 2025 06:12:24 GMT</lastBuildDate><item><title><![CDATA[협업 초보 팀의 Git 협업: 이론과 현실의 차이]]></title><description><![CDATA[벌써 3학년…]]></description><link>https://taehyunjeon0203.github.io/ cooperation/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/ cooperation/</guid><pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;벌써 3학년 1학기가 끝났다&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://taehyunjeon0203.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 22 Jun 2025 06:14:28 GMT</lastBuildDate><item><title><![CDATA[협업 초보 팀의 Git 협업: 이론과 현실의 차이]]></title><description><![CDATA[벌써 3학년…]]></description><link>https://taehyunjeon0203.github.io/ cooperation/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/ cooperation/</guid><pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;벌써 3학년 1학기가 끝났다&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;이번 학기는 정말 빠르게 지나간 느낌이다. 이번 학기 동안 여러 큼직한 이벤트들이 있었지만, 무엇보다 가장 큰 이벤트는 학기 프로젝트였던 것 같다.&lt;/p&gt;
 &lt;h2&gt;프로젝트 개요&lt;/h2&gt;
 &lt;p&gt;&quot;객체지향 프로그래밍&quot; 이번 학기 프로젝트를 진행한 과목이다. 프로젝트 내용은 C++를 활용하여 자율 주제의 프로그램을 개발하는 것이었는데, 핵심은 팀 단위로 프로젝트를 진행하는 것이었다.&lt;/p&gt;
@@ -64,7 +64,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2&gt;실제 선택한 협업 방식&lt;/h2&gt;
-&lt;p&gt;사실 결론부터 이야기하자면 &lt;strong&gt;우리 팀이 사용한 방식은 이 두 방식 모두 아니다&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;결론부터 이야기하자면 &lt;strong&gt;우리 팀이 사용한 방식은 이 두 방식 모두 아니다&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3&gt;초기 계획: GitHub Flow 응용&lt;/h3&gt;
 &lt;p&gt;개발 초기에는 &quot;GitHub Flow&quot;의 기능 단위 브랜치를 활용한 협업 방식을 응용하여 개인 브랜치에서 기능별 브랜치를 생성하여 작업하는 방식으로 진행하였다.&lt;/p&gt;
 &lt;p&gt;계획은 위 방식대로 브랜치를 만들어 작업한 후, PR을 올려 병합하는 것이었다.&lt;/p&gt;
