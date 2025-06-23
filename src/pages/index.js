@@ -2,10 +2,12 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Profile from "../components/Profile"
 import "../style/PostCard.css"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
+  const profile = data.site.siteMetadata?.profile
   const posts = data.allMarkdownRemark.nodes
   const [currentCategory, setCurrentCategory] = React.useState(() => {
     // 초기값을 localStorage에서 가져옴
@@ -70,6 +72,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
+      <Profile profile={profile} />
       <div className="post-cards-container">
         {filteredPosts.map(post => (
           <Link
@@ -112,6 +115,15 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        profile {
+          name
+          image
+          links {
+            github
+            email
+            instagram
+          }
+        }
       }
     }
     allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {

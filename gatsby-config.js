@@ -16,6 +16,15 @@ module.exports = {
     },
     description: ``,
     siteUrl: `https://taehyunjeon0203.github.io/`,
+    profile: {
+      name: `TaehyunJeon`,
+      image: `profile.jpg`,
+      links: {
+        github: `https://github.com/TaehyunJeon0203`,
+        email: `jeontaehyun0203@gmail.com`,
+        instagram: `https://instagram.com/jeonxogus`,
+      },
+    },
     social: {
       instagram: `jeonxogus`,
     },
