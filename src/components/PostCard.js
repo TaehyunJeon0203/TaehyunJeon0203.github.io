@@ -9,7 +9,7 @@ const PostCard = ({
   date,
   tags = [],
   slug,
-  timeToRead,
+  customTimeToRead,
 }) => {
   return (
     <Link to={slug} className="post-card-link">
@@ -29,7 +29,9 @@ const PostCard = ({
             <h2>{title}</h2>
             <div className="post-card-meta">
               <time className="post-card-date">{date}</time>
-              <span className="post-card-read-time">{timeToRead} min read</span>
+              <span className="post-card-read-time">
+                {customTimeToRead} min read
+              </span>
             </div>
           </header>
           <p className="post-card-description">{description}</p>

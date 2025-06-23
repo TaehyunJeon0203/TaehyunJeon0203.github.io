@@ -13,7 +13,7 @@ const BlogPostTemplate = ({
   const siteUrl = site.siteMetadata.siteUrl
   const timeToRead = allMarkdownRemark.edges.find(
     edge => edge.node.id === post.id
-  ).node.timeToRead
+  ).node.fields.customTimeToRead
 
   return (
     <div className="global-wrapper">
@@ -122,7 +122,9 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          timeToRead
+          fields {
+            customTimeToRead
+          }
         }
       }
     }

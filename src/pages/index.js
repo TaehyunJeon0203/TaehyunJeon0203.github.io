@@ -94,7 +94,7 @@ const BlogIndex = ({ data, location }) => {
               <div className="post-card-meta">
                 <time className="post-card-date">{post.frontmatter.date}</time>
                 <span className="post-card-read-time">
-                  {post.timeToRead} min read
+                  {post.fields.customTimeToRead} min read
                 </span>
               </div>
               <p className="post-card-description">
@@ -132,6 +132,7 @@ export const pageQuery = graphql`
         timeToRead
         fields {
           slug
+          customTimeToRead
         }
         frontmatter {
           date(formatString: "YYYY. MM. DD")

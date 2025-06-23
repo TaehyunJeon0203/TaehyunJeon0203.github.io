@@ -76,6 +76,51 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
+
+    // 커스텀 읽기 시간 계산
+    const calculateCustomTimeToRead = content => {
+      // 마크다운 문법 제거하고 순수 텍스트만 추출
+      const plainText = content
+        .replace(/!\[.*?\]\(.*?\)/g, "") // 이미지 링크 제거
+        .replace(/\[.*?\]\(.*?\)/g, "") // 일반 링크 제거
+        .replace(/`.*?`/g, "") // 인라인 코드 제거
+        .replace(/```[\s\S]*?```/g, "") // 코드 블록 제거
+        .replace(/#{1,6}\s+/g, "") // 헤딩 제거
+        .replace(/\*\*.*?\*\*/g, "") // 볼드 텍스트 제거
+        .replace(/\*.*?\*/g, "") // 이탤릭 텍스트 제거
+        .replace(/~~.*?~~/g, "") // 취소선 제거
+        .replace(/>\s*/g, "") // 인용문 제거
+        .replace(/\n+/g, " ") // 줄바꿈을 공백으로 변경
+        .replace(/\s+/g, " ") // 연속된 공백을 하나로 변경
+        .trim()
+
+      // 한글과 영어 단어 수 계산
+      const koreanWords = (plainText.match(/[가-힣]+/g) || []).length
+      const englishWords = plainText
+        .split(/\s+/)
+        .filter(word => /^[a-zA-Z]+$/.test(word)).length
+
+      // 한글은 글자 수로 계산 (한 글자당 0.5초)
+      // 영어는 단어 수로 계산 (한 단어당 0.3초)
+      const koreanTime = koreanWords * 0.5
+      const englishTime = englishWords * 0.3
+
+      // 총 읽기 시간 (초 단위)
+      const totalSeconds = koreanTime + englishTime
+
+      // 분으로 변환하고 최소 1분 보장
+      const minutes = Math.max(1, Math.ceil(totalSeconds / 60))
+
+      return minutes
+    }
+
+    const customTimeToRead = calculateCustomTimeToRead(node.internal.content)
+
+    createNodeField({
+      name: `customTimeToRead`,
+      node,
+      value: customTimeToRead,
+    })
   }
 }
 
@@ -120,6 +165,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Fields {
       slug: String
+      customTimeToRead: Int
     }
   `)
 }
