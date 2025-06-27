@@ -1,2 +1,8 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: https://taehyunjeon0203.github.io/sitemap-0.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
