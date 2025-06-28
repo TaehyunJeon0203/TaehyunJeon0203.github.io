@@ -71,7 +71,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="" />
+      <Seo title="TH Blog" description="TaehyunJeon의 기술 및 일상 블로그" />
       <Profile profile={profile} />
       <div className="post-cards-container">
         {filteredPosts.map(post => (

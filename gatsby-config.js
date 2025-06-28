@@ -14,11 +14,10 @@ module.exports = {
       name: `TaehyunJeon`,
       summary: ``,
     },
-    description: ``,
+    description: `TaehyunJeon의 기술 및 일상 블로그`,
     siteUrl: `https://taehyunjeon0203.github.io/`,
     profile: {
       name: `TaehyunJeon`,
-      bio: `개발자로서 새로운 기술을 배우고 공유하는 것을 좋아합니다. 프론트엔드 개발과 블로그 작성에 열정을 가지고 있습니다.`,
       image: `profile.jpg`,
       links: {
         github: `https://github.com/TaehyunJeon0203`,
