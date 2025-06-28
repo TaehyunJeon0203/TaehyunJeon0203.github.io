@@ -14,7 +14,7 @@ module.exports = {
       name: `TaehyunJeon`,
       summary: ``,
     },
-    description: `TaehyunJeon의 기술 및 일상 블로그`,
+    description: `개발자 전태현의 개발, 일상, 여행 블로그`,
     siteUrl: `https://taehyunjeon0203.github.io/`,
     profile: {
       name: `TaehyunJeon`,
@@ -24,6 +24,7 @@ module.exports = {
         email: `jeontaehyun0203@gmail.com`,
         instagram: `https://instagram.com/jeonxogus`,
       },
+      bio: `개발자 전태현입니다. 개발, 일상, 여행 이야기를 공유합니다.`,
     },
     social: {
       instagram: `jeonxogus`,
