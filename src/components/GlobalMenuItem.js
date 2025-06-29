@@ -7,9 +7,7 @@ const GlobalMenuItem = () => {
     <div className="menu-items">
       <div className="menu-intro">
         <p>
-          안녕하세요!
-          <br />
-          방문을 환영합니다.
+          안녕하세요! 환영합니다
           <br />
           <br />
           개발자 전태현의 개발, 여행, 일상을 공유합니다.
