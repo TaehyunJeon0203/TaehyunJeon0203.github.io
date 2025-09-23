@@ -1,5 +1,5 @@
 ---
-title: "협업 초보 팀의 Git 협업: 이론과 현실의 차이"
+title: "협업 뉴비들의 Git 협업 후기"
 titleImage: "https://github.com/user-attachments/assets/9875431b-74ff-49eb-a25f-1ef654b97409"
 date: "2025-06-20"
 description: "Git 협업 이론은 알았는데, 실제로는 어떻게 될까?"
