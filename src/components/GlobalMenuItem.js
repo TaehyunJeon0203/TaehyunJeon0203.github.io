@@ -14,6 +14,11 @@ const GlobalMenuItem = () => {
           <br />
           <br />
           우측 상단 버튼을 사용하여 블로그의 테마를 변경할 수 있습니다.
+          <br />
+          <br />
+          <a href="https://lifestats-sepia.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: '#0070f3', textDecoration: 'underline' }}>
+            LifeStats
+          </a>
         </p>
       </div>
     </div>
