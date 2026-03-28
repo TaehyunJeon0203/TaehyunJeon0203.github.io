@@ -44,6 +44,8 @@ scroll-snap-type과 scroll-snap-align을 적용하여 스크롤이 특정 지점
 ## Hero 섹션
 Hero 섹션이란 웹사이트에 접속했을 때 가장 먼저 눈에 들어오는 최상단 영역이다.
 
+이 섹션을 작성하며 새롭게 알게 된 사실이다.
+
 포트폴리오 페이지인 만큼 Hero 섹션에서 내가 누군지 궁금해지도록 만들고 싶었다.
 
 > ![hero](https://github.com/user-attachments/assets/63a25b5b-c4c1-4041-a3a2-c1bc73a40134)
