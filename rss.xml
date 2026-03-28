@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[개발자 전태현의 개발, 일상, 여행 블로그]]></description><link>https://taehyunjeon0203.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 28 Mar 2026 21:12:10 GMT</lastBuildDate><item><title><![CDATA[포트폴리오 페이지 제작]]></title><description><![CDATA[기획 포트폴리오 페이지가 필요하기도 했고, 마침 '멋쟁이 사자처럼 대학' IT 연합동아리에서…]]></description><link>https://taehyunjeon0203.github.io/portfolio/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/portfolio/</guid><pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;기획&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[개발자 전태현의 개발, 일상, 여행 블로그]]></description><link>https://taehyunjeon0203.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 28 Mar 2026 21:14:17 GMT</lastBuildDate><item><title><![CDATA[포트폴리오 페이지 제작]]></title><description><![CDATA[기획 포트폴리오 페이지가 필요하기도 했고, 마침 '멋쟁이 사자처럼 대학' IT 연합동아리에서…]]></description><link>https://taehyunjeon0203.github.io/portfolio/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/portfolio/</guid><pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;기획&lt;/h2&gt;
 &lt;p&gt;포트폴리오 페이지가 필요하기도 했고, 마침 &apos;멋쟁이 사자처럼 대학&apos; IT 연합동아리에서 1주차 과제가 포트폴리오 페이지 작성이었기 때문에 며칠간 계속해서 작업했다. 군생활 때 만들었던 포트폴리오 페이지의 아이디어를 다시 떠올려 사용했다.&lt;/p&gt;
 &lt;p&gt;음악 플레이어와 같은 UI를 구현하여 시간의 흐름에 따른 내용을 보여주고 싶었다.&lt;/p&gt;
 &lt;p&gt;단순한 프로젝트 나열이 아니라, 시간의 흐름에 따라 내가 어떻게 성정해왔는지를 보여주는 구조를 만들고 싶었다.&lt;/p&gt;
-&lt;h1&gt;개발 스택&lt;/h1&gt;
+&lt;h2&gt;개발 스택&lt;/h2&gt;
 &lt;p&gt;한 페이지로 작성될 것이기 때문에 HTML, JS, CSS의 웹 기본 기술만 사용했다.&lt;/p&gt;
-&lt;h1&gt;구성&lt;/h1&gt;
+&lt;h2&gt;구성&lt;/h2&gt;
 &lt;p&gt;크게 3개의 섹션으로 나뉜다.&lt;/p&gt;
 &lt;p&gt;내가 누군지 간단하게 보여주는 가장 먼저 보이는 Hero 섹션.&lt;/p&gt;
 &lt;p&gt;나에 대해 조금 더 자세하게 설명한 About 섹션.&lt;/p&gt;
 &lt;p&gt;그리고 타임라인에 따라 내가 진행한 프로젝트를 보여주는 Timeline 섹션.&lt;/p&gt;
 &lt;p&gt;추후 추가될 내용이 많겠지만 현재로선 이 세 개의 섹션이면 충분하다.&lt;/p&gt;
 &lt;p&gt;Primary color는 내가 선호하는 초록색으로 선정했다&lt;/p&gt;
-&lt;h2&gt;Scroll-snap&lt;/h2&gt;
+&lt;h3&gt;Scroll-snap&lt;/h3&gt;
 &lt;p&gt;각 섹션이 하나의 페이지처럼 보이도록 하기 위해 모든 섹션의 높이를 100vh로 설정하고, CSS의 scroll-snap을 활용하여 스크롤 동작을 제어했다.&lt;/p&gt;
 &lt;p&gt;scroll-snap-type과 scroll-snap-align을 적용하여 스크롤이 특정 지점에서 자연스럽게 고정되도록 구성하였고, 이를 통해 사용자가 명확한 섹션 단위로 콘텐츠를 탐색할 수 있도록 했다.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://github.com/user-attachments/assets/9cf34b76-7469-49ec-ba19-e5f510958b58&quot; alt=&quot;portfolioGif&quot;&gt;&lt;/p&gt;
 &lt;p&gt;이러한 방식은 단순한 연속 스크롤보다 흐름을 분리해주며, 페이지 구조를 직관적으로 인지할 수 있게 만든다.&lt;/p&gt;
-&lt;h2&gt;Hero 섹션&lt;/h2&gt;
+&lt;h3&gt;Hero 섹션&lt;/h3&gt;
 &lt;p&gt;Hero 섹션이란 웹사이트에 접속했을 때 가장 먼저 눈에 들어오는 최상단 영역이다.&lt;/p&gt;
 &lt;p&gt;이 섹션을 작성하며 새롭게 알게 된 사실이다.&lt;/p&gt;
 &lt;p&gt;포트폴리오 페이지인 만큼 Hero 섹션에서 내가 누군지 궁금해지도록 만들고 싶었다.&lt;/p&gt;
@@ -26,13 +26,13 @@
 &lt;p&gt;사용자가 페이지에 들어왔을 때, 짧은 시간 안에 내가 어떤 개발자인지 인지할 수 있도록 구성했다.&lt;/p&gt;
 &lt;p&gt;불필요한 요소를 최소화하고, 이름과 핵심 문장을 중심으로 배치하여 첫인상이 명확하게 전달되도록 했다.&lt;/p&gt;
 &lt;p&gt;모든 섹션을 화면이 가득 차게, 마치 한 페이지 처럼 구성했기에 스크롤을 유도하기 위해 하단에 작은 문구를 넣어놨다.&lt;/p&gt;
-&lt;h2&gt;About 섹션&lt;/h2&gt;
+&lt;h3&gt;About 섹션&lt;/h3&gt;
 &lt;p&gt;딱히 큰 특징은 없는 페이지이다.
 나에 대해 조금 더 자세히 작성해놓은 페이지이다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;img src=&quot;https://github.com/user-attachments/assets/0021c79f-63a3-49b6-aad7-f4da92c832e4&quot; alt=&quot;about&quot;&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2&gt;Timeline 섹션&lt;/h2&gt;
+&lt;h3&gt;Timeline 섹션&lt;/h3&gt;
 &lt;p&gt;포트폴리오 페이지의 메인이라고 볼 수 있다.
 위에서 말했던 음악 플레이어 UI가 사용된 섹션이다.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -43,7 +43,7 @@
 &lt;p&gt;각 카드의 크기를 동일하게 설정한 뒤, 현재 index를 전체 카드 수로 나누어 progress bar의 width를 동적으로 업데이트하여 UI와 진행 상태가 항상 일관되게 유지하도록 설계했다.&lt;/p&gt;
 &lt;p&gt;초기에는 CSS의 scroll-snap을 활용하여 스크롤을 통해 내가 원하는 만큼 이동을 제어하는 방식도 고려했지만, 트랙패드 환경에서의 과도한 민감도로 인해 프로젝트가 매우 빠르게 넘어가는 것, 브라우저 기본 스크롤과의 충돌로 인해 사용자 경험이 저하되는 문제가 있었다.&lt;/p&gt;
 &lt;p&gt;이를 해결하기 위해 최종적으로 스크롤은 제외하고 버튼 기반 탐색 방식을 채택하였고, 사용자가 한 번의 입력으로 명확하게 다음 프로젝트로 이동할 수 있도록 인터렉션을 단순화했다.&lt;/p&gt;
-&lt;h1&gt;마지막으로&lt;/h1&gt;
+&lt;h2&gt;마지막으로&lt;/h2&gt;
 &lt;p&gt;Vanilla JS를 활용한 웹페이지 제작은 오랜만에 해서 그런가 생각보다 쉽게 코드를 칠 수가 없었다.
 다시 초심으로 돌아간 듯한 기분도 느껴졌다.
 군복무 중 야간 사지방 연등 때 구글링하며 만들던 포트폴리오 페이지가 어렴풋이 떠오르는 프로젝트였다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[협업 뉴비들의 Git 협업 후기]]></title><description><![CDATA[벌써 3학년…]]></description><link>https://taehyunjeon0203.github.io/cooperation/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/cooperation/</guid><pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;벌써 3학년 1학기가 끝났다&lt;/strong&gt;&lt;/p&gt;
