@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[개발자 전태현의 개발, 일상, 여행 블로그]]></description><link>https://taehyunjeon0203.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 28 Mar 2026 21:14:17 GMT</lastBuildDate><item><title><![CDATA[포트폴리오 페이지 제작]]></title><description><![CDATA[기획 포트폴리오 페이지가 필요하기도 했고, 마침 '멋쟁이 사자처럼 대학' IT 연합동아리에서…]]></description><link>https://taehyunjeon0203.github.io/portfolio/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/portfolio/</guid><pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;기획&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[개발자 전태현의 개발, 일상, 여행 블로그]]></description><link>https://taehyunjeon0203.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 28 Mar 2026 21:17:11 GMT</lastBuildDate><item><title><![CDATA[포트폴리오 페이지 제작]]></title><description><![CDATA[기획 포트폴리오 페이지가 필요하기도 했고, 마침 '멋쟁이 사자처럼 대학' IT 연합동아리에서…]]></description><link>https://taehyunjeon0203.github.io/portfolio/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/portfolio/</guid><pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;기획&lt;/h2&gt;
 &lt;p&gt;포트폴리오 페이지가 필요하기도 했고, 마침 &apos;멋쟁이 사자처럼 대학&apos; IT 연합동아리에서 1주차 과제가 포트폴리오 페이지 작성이었기 때문에 며칠간 계속해서 작업했다. 군생활 때 만들었던 포트폴리오 페이지의 아이디어를 다시 떠올려 사용했다.&lt;/p&gt;
 &lt;p&gt;음악 플레이어와 같은 UI를 구현하여 시간의 흐름에 따른 내용을 보여주고 싶었다.&lt;/p&gt;
 &lt;p&gt;단순한 프로젝트 나열이 아니라, 시간의 흐름에 따라 내가 어떻게 성정해왔는지를 보여주는 구조를 만들고 싶었다.&lt;/p&gt;
@@ -44,9 +44,9 @@
 &lt;p&gt;초기에는 CSS의 scroll-snap을 활용하여 스크롤을 통해 내가 원하는 만큼 이동을 제어하는 방식도 고려했지만, 트랙패드 환경에서의 과도한 민감도로 인해 프로젝트가 매우 빠르게 넘어가는 것, 브라우저 기본 스크롤과의 충돌로 인해 사용자 경험이 저하되는 문제가 있었다.&lt;/p&gt;
 &lt;p&gt;이를 해결하기 위해 최종적으로 스크롤은 제외하고 버튼 기반 탐색 방식을 채택하였고, 사용자가 한 번의 입력으로 명확하게 다음 프로젝트로 이동할 수 있도록 인터렉션을 단순화했다.&lt;/p&gt;
 &lt;h2&gt;마지막으로&lt;/h2&gt;
-&lt;p&gt;Vanilla JS를 활용한 웹페이지 제작은 오랜만에 해서 그런가 생각보다 쉽게 코드를 칠 수가 없었다.
-다시 초심으로 돌아간 듯한 기분도 느껴졌다.
-군복무 중 야간 사지방 연등 때 구글링하며 만들던 포트폴리오 페이지가 어렴풋이 떠오르는 프로젝트였다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[협업 뉴비들의 Git 협업 후기]]></title><description><![CDATA[벌써 3학년…]]></description><link>https://taehyunjeon0203.github.io/cooperation/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/cooperation/</guid><pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;벌써 3학년 1학기가 끝났다&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Vanilla JS를 활용한 웹페이지 제작은 오랜만에 해서 그런가 생각보다 쉽게 코드를 칠 수가 없었다.&lt;/p&gt;
+&lt;p&gt;마치 다시 초심으로 돌아간 듯한 기분이었다.&lt;/p&gt;
+&lt;p&gt;군복무 중 야간 사지방 연등 때 구린 컴퓨터로 구글링하며 만들던 포트폴리오 페이지가 어렴풋이 떠오르는 프로젝트였다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[협업 뉴비들의 Git 협업 후기]]></title><description><![CDATA[벌써 3학년…]]></description><link>https://taehyunjeon0203.github.io/cooperation/</link><guid isPermaLink="false">https://taehyunjeon0203.github.io/cooperation/</guid><pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;벌써 3학년 1학기가 끝났다&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;이번 학기는 정말 빠르게 지나간 느낌이다. 이번 학기 동안 여러 큼직한 이벤트들이 있었지만, 무엇보다 가장 큰 이벤트는 학기 프로젝트였던 것 같다.&lt;/p&gt;
 &lt;h2&gt;프로젝트 개요&lt;/h2&gt;
 &lt;p&gt;&quot;객체지향 프로그래밍&quot; 이번 학기 프로젝트를 진행한 과목이다. 프로젝트 내용은 C++를 활용하여 자율 주제의 프로그램을 개발하는 것이었는데, 핵심은 팀 단위로 프로젝트를 진행하는 것이었다.&lt;/p&gt;
