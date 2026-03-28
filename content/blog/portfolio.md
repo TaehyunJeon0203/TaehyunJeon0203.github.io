@@ -1,7 +1,7 @@
 ---
 title: "포트폴리오 페이지 제작"
 
-titleImage: "https://github.com/user-attachments/assets/46bc058d-7c54-4c68-bc1d-8de25ee0ee24"
+titleImage: "https://github.com/user-attachments/assets/a999377a-c3f3-445c-9543-cbf6aebebfce"
 
 date: "2026-03-29"
 
