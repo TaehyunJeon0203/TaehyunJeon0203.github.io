@@ -15,7 +15,7 @@ category: "tech"
 
 ---
 
-## API가 뭐임?
+## API란?
 
 API(Application Programming Interface)는 프론트엔드와 백엔드가 데이터를 주고받기 위한 약속이다.
 
@@ -208,48 +208,6 @@ headers: {
 - `404 Not Found` → 리소스 없음
 - `500 Internal Server Error` → 서버 내부 오류
 - `503 Service Unavailable` → 서버 일시 불가
-
----
-
-## fetch vs axios 비교
-
-API 호출할 때 가장 많이 쓰는 방법은 `fetch`와 `axios`다.
-
-둘 다 충분히 좋고, 프로젝트 상황에 따라 선택하면 된다.
-
-### fetch
-
-브라우저 내장 API라서 별도 설치 없이 바로 사용할 수 있다.
-
-```js
-const res = await fetch(`${BASE_URL}/products`);
-if (!res.ok) throw new Error(`HTTP ${res.status}`);
-const data = await res.json();
-```
-
-- 장점: 설치 필요 없음, 가볍다
-- 주의: `4xx`, `5xx`도 기본적으로는 `catch`로 바로 떨어지지 않아서 `res.ok` 체크가 필요하다
-
-### axios
-
-라이브러리 설치가 필요하지만, 실무에서 자주 쓰는 기능이 편하게 제공된다.
-
-```js
-import axios from "axios";
-
-const { data } = await axios.get(`${BASE_URL}/products`);
-```
-
-- 장점: 응답 파싱이 편하고, 상태 코드 에러 처리가 직관적이다
-- 장점: 인터셉터로 토큰 주입/에러 공통 처리 같은 패턴을 만들기 쉽다
-- 단점: 의존성이 하나 추가된다
-
-### 언제 뭘 쓰면 좋을까
-
-- 작은 프로젝트/학습용: `fetch`로 충분하다
-- 인증, 공통 에러 처리, 요청 재사용이 많은 프로젝트: `axios`가 편하다
-
-핵심은 도구보다 "일관된 호출/에러 처리 패턴"을 팀에서 맞추는 것이다.
 
 ---
 
