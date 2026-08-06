@@ -6,11 +6,31 @@
  */
 
 import * as React from "react"
+import type { ReactNode } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 
-const Seo = ({ description, title, children }) => {
-  const { site } = useStaticQuery(
+interface SeoProps {
+  description?: string
+  title?: string
+  children?: ReactNode
+}
+
+interface SeoQueryData {
+  site: {
+    siteMetadata: {
+      title: string
+      description: string
+      siteUrl: string
+      social?: {
+        twitter?: string | null
+      } | null
+    }
+  }
+}
+
+const Seo = ({ description, title, children }: SeoProps) => {
+  const { site } = useStaticQuery<SeoQueryData>(
     graphql`
       query {
         site {

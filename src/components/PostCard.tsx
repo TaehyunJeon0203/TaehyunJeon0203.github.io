@@ -1,6 +1,16 @@
-import React from "react"
+import * as React from "react"
 import { Link } from "gatsby"
 import "../style/PostCard.css"
+
+interface PostCardProps {
+  titleImage?: string
+  title: string
+  description?: string
+  date: string
+  tags?: string[]
+  slug: string
+  customTimeToRead?: number
+}
 
 const PostCard = ({
   titleImage,
@@ -10,7 +20,7 @@ const PostCard = ({
   tags = [],
   slug,
   customTimeToRead,
-}) => {
+}: PostCardProps) => {
   return (
     <Link to={slug} className="post-card-link">
       <article className="post-card">

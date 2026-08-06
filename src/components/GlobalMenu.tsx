@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from "react"
+import * as React from "react"
+import { useState, useEffect } from "react"
 import Modal from "react-modal"
 import "../style/GlobalMenu.css"
 import GlobalMenuHeader from "./GlobalMenuHeader"
 import GlobalMenuFooter from "./GlobalMenuFooter"
 import GlobalMenuItem from "./GlobalMenuItem"
 
-const GlobalMenu = ({ isOpen, toggleMenu }) => {
+interface GlobalMenuProps {
+  isOpen: boolean
+  toggleMenu: () => void
+}
+
+const GlobalMenu = ({ isOpen, toggleMenu }: GlobalMenuProps) => {
   const [isClosing, setIsClosing] = useState(false)
 
   useEffect(() => {

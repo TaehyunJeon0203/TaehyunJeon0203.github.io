@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react"
+import * as React from "react"
+import { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import { Menu, X } from "react-feather"
 import Logo from "./Logo"
 import GlobalMenu from "./GlobalMenu"
 
-const Header = ({ isRootPath = false }) => {
+interface HeaderProps {
+  isRootPath?: boolean
+}
+
+const Header = ({ isRootPath = false }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [menuIcon, setMenuIcon] = useState(isOpen ? "close" : "menu")
   const [blogType, setBlogType] = useState(() => {
@@ -30,7 +35,7 @@ const Header = ({ isRootPath = false }) => {
     setMenuIcon(menuIcon === "menu" ? "close" : "menu")
   }
 
-  const toggleBlogType = type => {
+  const toggleBlogType = (type: "tech" | "daily") => {
     setBlogType(type)
     document.body.className = type === "tech" ? "tech-mode" : "daily-mode"
     // localStorage에 현재 타입 저장

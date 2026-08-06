@@ -1,6 +1,11 @@
 import { useEffect } from "react"
 
-const PostFooter = ({ siteUrl, path }) => {
+interface PostFooterProps {
+  siteUrl: string
+  path: string
+}
+
+const PostFooter = ({ siteUrl, path }: PostFooterProps) => {
   useEffect(() => {
     // 부모 요소 생성
     const parentContainer = document.createElement("div")

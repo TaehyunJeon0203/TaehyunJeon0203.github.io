@@ -1,12 +1,58 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+import type { PageProps } from "gatsby"
 import { GitHub, Mail, PenTool } from "react-feather"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import "../style/portfolio.css"
 
-const STACK_COLORS = {
+type ContentItem = string | { what: string; result?: string }
+
+interface StackColor {
+  bg: string
+  light?: boolean
+}
+
+interface ActivityProject {
+  title: string
+  content: ContentItem[]
+  link?: string
+}
+
+interface Activity {
+  title: string
+  role: string
+  period: string
+  stacks: string[]
+  description: ContentItem[]
+  projects?: ActivityProject[]
+}
+
+interface SideProject {
+  date: string
+  title: string
+  subtitle: string
+  description: string
+  stacks: string[]
+  list: ContentItem[]
+  link?: string
+}
+
+interface SkillCategory {
+  title: string
+  items: string[]
+}
+
+interface PortfolioPageData {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+}
+
+const STACK_COLORS: Record<string, StackColor> = {
   JavaScript: { bg: "#F0DB4F", light: true },
   TypeScript: { bg: "#3178C6" },
   React: { bg: "#61DAFB", light: true },
@@ -35,14 +81,14 @@ const STACK_COLORS = {
   Firebase: { bg: "#FFCA28", light: true },
 }
 
-const renderRich = text => {
+const renderRich = (text: string): React.ReactNode => {
   const parts = String(text).split(/\*\*(.+?)\*\*/g)
   return parts.map((part, index) =>
     index % 2 === 1 ? <strong key={index}>{part}</strong> : part
   )
 }
 
-const StackBadges = ({ stacks }) => (
+const StackBadges = ({ stacks }: { stacks: string[] }) => (
   <div className="portfolio-stack-badges">
     {stacks.map(name => {
       const color = STACK_COLORS[name] || { bg: "#374151" }
@@ -59,7 +105,7 @@ const StackBadges = ({ stacks }) => (
   </div>
 )
 
-const ContentList = ({ items }) => (
+const ContentList = ({ items }: { items: ContentItem[] }) => (
   <ul>
     {items.map((item, index) => (
       <li key={index}>
@@ -76,7 +122,7 @@ const ContentList = ({ items }) => (
   </ul>
 )
 
-const activities = [
+const activities: Activity[] = [
   {
     title: "멋쟁이 사자처럼 대학 14기",
     role: "IT 연합동아리 · 프론트엔드",
@@ -144,7 +190,7 @@ const activities = [
   },
 ]
 
-const sideProjects = [
+const sideProjects: SideProject[] = [
   {
     date: "2023.12",
     title: "TH Blog",
@@ -281,7 +327,7 @@ const otherExperience = [
   "군 복무 중 행정반 현황판 개발 및 당직 근무자 피드백 기반 개선",
 ]
 
-const skillCategories = [
+const skillCategories: SkillCategory[] = [
   {
     title: "Frontend",
     items: [
@@ -307,7 +353,7 @@ const skillCategories = [
   },
 ]
 
-const PortfolioPage = ({ data, location }) => {
+const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
   const siteTitle = data.site.siteMetadata.title
 
   React.useEffect(() => {

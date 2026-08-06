@@ -1,11 +1,46 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import type { PageProps } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Profile from "../components/Profile"
 import "../style/PostCard.css"
 
-const BlogIndex = ({ data, location }) => {
+interface IndexPageData {
+  site: {
+    siteMetadata: {
+      title: string
+      profile: {
+        name: string
+        image: string
+        links: {
+          github: string
+          email: string
+          instagram: string
+        }
+      }
+    }
+  }
+  allMarkdownRemark: {
+    nodes: Array<{
+      excerpt: string
+      timeToRead: number
+      fields: {
+        slug: string
+        customTimeToRead: number
+      }
+      frontmatter: {
+        date: string
+        title: string
+        titleImage: string | null
+        description: string | null
+        category: string
+      }
+    }>
+  }
+}
+
+const BlogIndex = ({ data, location }: PageProps<IndexPageData>) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const profile = data.site.siteMetadata?.profile
   const posts = data.allMarkdownRemark.nodes

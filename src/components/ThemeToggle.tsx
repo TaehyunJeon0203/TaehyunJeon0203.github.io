@@ -1,8 +1,13 @@
-import React from "react"
+import * as React from "react"
 import { Code, Coffee } from "react-feather"
 import "../style/ThemeToggle.css"
 
-const ThemeToggle = ({ currentType, onToggle }) => {
+interface ThemeToggleProps {
+  currentType: "tech" | "daily"
+  onToggle: () => void
+}
+
+const ThemeToggle = ({ currentType, onToggle }: ThemeToggleProps) => {
   return (
     <button
       className={`theme-toggle-btn ${currentType}`}

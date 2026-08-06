@@ -1,7 +1,21 @@
 import * as React from "react"
+import type { SyntheticEvent } from "react"
 import "../style/Profile.css"
 
-const Profile = ({ profile }) => {
+interface ProfileData {
+  name: string
+  links: {
+    github: string
+    email: string
+    instagram: string
+  }
+}
+
+interface ProfileProps {
+  profile: ProfileData
+}
+
+const Profile = ({ profile }: ProfileProps) => {
   return (
     <div className="profile-container">
       <div className="profile-content">
@@ -10,9 +24,11 @@ const Profile = ({ profile }) => {
             src="/images/profile.jpg"
             alt="프로필 사진"
             className="profile-image"
-            onError={e => {
-              e.target.style.display = "none"
-              e.target.nextSibling.style.display = "block"
+            onError={(e: SyntheticEvent<HTMLImageElement>) => {
+              const target = e.currentTarget
+              target.style.display = "none"
+              const placeholder = target.nextElementSibling as HTMLElement | null
+              if (placeholder) placeholder.style.display = "block"
             }}
           />
           <div

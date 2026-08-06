@@ -1,18 +1,54 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import type { HeadProps, PageProps } from "gatsby"
 
 import Seo from "../components/seo"
 import Header from "../components/Header"
 import PostFooter from "../components/PostFooter"
 
+interface BlogPostData {
+  site: {
+    siteMetadata: {
+      title: string
+      siteUrl: string
+    }
+  }
+  markdownRemark: {
+    id: string
+    excerpt: string
+    html: string
+    frontmatter: {
+      title: string
+      date: string
+      description: string | null
+    }
+  }
+  previous: {
+    fields: { slug: string }
+    frontmatter: { title: string }
+  } | null
+  next: {
+    fields: { slug: string }
+    frontmatter: { title: string }
+  } | null
+  allMarkdownRemark: {
+    edges: Array<{
+      node: {
+        id: string
+        fields: { customTimeToRead: number }
+      }
+    }>
+  }
+}
+
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post, allMarkdownRemark },
   location,
-}) => {
+}: PageProps<BlogPostData>) => {
   const siteUrl = site.siteMetadata.siteUrl
   const timeToRead = allMarkdownRemark.edges.find(
     edge => edge.node.id === post.id
-  ).node.fields.customTimeToRead
+  )!.node.fields.customTimeToRead
 
   return (
     <div className="global-wrapper">
@@ -59,16 +95,12 @@ const BlogPostTemplate = ({
           </li>
         </ul>
       </nav>
-      <PostFooter
-        siteUrl={siteUrl}
-        path={location.pathname}
-        className="global-footer"
-      />
+      <PostFooter siteUrl={siteUrl} path={location.pathname} />
     </div>
   )
 }
 
-export const Head = ({ data: { markdownRemark: post } }) => {
+export const Head = ({ data: { markdownRemark: post } }: HeadProps<BlogPostData>) => {
   return (
     <Seo
       title={post.frontmatter.title}
