@@ -4,7 +4,7 @@ import { Menu, X } from "react-feather"
 import Logo from "./Logo"
 import GlobalMenu from "./GlobalMenu"
 
-const Header = () => {
+const Header = ({ isRootPath = false }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [menuIcon, setMenuIcon] = useState(isOpen ? "close" : "menu")
   const [blogType, setBlogType] = useState(() => {
@@ -46,25 +46,32 @@ const Header = () => {
           <Logo width="90" height="auto" />
         </Link>
         <div className="header-controls">
-          <nav className="theme-menu">
-            <button
-              className={`theme-menu-item ${
-                blogType === "tech" ? "active" : ""
-              }`}
-              onClick={() => toggleBlogType("tech")}
-            >
-              Tech
-            </button>
-            <button
-              className={`theme-menu-item ${
-                blogType === "daily" ? "active" : ""
-              }`}
-              onClick={() => toggleBlogType("daily")}
-            >
-              Daily
-            </button>
-          </nav>
-          <div className="menu-icon" onClick={toggleMenu}>
+          {isRootPath && (
+            <nav className="theme-menu">
+              <button
+                className={`theme-menu-item ${
+                  blogType === "tech" ? "active" : ""
+                }`}
+                onClick={() => toggleBlogType("tech")}
+              >
+                Tech
+              </button>
+              <button
+                className={`theme-menu-item ${
+                  blogType === "daily" ? "active" : ""
+                }`}
+                onClick={() => toggleBlogType("daily")}
+              >
+                Daily
+              </button>
+            </nav>
+          )}
+          <button
+            type="button"
+            className="menu-icon"
+            onClick={toggleMenu}
+            aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
+          >
             <Menu
               size={25}
               className={`menu-icon-menu ${isOpen ? "hide" : ""}`}
@@ -73,7 +80,7 @@ const Header = () => {
               size={25}
               className={`menu-icon-close ${isOpen ? "" : "hide"}`}
             />
-          </div>
+          </button>
         </div>
       </div>
       <GlobalMenu isOpen={isOpen} toggleMenu={toggleMenu} />

@@ -9,7 +9,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className={`global-wrapper ${isRootPath ? "root" : "subpage"}`}>
-      <Header />
+      <Header isRootPath={isRootPath} />
       <main>{children}</main>
     </div>
   )

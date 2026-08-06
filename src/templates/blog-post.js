@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Header from "../components/Header"
 import PostFooter from "../components/PostFooter"
@@ -17,7 +16,7 @@ const BlogPostTemplate = ({
 
   return (
     <div className="global-wrapper">
-      <Header />
+      <Header isRootPath={false} />
       <article
         className="blog-post"
         itemScope

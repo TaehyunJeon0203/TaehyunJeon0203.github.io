@@ -1,0 +1,261 @@
+.portfolio-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 0 6rem;
+}
+
+/* Header */
+
+.portfolio-header {
+  margin-bottom: 3rem;
+}
+
+.portfolio-header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-greeting {
+  flex: 1;
+  min-width: 240px;
+  text-align: center;
+}
+
+.portfolio-greeting h1 {
+  font-size: var(--fontSize-4);
+  margin: 0;
+  word-break: keep-all;
+}
+
+.portfolio-link-groups {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.portfolio-link-group-title {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: var(--fontWeight-bold);
+  color: var(--color-text-light);
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-link-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--color-heading);
+  margin-bottom: 0.4rem;
+}
+
+.portfolio-link-item:hover {
+  text-decoration: underline;
+}
+
+.portfolio-intro-box {
+  border-left: 6px solid var(--color-accent);
+  background: var(--color-background-light);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+}
+
+.portfolio-intro-box p {
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.portfolio-intro-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Sections */
+
+.portfolio-section {
+  margin-bottom: 3.5rem;
+}
+
+.portfolio-section h2 {
+  font-size: var(--fontSize-4);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-section-caption {
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+/* Entries (Activity / Side Projects) */
+
+.portfolio-entry {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.portfolio-entry.has-border {
+  border-bottom: 1px solid var(--color-accent);
+}
+
+.portfolio-entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.portfolio-entry-head h3 {
+  margin: 0;
+  font-size: var(--fontSize-3);
+}
+
+.portfolio-entry-period {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+.portfolio-entry-role {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin: 0.35rem 0 0.9rem;
+}
+
+.portfolio-entry p {
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.portfolio-entry ul {
+  margin-bottom: 0;
+}
+
+.portfolio-entry li {
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.portfolio-entry-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-family: var(--font-heading);
+  font-weight: var(--fontWeight-bold);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.portfolio-entry-link:hover {
+  text-decoration: underline;
+}
+
+/* Nested project block inside Activity */
+
+.portfolio-project-block {
+  margin-top: 1.25rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-accent);
+}
+
+.portfolio-project-block h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+/* Stack badges */
+
+.portfolio-stack-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.portfolio-stack-badge {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: var(--fontWeight-bold);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  color: #ffffff;
+}
+
+.portfolio-stack-badge.is-light {
+  color: #111111;
+}
+
+/* Other Experience */
+
+.portfolio-other-list {
+  list-style: disc;
+  margin-left: 1.25rem;
+}
+
+.portfolio-other-list li {
+  font-weight: var(--fontWeight-bold);
+  color: var(--color-heading);
+  line-height: 1.8;
+}
+
+/* Skill */
+
+.portfolio-skill-category {
+  margin-bottom: 1.75rem;
+}
+
+.portfolio-skill-category:last-child {
+  margin-bottom: 0;
+}
+
+.portfolio-skill-category h3 {
+  font-size: var(--fontSize-2);
+  margin: 0 0 0.75rem;
+}
+
+.portfolio-skill-category ul {
+  margin-bottom: 0;
+}
+
+.portfolio-skill-category li {
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio-header-top {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .portfolio-link-groups {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .portfolio-link-item {
+    justify-content: center;
+  }
+
+  .portfolio-greeting h1 {
+    font-size: var(--fontSize-3);
+  }
+
+  .portfolio-entry-head {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
