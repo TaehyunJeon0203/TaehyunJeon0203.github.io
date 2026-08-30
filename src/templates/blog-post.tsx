@@ -5,6 +5,7 @@ import type { HeadProps, PageProps } from "gatsby"
 import Seo from "../components/seo"
 import Header from "../components/Header"
 import PostFooter from "../components/PostFooter"
+import ShareButton from "../components/ShareButton"
 
 interface BlogPostData {
   site: {
@@ -45,6 +46,7 @@ const BlogPostTemplate = ({
 }: PageProps<BlogPostData>) => {
   const siteUrl = site.siteMetadata.siteUrl
   const timeToRead = post.fields?.customTimeToRead ?? 1
+  const postUrl = new URL(location.pathname, siteUrl).toString()
 
   return (
     <div className="global-wrapper">
@@ -94,6 +96,9 @@ const BlogPostTemplate = ({
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
+        <footer className="post-actions">
+          <ShareButton title={post.frontmatter.title} url={postUrl} />
+        </footer>
       </article>
       {(previous || next) && (
         <nav className="blog-post-nav" aria-label="같은 카테고리의 글 탐색">
