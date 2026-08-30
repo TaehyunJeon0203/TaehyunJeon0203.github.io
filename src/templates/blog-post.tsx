@@ -26,6 +26,7 @@ interface BlogPostData {
       datePublished: string
       description: string | null
       titleImage: string | null
+      tags: string[] | null
     }
   }
   previous: {
@@ -70,6 +71,15 @@ const BlogPostTemplate = ({
               {post.frontmatter.description}
             </p>
           )}
+          {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+            <ul className="post-tags" aria-label="태그">
+              {post.frontmatter.tags.map(tag => (
+                <li key={tag}>
+                  <Link to={`/?tag=${encodeURIComponent(tag)}`}>{tag}</Link>
+                </li>
+              ))}
+            </ul>
+          )}
           {post.frontmatter.titleImage && (
             <img
               className="post-hero"
@@ -86,7 +96,7 @@ const BlogPostTemplate = ({
         />
       </article>
       {(previous || next) && (
-        <nav className="blog-post-nav" aria-label="Post navigation">
+        <nav className="blog-post-nav" aria-label="같은 카테고리의 글 탐색">
           <ul>
             {previous && (
               <li>
@@ -95,7 +105,7 @@ const BlogPostTemplate = ({
                   to={previous.fields.slug}
                   rel="prev"
                 >
-                  <span className="post-nav-label">← Previous post</span>
+                  <span className="post-nav-label">← 이전 글</span>
                   <span className="post-nav-title">
                     {previous.frontmatter.title}
                   </span>
@@ -109,7 +119,7 @@ const BlogPostTemplate = ({
                   to={next.fields.slug}
                   rel="next"
                 >
-                  <span className="post-nav-label">Next post →</span>
+                  <span className="post-nav-label">다음 글 →</span>
                   <span className="post-nav-title">
                     {next.frontmatter.title}
                   </span>
@@ -162,6 +172,7 @@ export const pageQuery = graphql`
         datePublished: date(formatString: "YYYY-MM-DD")
         description
         titleImage
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
