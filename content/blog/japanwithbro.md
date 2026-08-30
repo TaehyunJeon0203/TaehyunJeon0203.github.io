@@ -4,6 +4,7 @@ titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets
 date: "2024-04-11"
 description: "9살 어린 동생과의 도쿄 여행"
 category: "daily"
+tags: ["여행", "일본", "도쿄"]
 ---
 
 **9살 어린 제 동생과 도쿄 여행을 다녀왔습니다**

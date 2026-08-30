@@ -7,6 +7,7 @@ date: "2026-04-12"
 
 description: "React 상태 관리 기초와 Git Branch 기반 협업 흐름"
 category: "tech"
+tags: ["React", "Git", "협업"]
 ---
 
 "멋쟁이 사자처럼 대학 14기" 프론트엔드 3주차의 교육 내용 정리이다.

@@ -4,6 +4,7 @@ titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets
 date: "2023-12-18"
 description: "야생썰매, 블로그 로고 삽입"
 category: "daily"
+tags: ["겨울", "블로그", "React"]
 ---
 
 **드디어 제대로 된 겨울이 왔습니다**

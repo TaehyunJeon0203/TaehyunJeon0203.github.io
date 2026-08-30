@@ -7,6 +7,7 @@ date: "2026-05-03"
 
 description: "Endpoint부터 Status Code, 인증 방식, 환경변수 관리까지 API 연동 기본기"
 category: "tech"
+tags: ["React", "API", "프론트엔드"]
 ---
 
 "멋쟁이 사자처럼 대학 14기" 프론트엔드 4주차의 교육 내용 정리이다.

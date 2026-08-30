@@ -4,6 +4,7 @@ titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets
 date: "2024-02-17"
 description: "D.C.와 캐나다의 나이아가라 그리고 또 다시 뉴욕까지"
 category: "daily"
+tags: ["여행", "미국", "캐나다"]
 ---
 
 **미국에서 돌아온 후 한 달이 지났습니다..**

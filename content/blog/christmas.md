@@ -4,6 +4,7 @@ titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets
 date: "2023-12-26"
 description: "서울에서 보낸 크리스마스"
 category: "daily"
+tags: ["일상", "서울", "크리스마스"]
 ---
 
 **크리스마스가 뭐길래 모두들 즐거워 할까요**

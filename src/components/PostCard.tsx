@@ -24,31 +24,33 @@ const PostCard = ({
   return (
     <Link to={slug} className="post-card-link">
       <article className="post-card">
-        {titleImage && (
-          <div className="post-card-image-container">
+        <div className="post-card-image-container">
+          {titleImage && (
             <img
               src={titleImage}
               alt={title}
               className="post-card-image"
               loading="lazy"
             />
-          </div>
-        )}
+          )}
+        </div>
         <div className="post-card-content">
           <header>
             <h2>{title}</h2>
             <div className="post-card-meta">
               <time className="post-card-date">{date}</time>
-              <span className="post-card-read-time">
-                {customTimeToRead} min read
-              </span>
+              {customTimeToRead && (
+                <span className="post-card-read-time">
+                  {customTimeToRead} min read
+                </span>
+              )}
             </div>
           </header>
           <p className="post-card-description">{description}</p>
           {tags.length > 0 && (
             <ul className="post-card-tags">
-              {tags.map((tag, index) => (
-                <li key={index} className="post-card-tag">
+              {tags.map(tag => (
+                <li key={tag} className="post-card-tag">
                   {tag}
                 </li>
               ))}

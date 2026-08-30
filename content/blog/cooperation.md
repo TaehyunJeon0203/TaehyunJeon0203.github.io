@@ -4,6 +4,7 @@ titleImage: "https://github.com/user-attachments/assets/9875431b-74ff-49eb-a25f-
 date: "2025-06-20"
 description: "Git 협업 이론은 알았는데, 실제로는 어떻게 될까?"
 category: "tech"
+tags: ["Git", "협업", "회고"]
 ---
 
 **벌써 3학년 1학기가 끝났다**

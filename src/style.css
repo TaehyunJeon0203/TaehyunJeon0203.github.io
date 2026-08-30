@@ -336,6 +336,35 @@ a:focus {
   line-height: 1.7;
 }
 
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin: var(--spacing-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-tags li {
+  margin: 0;
+}
+
+.post-tags a {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text-light);
+  font-size: var(--fontSize-0);
+  text-decoration: none;
+}
+
+.post-tags a:hover,
+.post-tags a:focus-visible {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
 .post-hero {
   display: block;
   width: 100%;

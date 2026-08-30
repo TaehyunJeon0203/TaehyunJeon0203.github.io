@@ -7,6 +7,7 @@ date: "2026-03-29"
 
 description: "남을 위한 나의 정보"
 category: "tech"
+tags: ["HTML", "CSS", "JavaScript"]
 ---
 
 ## 기획
