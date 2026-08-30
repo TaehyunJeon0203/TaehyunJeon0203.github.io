@@ -89,7 +89,13 @@ body {
   font-size: var(--fontSize-1);
   color: var(--color-text);
   background-color: var(--color-background);
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
 footer {
@@ -504,6 +510,51 @@ a:focus {
   text-align: center;
 }
 
+.post-actions {
+  max-width: var(--maxWidth-2xl);
+  margin: var(--spacing-10) auto 0;
+  padding: var(--spacing-6) 0 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.post-share {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.post-share-button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--spacing-2);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-background-light);
+  padding: var(--spacing-2) var(--spacing-4);
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: 600;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.post-share-button:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.post-share-status {
+  margin: 0;
+  color: var(--color-text-light);
+  font-size: var(--fontSize-0);
+}
+
+.post-share-status.error {
+  color: var(--color-primary);
+}
+
 .blog-post-nav {
   max-width: var(--maxWidth-2xl);
   margin: var(--spacing-16) auto var(--spacing-8);
@@ -607,6 +658,12 @@ a:focus {
   .blog-post-nav .post-nav-next-item {
     grid-column: 1;
   }
+
+  .post-share {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
 }
 
 /* 기술 블로그 모드 */
@@ -652,5 +709,16 @@ body.daily-mode {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -15,14 +15,25 @@ const GlobalMenu = ({ isOpen, toggleMenu }: GlobalMenuProps) => {
   const [isClosing, setIsClosing] = useState(false)
 
   useEffect(() => {
+    Modal.setAppElement("#___gatsby")
+  }, [])
+
+  useEffect(() => {
     if (isOpen) {
       document.body.classList.add("menu-open") // 메뉴가 열릴 때 body에 menu-open 클래스 추가
     } else {
       document.body.classList.remove("menu-open") // 메뉴가 닫힐 때 body에서 menu-open 클래스 제거
     }
+
+    return () => document.body.classList.remove("menu-open")
   }, [isOpen])
 
   const handleCloseModal = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      toggleMenu()
+      return
+    }
+
     setIsClosing(true) // 모달이 닫히는 중임을 설정합니다.
     setTimeout(() => {
       toggleMenu() // 모달을 닫습니다.
@@ -35,6 +46,7 @@ const GlobalMenu = ({ isOpen, toggleMenu }: GlobalMenuProps) => {
       isOpen={isOpen}
       onRequestClose={handleCloseModal}
       contentLabel="Global Menu"
+      id="global-menu"
       className={`menu-modal ${isOpen && !isClosing ? "slideIn" : "slideOut"}`}
       overlayClassName="menu-overlay"
     >

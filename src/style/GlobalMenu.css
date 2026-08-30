@@ -1,9 +1,9 @@
 .menu-modal {
   position: fixed;
-  top: 42px;
+  top: 45px;
   right: -350px; /* 초기 위치 수정 */
-  width: 350px;
-  height: 100%;
+  width: min(350px, 100vw);
+  height: calc(100dvh - 45px);
   border-radius: 8px;
   animation-duration: 0.5s; /* 애니메이션 지속 시간 설정 */
 }
