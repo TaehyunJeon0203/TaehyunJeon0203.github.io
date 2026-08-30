@@ -8,11 +8,14 @@
 import * as React from "react"
 import type { ReactNode } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Helmet } from "react-helmet"
 
 interface SeoProps {
   description?: string
   title?: string
+  url?: string
+  image?: string | null
+  type?: "website" | "article"
+  publishedTime?: string | null
   children?: ReactNode
 }
 
@@ -29,7 +32,15 @@ interface SeoQueryData {
   }
 }
 
-const Seo = ({ description, title, children }: SeoProps) => {
+const Seo = ({
+  description,
+  title,
+  url,
+  image,
+  type = "website",
+  publishedTime,
+  children,
+}: SeoProps) => {
   const { site } = useStaticQuery<SeoQueryData>(
     graphql`
       query {
@@ -50,10 +61,13 @@ const Seo = ({ description, title, children }: SeoProps) => {
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
   const siteUrl = site.siteMetadata?.siteUrl
+  const metaTitle = title ? `${title} | ${defaultTitle}` : defaultTitle
+  const canonicalUrl = new URL(url || siteUrl, siteUrl).toString()
+  const imageUrl = image ? new URL(image, siteUrl).toString() : null
 
   return (
     <>
-      <title>{title ? `${title} | ${defaultTitle}` : defaultTitle}</title>
+      <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} />
 
       {/* Google Search Console Verification */}
@@ -63,42 +77,34 @@ const Seo = ({ description, title, children }: SeoProps) => {
       />
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={siteUrl} />
-      <meta property="og:title" content={title} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:site_name" content={defaultTitle} />
+      {imageUrl && <meta property="og:image" content={imageUrl} />}
+      {type === "article" && publishedTime && (
+        <meta property="article:published_time" content={publishedTime} />
+      )}
 
       {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:card"
+        content={imageUrl ? "summary_large_image" : "summary"}
+      />
       <meta
         name="twitter:creator"
         content={site.siteMetadata?.social?.twitter || ``}
       />
-      <meta name="twitter:title" content={title} />
+      <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
+      {imageUrl && <meta name="twitter:image" content={imageUrl} />}
 
       {/* Additional SEO Meta Tags */}
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
-      <link rel="canonical" href={siteUrl} />
+      <link rel="canonical" href={canonicalUrl} />
 
-      <Helmet>
-        {/* Structured Data for Blog */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Blog",
-            name: defaultTitle,
-            description: metaDescription,
-            url: siteUrl,
-            publisher: {
-              "@type": "Person",
-              name: "TaehyunJeon",
-            },
-          })}
-        </script>
-      </Helmet>
       {children}
     </>
   )

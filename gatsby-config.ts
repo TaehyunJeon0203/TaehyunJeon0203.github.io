@@ -32,7 +32,6 @@ const config: GatsbyConfig = {
   },
   plugins: [
     `gatsby-plugin-image`,
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
@@ -66,6 +65,7 @@ const config: GatsbyConfig = {
             resolve: "gatsby-remark-images",
             options: {
               loading: "lazy",
+              decoding: "async",
               linkImagesToOriginal: true,
               disableBgImageOnAlpha: true,
               showCaptions: true,
