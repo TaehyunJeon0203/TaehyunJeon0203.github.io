@@ -4,6 +4,7 @@ titleImage: "https://github.com/user-attachments/assets/e973294f-4bc0-4153-a191-
 date: "2025-02-23"
 description: "가족과 함께한 다낭 여행"
 category: "daily"
+tags: ["여행", "베트남", "다낭"]
 ---
 
 **가족들과 함께 베트남 다낭을 다녀왔습니다**

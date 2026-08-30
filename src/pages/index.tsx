@@ -4,6 +4,7 @@ import type { PageProps } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Profile from "../components/Profile"
+import PostCard from "../components/PostCard"
 import "../style/PostCard.css"
 
 interface IndexPageData {
@@ -35,6 +36,7 @@ interface IndexPageData {
         titleImage: string | null
         description: string | null
         category: string
+        tags: string[] | null
       }
     }>
   }
@@ -89,20 +91,20 @@ const BlogIndex = ({ data, location }: PageProps<IndexPageData>) => {
     }
   }, [])
 
-  // 현재 카테고리에 맞는 포스트만 필터링
-  const filteredPosts = posts.filter(
+  const categoryPosts = posts.filter(
     post => post.frontmatter.category === currentCategory
   )
-
-  if (filteredPosts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <p>
-          아직 {currentCategory === "tech" ? "기술" : "일상"} 포스트가 없습니다.
-        </p>
-      </Layout>
-    )
-  }
+  const availableTags = Array.from(
+    new Set(categoryPosts.flatMap(post => post.frontmatter.tags ?? []))
+  ).sort((a, b) => a.localeCompare(b, "ko"))
+  const requestedTag =
+    new URLSearchParams(location.search).get("tag")?.trim() || null
+  const selectedTag =
+    requestedTag && availableTags.includes(requestedTag) ? requestedTag : null
+  const filteredPosts = selectedTag
+    ? categoryPosts.filter(post => post.frontmatter.tags?.includes(selectedTag))
+    : categoryPosts
+  const categoryLabel = currentCategory === "tech" ? "기술" : "일상"
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -111,37 +113,55 @@ const BlogIndex = ({ data, location }: PageProps<IndexPageData>) => {
         description="개발자 전태현의 개발, 일상, 여행 이야기를 공유합니다."
       />
       <Profile profile={profile} />
+      {availableTags.length > 0 && (
+        <nav className="tag-filter" aria-label={`${categoryLabel} 글 태그 필터`}>
+          <span className="tag-filter-label">태그로 찾기</span>
+          <ul>
+            <li>
+              <Link
+                to={location.pathname}
+                className="tag-filter-link"
+                aria-current={!selectedTag ? "page" : undefined}
+              >
+                전체
+              </Link>
+            </li>
+            {availableTags.map(tag => (
+              <li key={tag}>
+                <Link
+                  to={`${location.pathname}?tag=${encodeURIComponent(tag)}`}
+                  className="tag-filter-link"
+                  aria-current={selectedTag === tag ? "page" : undefined}
+                >
+                  {tag}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+      {requestedTag && !selectedTag && (
+        <p className="tag-filter-notice" role="status">
+          이 카테고리에 “{requestedTag}” 태그가 없어 전체 글을 표시합니다.
+        </p>
+      )}
       <div className="post-cards-container">
         {filteredPosts.map(post => (
-          <Link
-            to={post.fields.slug}
-            className="post-card"
+          <PostCard
             key={post.fields.slug}
-          >
-            <div className="post-card-image-container">
-              {post.frontmatter.titleImage && (
-                <img
-                  src={post.frontmatter.titleImage}
-                  alt={post.frontmatter.title}
-                  className="post-card-image"
-                />
-              )}
-            </div>
-            <div className="post-card-content">
-              <h2>{post.frontmatter.title}</h2>
-              <div className="post-card-meta">
-                <time className="post-card-date">{post.frontmatter.date}</time>
-                <span className="post-card-read-time">
-                  {post.fields.customTimeToRead} min read
-                </span>
-              </div>
-              <p className="post-card-description">
-                {post.frontmatter.description || post.excerpt}
-              </p>
-            </div>
-          </Link>
+            slug={post.fields.slug}
+            title={post.frontmatter.title}
+            titleImage={post.frontmatter.titleImage ?? undefined}
+            description={post.frontmatter.description ?? post.excerpt}
+            date={post.frontmatter.date}
+            tags={post.frontmatter.tags ?? []}
+            customTimeToRead={post.fields.customTimeToRead}
+          />
         ))}
       </div>
+      {filteredPosts.length === 0 && (
+        <p>아직 {categoryLabel} 포스트가 없습니다.</p>
+      )}
     </Layout>
   )
 }
@@ -178,6 +198,7 @@ export const pageQuery = graphql`
           titleImage
           description
           category
+          tags
         }
       }
     }

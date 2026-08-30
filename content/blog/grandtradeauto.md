@@ -4,6 +4,7 @@ titleImage: "https://github.com/user-attachments/assets/9875431b-74ff-49eb-a25f-
 date: "2025-09-23"
 description: "엔카의 데이터를 학습한 머신러닝 AI가 중고차 가격을 예측"
 category: "tech"
+tags: ["AI", "AWS", "React"]
 ---
 
 **방학 기간동안 AWS AI 교육 과정 수료했습니다**

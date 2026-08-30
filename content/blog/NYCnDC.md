@@ -4,6 +4,7 @@ titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets
 date: "2024-01-11"
 description: "뉴욕에서 워싱턴 D.C.로"
 category: "daily"
+tags: ["여행", "미국", "워싱턴 D.C."]
 ---
 
 **뉴욕의 음식이 입에 맞아 참 다행이라 생각합니다**

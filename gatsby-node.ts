@@ -21,7 +21,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
   // Get all markdown blog posts sorted by date
   const result = await graphql<{
     allMarkdownRemark: {
-      nodes: Array<{ id: string; fields: { slug: string } | null }>
+      nodes: Array<{
+        id: string
+        fields: { slug: string } | null
+        frontmatter: { category: string | null } | null
+      }>
     }
   }>(`
     {
@@ -30,6 +34,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
           id
           fields {
             slug
+          }
+          frontmatter {
+            category
           }
         }
       }
@@ -51,10 +58,20 @@ export const createPages: GatsbyNode["createPages"] = async ({
   // `context` is available in the template as a prop and as a variable in GraphQL
 
   if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
+    posts.forEach(post => {
+      const categoryPosts = posts.filter(
+        candidate =>
+          candidate.frontmatter?.category === post.frontmatter?.category
+      )
+      const categoryIndex = categoryPosts.findIndex(
+        candidate => candidate.id === post.id
+      )
+      const previousPostId =
+        categoryIndex === 0 ? null : categoryPosts[categoryIndex - 1].id
       const nextPostId =
-        index === posts.length - 1 ? null : posts[index + 1].id
+        categoryIndex === categoryPosts.length - 1
+          ? null
+          : categoryPosts[categoryIndex + 1].id
 
       if (!post.fields) return
 
@@ -171,6 +188,9 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       title: String
       description: String
       date: Date @dateformat
+      titleImage: String
+      category: String
+      tags: [String!]
     }
 
     type Fields {

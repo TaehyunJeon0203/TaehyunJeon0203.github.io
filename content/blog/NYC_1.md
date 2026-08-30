@@ -4,6 +4,7 @@ titleImage: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io/assets
 date: "2024-01-04"
 description: "뉴욕에서부터 미국 동부 여행을 시작하다"
 category: "daily"
+tags: ["여행", "미국", "뉴욕"]
 ---
 
 **뉴욕을 시작으로 미국 여행을 시작했습니다**

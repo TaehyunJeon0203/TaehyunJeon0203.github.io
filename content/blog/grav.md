@@ -7,6 +7,7 @@ date: "2024-09-16"
 
 description: "게임 플레이 타임 기록되듯, 작업 시간이 기록되는 프로젝트 매니저"
 category: "tech"
+tags: ["Electron", "Tailwind CSS", "앱 개발"]
 ---
 
 **게임을 하다 문득 코드를 치는 시간도 기록되면 어떨까 하는 생각이 들었다.**
