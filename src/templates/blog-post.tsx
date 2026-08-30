@@ -24,7 +24,7 @@ interface BlogPostData {
     frontmatter: {
       title: string
       date: string
-      datePublished: string
+      datePublished: string | null
       description: string | null
       titleImage: string | null
       tags: string[] | null
@@ -40,6 +40,11 @@ interface BlogPostData {
   } | null
 }
 
+const addImageLoadingAttributes = (html: string) =>
+  html
+    .replace(/<img\b(?![^>]*\bloading=)/gi, '<img loading="lazy"')
+    .replace(/<img\b(?![^>]*\bdecoding=)/gi, '<img decoding="async"')
+
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
@@ -47,6 +52,7 @@ const BlogPostTemplate = ({
   const siteUrl = site.siteMetadata.siteUrl
   const timeToRead = post.fields?.customTimeToRead ?? 1
   const postUrl = new URL(location.pathname, siteUrl).toString()
+  const postHtml = addImageLoadingAttributes(post.html)
 
   return (
     <div className="global-wrapper">
@@ -60,7 +66,7 @@ const BlogPostTemplate = ({
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <div className="post-meta" aria-label="Post metadata">
             <time
-              dateTime={post.frontmatter.datePublished}
+              dateTime={post.frontmatter.datePublished || undefined}
               itemProp="datePublished"
             >
               {post.frontmatter.date}
@@ -88,12 +94,14 @@ const BlogPostTemplate = ({
               src={post.frontmatter.titleImage}
               alt=""
               itemProp="image"
+              loading="eager"
+              decoding="async"
             />
           )}
         </header>
         <section
           className="post-body"
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          dangerouslySetInnerHTML={{ __html: postHtml }}
           itemProp="articleBody"
         />
         <footer className="post-actions">
@@ -140,13 +148,48 @@ const BlogPostTemplate = ({
 }
 
 export const Head = ({
-  data: { markdownRemark: post },
+  data: { site, markdownRemark: post },
+  location,
 }: HeadProps<BlogPostData>) => {
+  const postUrl = new URL(
+    location.pathname,
+    site.siteMetadata.siteUrl
+  ).toString()
+
   return (
-    <Seo
-      title={post.frontmatter.title}
-      description={post.frontmatter.description || post.excerpt}
-    />
+    <>
+      <Seo
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
+        url={postUrl}
+        type="article"
+        image={post.frontmatter.titleImage}
+        publishedTime={post.frontmatter.datePublished}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.frontmatter.title,
+            description: post.frontmatter.description || post.excerpt,
+            url: postUrl,
+            image: post.frontmatter.titleImage
+              ? new URL(
+                  post.frontmatter.titleImage,
+                  site.siteMetadata.siteUrl
+                ).toString()
+              : undefined,
+            datePublished: post.frontmatter.datePublished || undefined,
+            publisher: {
+              "@type": "Person",
+              name: "TaehyunJeon",
+            },
+          }),
+        }}
+      />
+    </>
   )
 }
 
