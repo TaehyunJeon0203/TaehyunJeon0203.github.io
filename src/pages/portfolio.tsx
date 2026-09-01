@@ -4,6 +4,9 @@ import type { PageProps } from "gatsby"
 import { GitHub, Mail, PenTool } from "react-feather"
 
 import Layout from "../components/layout"
+import PortfolioModeToggle from "../components/PortfolioModeToggle"
+import type { PortfolioMode } from "../components/PortfolioModeToggle"
+import PortfolioStory from "../components/PortfolioStory"
 import Seo from "../components/seo"
 import "../style/portfolio.css"
 
@@ -114,7 +117,12 @@ const ContentList = ({ items }: { items: ContentItem[] }) => (
         ) : (
           <>
             {renderRich(item.what)}
-            {item.result && <> → <strong>{item.result}</strong></>}
+            {item.result && (
+              <>
+                {" "}
+                → <strong>{item.result}</strong>
+              </>
+            )}
           </>
         )}
       </li>
@@ -161,7 +169,14 @@ const activities: Activity[] = [
     title: "PICT",
     role: "국립공주대학교 SW중심대학사업 산학캡스톤디자인 · 프론트엔드 리드 (FE 1인 · BE 2인)",
     period: "2026.03 - 2026.06",
-    stacks: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router", "Zustand"],
+    stacks: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "React Router",
+      "Zustand",
+    ],
     description: [
       "구직자가 채용 공고를 탐색하고 AI가 이력서를 자동 최적화해 외부 채용 사이트까지 자동 지원하는 ***구직 관리 대시보드***를 프론트엔드 단독으로 설계·구현",
     ],
@@ -208,7 +223,8 @@ const sideProjects: SideProject[] = [
     date: "2024.08",
     title: "Grav",
     subtitle: "전태현",
-    description: "프로젝트를 빠르게 실행하고 개발 시간을 자동으로 기록하는 프로젝트 매니저",
+    description:
+      "프로젝트를 빠르게 실행하고 개발 시간을 자동으로 기록하는 프로젝트 매니저",
     stacks: ["Electron", "TypeScript", "Tailwind CSS"],
     list: [
       "프로젝트 이름과 로컬 경로 등록 기능",
@@ -236,7 +252,14 @@ const sideProjects: SideProject[] = [
     title: "DevChat",
     subtitle: "팀 프로젝트 (Frontend)",
     description: "개발자들을 위한 실시간 채팅 웹 애플리케이션",
-    stacks: ["React", "TypeScript", "shadcn/ui", "Django", "WebSocket", "Docker"],
+    stacks: [
+      "React",
+      "TypeScript",
+      "shadcn/ui",
+      "Django",
+      "WebSocket",
+      "Docker",
+    ],
     list: [
       "GitHub OAuth 로그인",
       "실시간 채팅 기능",
@@ -249,7 +272,8 @@ const sideProjects: SideProject[] = [
     date: "2025.11",
     title: "LifeStats",
     subtitle: "전태현",
-    description: "개인 데이터를 기반으로 흥미로운 통계를 시각적으로 보여주는 웹 서비스",
+    description:
+      "개인 데이터를 기반으로 흥미로운 통계를 시각적으로 보여주는 웹 서비스",
     stacks: ["React", "TypeScript", "Express", "MySQL"],
     list: [
       "개인 데이터 입력 및 저장",
@@ -353,16 +377,39 @@ const skillCategories: SkillCategory[] = [
   },
 ]
 
+const PORTFOLIO_MODE_KEY = "portfolioMode"
+
 const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
   const siteTitle = data.site.siteMetadata.title
+  const [mode, setMode] = React.useState<PortfolioMode>("summary")
 
   React.useEffect(() => {
-    document.body.className = "tech-mode"
+    document.body.classList.remove("tech-mode", "daily-mode")
+    document.body.classList.add("tech-mode")
+
+    try {
+      if (localStorage.getItem(PORTFOLIO_MODE_KEY) === "story") {
+        setMode("story")
+      }
+    } catch {
+      // Storage can be unavailable in privacy-restricted browsing contexts.
+    }
   }, [])
+
+  const changeMode = (nextMode: PortfolioMode) => {
+    setMode(nextMode)
+    try {
+      localStorage.setItem(PORTFOLIO_MODE_KEY, nextMode)
+    } catch {
+      // The selected mode still applies for the current session.
+    }
+  }
 
   return (
     <Layout location={location} title={siteTitle}>
-      <article className="portfolio-page">
+      <PortfolioModeToggle mode={mode} onChange={changeMode} />
+      {mode === "story" && <PortfolioStory />}
+      <article className="portfolio-page" hidden={mode === "story"}>
         <header className="portfolio-header">
           <section className="portfolio-header-top">
             <div className="portfolio-greeting">
@@ -409,8 +456,8 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
               개발자를 목표로 합니다.
             </p>
             <p>
-              프론트엔드를 중심으로 사용자에게 직접 가닿는 서비스를 만드는
-              것에 흥미를 느낍니다.
+              프론트엔드를 중심으로 사용자에게 직접 가닿는 서비스를 만드는 것에
+              흥미를 느낍니다.
             </p>
             <p>
               불편함을 직접 만들어 해결하는 과정과, 서버 운영·인프라 영역에도
