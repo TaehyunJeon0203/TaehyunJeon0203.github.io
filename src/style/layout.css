@@ -8,7 +8,9 @@
 }
 
 .global-wrapper.wide-layout {
-  max-width: 1280px;
+  max-width: none;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .global-header {

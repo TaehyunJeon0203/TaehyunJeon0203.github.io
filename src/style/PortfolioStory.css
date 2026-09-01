@@ -21,13 +21,17 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: clamp(0.5rem, 1.5vh, 1rem) 0;
+  padding: 0.75rem;
 }
 
 .story-book-shell {
+  --story-book-ratio: 1.8;
   position: relative;
   display: flex;
-  width: min(100%, calc((100vh - 5.5rem) * 1.647));
+  width: min(
+    calc(100vw - 1.5rem),
+    calc((100vh - 5rem) * var(--story-book-ratio))
+  );
   min-width: 0;
   align-items: center;
   justify-content: center;
@@ -35,7 +39,10 @@
 
 @supports (height: 100dvh) {
   .story-book-shell {
-    width: min(100%, calc((100dvh - 5.5rem) * 1.647));
+    width: min(
+      calc(100vw - 1.5rem),
+      calc((100dvh - 5rem) * var(--story-book-ratio))
+    );
   }
 }
 
@@ -152,12 +159,15 @@
   }
 
   .story-book-shell {
-    width: min(100%, 559px, calc((100vh - 5.5rem) * 0.824));
+    --story-book-ratio: 0.54;
   }
 
   @supports (height: 100dvh) {
     .story-book-shell {
-      width: min(100%, 559px, calc((100dvh - 5.5rem) * 0.824));
+      width: min(
+        calc(100vw - 1.5rem),
+        calc((100dvh - 5rem) * var(--story-book-ratio))
+      );
     }
   }
 
