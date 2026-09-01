@@ -7,15 +7,16 @@ interface LayoutProps {
   location: Pick<Location, "pathname">
   title?: string
   children: ReactNode
+  headerControls?: ReactNode
 }
 
-const Layout = ({ location, children }: LayoutProps) => {
+const Layout = ({ location, children, headerControls }: LayoutProps) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
   return (
     <div className={`global-wrapper ${isRootPath ? "root" : "subpage"}`}>
-      <Header isRootPath={isRootPath} />
+      <Header isRootPath={isRootPath} pageControls={headerControls} />
       <main>{children}</main>
     </div>
   )

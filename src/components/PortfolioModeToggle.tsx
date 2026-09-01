@@ -8,14 +8,10 @@ interface PortfolioModeToggleProps {
 }
 
 const PortfolioModeToggle = ({ mode, onChange }: PortfolioModeToggleProps) => (
-  <div
-    className="portfolio-mode-toggle"
-    role="group"
-    aria-label="포트폴리오 보기 방식"
-  >
+  <nav className="theme-menu" aria-label="포트폴리오 보기 방식">
     <button
       type="button"
-      className={mode === "summary" ? "is-active" : undefined}
+      className={`theme-menu-item ${mode === "summary" ? "active" : ""}`}
       aria-pressed={mode === "summary"}
       onClick={() => onChange("summary")}
     >
@@ -23,13 +19,13 @@ const PortfolioModeToggle = ({ mode, onChange }: PortfolioModeToggleProps) => (
     </button>
     <button
       type="button"
-      className={mode === "story" ? "is-active" : undefined}
+      className={`theme-menu-item ${mode === "story" ? "active" : ""}`}
       aria-pressed={mode === "story"}
       onClick={() => onChange("story")}
     >
       Story
     </button>
-  </div>
+  </nav>
 )
 
 export default PortfolioModeToggle

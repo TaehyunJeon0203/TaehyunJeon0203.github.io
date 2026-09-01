@@ -206,13 +206,6 @@ const PortfolioStory = () => {
     else goNext()
   }
 
-  const visibleEnd = isSinglePage
-    ? pageIndex + 1
-    : Math.min(pageIndex + 2, STORY_PAGES.length)
-  const pageStatus = isSinglePage
-    ? `${pageIndex + 1} / ${STORY_PAGES.length}쪽`
-    : `${pageIndex + 1}–${visibleEnd} / ${STORY_PAGES.length}쪽`
-
   const renderRestingPages = () => (
     <>
       <StoryPageContent
@@ -298,16 +291,7 @@ const PortfolioStory = () => {
   }
 
   return (
-    <article
-      className="portfolio-story"
-      aria-labelledby="portfolio-story-title"
-    >
-      <header className="story-heading">
-        <p>PORTFOLIO STORY</p>
-        <h1 id="portfolio-story-title">만드는 사람의 프롤로그</h1>
-        <span>전태현 · Sample edition</span>
-      </header>
-
+    <article className="portfolio-story" aria-label="포트폴리오 스토리">
       <div
         className={`story-book${isSinglePage ? " is-single-page" : ""}`}
         onTouchStart={handleTouchStart}
@@ -317,56 +301,23 @@ const PortfolioStory = () => {
         <div className="story-pages">{renderTurningPages()}</div>
         <button
           type="button"
-          className="story-click-zone story-click-previous"
+          className="story-page-navigation story-page-previous"
           onClick={goPrevious}
           disabled={!canGoPrevious || Boolean(turn)}
           aria-label="이전 페이지"
-          aria-describedby="story-page-status"
-          aria-hidden="true"
-          tabIndex={-1}
         >
-          <span aria-hidden="true">이전</span>
+          <ChevronLeft size={20} aria-hidden="true" focusable="false" />
         </button>
         <button
           type="button"
-          className="story-click-zone story-click-next"
+          className="story-page-navigation story-page-next"
           onClick={goNext}
           disabled={!canGoNext || Boolean(turn)}
           aria-label="다음 페이지"
-          aria-describedby="story-page-status"
-          aria-hidden="true"
-          tabIndex={-1}
         >
-          <span aria-hidden="true">다음</span>
+          <ChevronRight size={20} aria-hidden="true" focusable="false" />
         </button>
       </div>
-
-      <nav className="story-controls" aria-label="스토리 페이지 탐색">
-        <button
-          type="button"
-          onClick={goPrevious}
-          disabled={!canGoPrevious || Boolean(turn)}
-          aria-label="이전 페이지"
-        >
-          <ChevronLeft size={18} aria-hidden="true" />
-          이전
-        </button>
-        <p id="story-page-status" aria-live="polite" aria-atomic="true">
-          {pageStatus}
-        </p>
-        <button
-          type="button"
-          onClick={goNext}
-          disabled={!canGoNext || Boolean(turn)}
-          aria-label="다음 페이지"
-        >
-          다음
-          <ChevronRight size={18} aria-hidden="true" />
-        </button>
-      </nav>
-      <p className="story-keyboard-hint">
-        키보드 방향키와 Home / End 또는 화면 스와이프로 이동할 수 있습니다.
-      </p>
     </article>
   )
 }
