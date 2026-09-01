@@ -14,6 +14,8 @@
 }
 
 .portfolio-story {
+  --story-serif: "Noto Serif KR", "Noto Serif CJK KR", "Nanum Myeongjo",
+    "AppleMyungjo", "Batang", var(--fontFamily-serif);
   display: flex;
   width: 100%;
   min-height: 0;
@@ -25,7 +27,7 @@
 }
 
 .story-book-shell {
-  --story-book-ratio: 1.8;
+  --story-book-ratio: 1.37931;
   position: relative;
   display: flex;
   width: min(
@@ -33,6 +35,7 @@
     calc((100vh - 5rem) * var(--story-book-ratio))
   );
   min-width: 0;
+  aspect-ratio: var(--story-book-ratio);
   align-items: center;
   justify-content: center;
 }
@@ -74,12 +77,11 @@
 }
 
 .story-page-content {
-  padding: clamp(1rem, min(6vw, 5vh), 4.5rem) clamp(2rem, 5vw, 4rem)
-    clamp(0.75rem, 2vh, 2rem);
+  padding: 10% 13% 0;
 }
 
 .story-page .story-eyebrow {
-  margin-bottom: clamp(0.45rem, 1.8vh, 1.25rem);
+  margin-bottom: 0.8rem;
   color: #8c6239;
   font-family: var(--font-heading);
   font-size: 0.68rem;
@@ -89,29 +91,34 @@
 }
 
 .story-page h2 {
-  margin: 0 0 clamp(0.65rem, 2.5vh, 2rem);
+  margin: 0 0 1.15rem;
   color: #30271e;
-  font-family: var(--fontFamily-serif);
-  font-size: clamp(1.15rem, min(2.6vw, 3vh), 1.9rem);
+  font-family: var(--story-serif);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
   line-height: 1.4;
   letter-spacing: -0.025em;
   word-break: keep-all;
 }
 
 .story-page p:not(.story-eyebrow) {
-  margin-bottom: clamp(0.45rem, 1.5vh, 1.15rem);
+  margin: 0;
   color: #4b4035;
-  font-family: var(--fontFamily-serif);
-  font-size: clamp(0.8rem, min(1.55vw, 1.8vh), 1rem);
-  line-height: 1.65;
+  font-family: var(--story-serif);
+  font-size: clamp(1rem, 1.1vw, 1.0625rem);
+  line-height: 1.8;
+  letter-spacing: -0.015em;
   text-align: justify;
   word-break: keep-all;
 }
 
+.story-page p:not(.story-eyebrow) + p:not(.story-eyebrow) {
+  margin-top: 1.26em;
+}
+
 .story-page-number {
-  margin: auto auto clamp(0.45rem, 1.8vh, 1.4rem);
+  margin: auto auto 12%;
   color: #806f5d;
-  font-family: var(--fontFamily-serif);
+  font-family: var(--story-serif);
   font-size: 0.72rem;
 }
 
@@ -159,7 +166,7 @@
   }
 
   .story-book-shell {
-    --story-book-ratio: 0.54;
+    --story-book-ratio: 0.689655;
   }
 
   @supports (height: 100dvh) {
@@ -169,11 +176,6 @@
         calc((100dvh - 5rem) * var(--story-book-ratio))
       );
     }
-  }
-
-  .story-page-content {
-    padding: clamp(1rem, min(10vw, 4vh), 3.5rem) clamp(1.6rem, 9vw, 3rem)
-      clamp(0.75rem, 2vh, 1.5rem);
   }
 
   .story-page-previous {
