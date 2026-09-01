@@ -176,8 +176,17 @@ const PortfolioStory = () => {
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [goNext, goPrevious, goToPage, lastPageIndex])
 
-  const finishTurn = () => {
+  const finishTurn = (event: React.AnimationEvent<HTMLDivElement>) => {
     if (!turn) return
+
+    const expectedAnimation =
+      turn.direction === "next"
+        ? "story-turn-next"
+        : isSinglePage
+        ? "story-turn-single-previous"
+        : "story-turn-previous"
+    if (event.animationName !== expectedAnimation) return
+
     setPageIndex(turn.target)
     setTurn(null)
   }
