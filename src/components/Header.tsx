@@ -15,9 +15,10 @@ const getSavedBlogType = (): BlogType => {
 
 interface HeaderProps {
   isRootPath?: boolean
+  pageControls?: React.ReactNode
 }
 
-const Header = ({ isRootPath = false }: HeaderProps) => {
+const Header = ({ isRootPath = false, pageControls }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [blogType, setBlogType] = useState<BlogType>(getSavedBlogType)
 
@@ -76,6 +77,7 @@ const Header = ({ isRootPath = false }: HeaderProps) => {
               </button>
             </nav>
           )}
+          {!isRootPath && pageControls}
           <button
             type="button"
             className="menu-icon"

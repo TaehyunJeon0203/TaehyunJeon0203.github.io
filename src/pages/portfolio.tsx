@@ -406,11 +406,16 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <div className={mode === "story" ? "portfolio-story-mode" : undefined}>
-        <PortfolioModeToggle mode={mode} onChange={changeMode} />
-        {mode === "story" && <PortfolioStory />}
-      </div>
+    <Layout
+      location={location}
+      title={siteTitle}
+      headerControls={<PortfolioModeToggle mode={mode} onChange={changeMode} />}
+    >
+      {mode === "story" && (
+        <div className="portfolio-story-mode">
+          <PortfolioStory />
+        </div>
+      )}
       <article className="portfolio-page" hidden={mode === "story"}>
         <header className="portfolio-header">
           <section className="portfolio-header-top">
