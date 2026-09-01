@@ -93,27 +93,56 @@ const useMediaQuery = (query: string) => {
 }
 
 const StoryPageContent = React.forwardRef<HTMLDivElement, StoryPageProps>(
-  ({ page, pageNumber }, ref) => (
-    <div
-      className={`story-page story-page--${
-        pageNumber % 2 === 1 ? "left" : "right"
-      }`}
-      ref={ref}
-      role="group"
-      aria-label={`${pageNumber} / ${STORY_PAGES.length} 페이지`}
-    >
-      <section className="story-page-content">
-        <p className="story-eyebrow">{page.eyebrow}</p>
-        <h2>{page.title}</h2>
-        {page.paragraphs.map((paragraph, index) => (
-          <p key={`${page.title}-${index}`}>{paragraph}</p>
-        ))}
-      </section>
-      <span className="story-page-number" aria-hidden="true">
-        {pageNumber}
-      </span>
-    </div>
-  )
+  ({ page, pageNumber }, ref) => {
+    const filterId = `story-paper-noise-${React.useId().replace(/:/g, "")}`
+
+    return (
+      <div
+        className={`story-page story-page--${
+          pageNumber % 2 === 1 ? "left" : "right"
+        }`}
+        ref={ref}
+        role="group"
+        aria-label={`${pageNumber} / ${STORY_PAGES.length} 페이지`}
+      >
+        <svg
+          className="story-paper-noise"
+          aria-hidden="true"
+          focusable="false"
+          preserveAspectRatio="none"
+        >
+          <filter
+            id={filterId}
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            colorInterpolationFilters="sRGB"
+          >
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.72"
+              numOctaves={4}
+              seed={pageNumber * 17}
+              stitchTiles="stitch"
+            />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter={`url(#${filterId})`} />
+        </svg>
+        <section className="story-page-content">
+          <p className="story-eyebrow">{page.eyebrow}</p>
+          <h2>{page.title}</h2>
+          {page.paragraphs.map((paragraph, index) => (
+            <p key={`${page.title}-${index}`}>{paragraph}</p>
+          ))}
+        </section>
+        <span className="story-page-number" aria-hidden="true">
+          {pageNumber}
+        </span>
+      </div>
+    )
+  }
 )
 
 StoryPageContent.displayName = "StoryPageContent"
