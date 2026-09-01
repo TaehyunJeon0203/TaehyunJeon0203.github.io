@@ -95,7 +95,9 @@ const useMediaQuery = (query: string) => {
 const StoryPageContent = React.forwardRef<HTMLDivElement, StoryPageProps>(
   ({ page, pageNumber }, ref) => (
     <div
-      className="story-page"
+      className={`story-page story-page--${
+        pageNumber % 2 === 1 ? "left" : "right"
+      }`}
       ref={ref}
       role="group"
       aria-label={`${pageNumber} / ${STORY_PAGES.length} 페이지`}
