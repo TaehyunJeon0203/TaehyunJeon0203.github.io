@@ -28,7 +28,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       }>
     }
   }>(`
-    {
+    query BlogPostsForPages {
       allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
         nodes {
           id
