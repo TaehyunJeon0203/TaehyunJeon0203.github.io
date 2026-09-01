@@ -14,7 +14,6 @@
     "gatsby-plugin-feed": "^5.12.3",
     "gatsby-plugin-image": "^3.12.3",
     "gatsby-plugin-manifest": "^5.12.3",
-    "gatsby-plugin-react-helmet": "^6.13.1",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.12.3",
     "gatsby-plugin-sitemap": "^6.13.1",
@@ -28,11 +27,16 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-feather": "^2.0.10",
-    "react-helmet": "^6.1.0",
-    "react-modal": "^3.16.1"
+    "react-modal": "^3.16.1",
+    "react-pageflip": "^2.0.3"
   },
   "devDependencies": {
-    "prettier": "^2.8.8"
+    "@types/node": "^26.1.2",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@types/react-modal": "^3.16.3",
+    "prettier": "^2.8.8",
+    "typescript": "^7.0.2"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
@@ -50,6 +54,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }
 }

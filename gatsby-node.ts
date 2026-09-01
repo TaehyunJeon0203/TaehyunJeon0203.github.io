@@ -4,26 +4,39 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
 
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+import path from "path"
+import type { GatsbyNode } from "gatsby"
+import { createFilePath } from "gatsby-source-filesystem"
 
 // Define the template for blog post
-const blogPost = path.resolve(`./src/templates/blog-post.js`)
+const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
 
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
-exports.createPages = async ({ graphql, actions, reporter }) => {
+export const createPages: GatsbyNode["createPages"] = async ({
+  graphql,
+  actions,
+  reporter,
+}) => {
   const { createPage } = actions
 
   // Get all markdown blog posts sorted by date
-  const result = await graphql(`
-    {
+  const result = await graphql<{
+    allMarkdownRemark: {
+      nodes: Array<{
+        id: string
+        fields: { slug: string } | null
+        frontmatter: { category: string | null } | null
+      }>
+    }
+  }>(`
+    query BlogPostsForPages {
       allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
         nodes {
           id
           fields {
             slug
+          }
+          frontmatter {
+            category
           }
         }
       }
@@ -38,16 +51,29 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allMarkdownRemark.nodes
+  const posts = result.data?.allMarkdownRemark.nodes ?? []
 
   // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
+  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.ts)
   // `context` is available in the template as a prop and as a variable in GraphQL
 
   if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+    posts.forEach(post => {
+      const categoryPosts = posts.filter(
+        candidate =>
+          candidate.frontmatter?.category === post.frontmatter?.category
+      )
+      const categoryIndex = categoryPosts.findIndex(
+        candidate => candidate.id === post.id
+      )
+      const previousPostId =
+        categoryIndex === 0 ? null : categoryPosts[categoryIndex - 1].id
+      const nextPostId =
+        categoryIndex === categoryPosts.length - 1
+          ? null
+          : categoryPosts[categoryIndex + 1].id
+
+      if (!post.fields) return
 
       createPage({
         path: post.fields.slug,
@@ -62,10 +88,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 }
 
-/**
- * @type {import('gatsby').GatsbyNode['onCreateNode']}
- */
-exports.onCreateNode = ({ node, actions, getNode }) => {
+export const onCreateNode: GatsbyNode["onCreateNode"] = ({
+  node,
+  actions,
+  getNode,
+}) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
@@ -78,7 +105,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
 
     // 커스텀 읽기 시간 계산
-    const calculateCustomTimeToRead = content => {
+    const calculateCustomTimeToRead = (content: string) => {
       // 마크다운 문법 제거하고 순수 텍스트만 추출
       const plainText = content
         .replace(/!\[.*?\]\(.*?\)/g, "") // 이미지 링크 제거
@@ -114,7 +141,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       return minutes
     }
 
-    const customTimeToRead = calculateCustomTimeToRead(node.internal.content)
+    const customTimeToRead = calculateCustomTimeToRead(
+      node.internal.content || ""
+    )
 
     createNodeField({
       name: `customTimeToRead`,
@@ -124,19 +153,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-/**
- * @type {import('gatsby').GatsbyNode['createSchemaCustomization']}
- */
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
+  ({ actions }) => {
+    const { createTypes } = actions
 
-  // Explicitly define the siteMetadata {} object
-  // This way those will always be defined even if removed from gatsby-config.js
+    // Explicitly define the siteMetadata {} object
+    // This way those will always be defined even if removed from gatsby-config.ts
 
-  // Also explicitly define the Markdown frontmatter
-  // This way the "MarkdownRemark" queries will return `null` even when no
-  // blog posts are stored inside "content/blog" instead of returning an error
-  createTypes(`
+    // Also explicitly define the Markdown frontmatter
+    // This way the "MarkdownRemark" queries will return `null` even when no
+    // blog posts are stored inside "content/blog" instead of returning an error
+    createTypes(`
     type SiteSiteMetadata {
       author: Author
       siteUrl: String
@@ -161,6 +188,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      titleImage: String
+      category: String
+      tags: [String!]
     }
 
     type Fields {
@@ -168,4 +198,4 @@ exports.createSchemaCustomization = ({ actions }) => {
       customTimeToRead: Int
     }
   `)
-}
+  }

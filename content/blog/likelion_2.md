@@ -7,6 +7,7 @@ date: "2026-04-05"
 
 description: "Vite를 활용한 React 프로젝트 생성 및 기본 구조"
 category: "tech"
+tags: ["React", "Vite", "프론트엔드"]
 ---
 
 "멋쟁이 사자처럼 대학 14기" 프론트엔드 2주차의 교육 내용 정리이다.
@@ -127,4 +128,3 @@ export const messages = [
   { id: 2, name: "B", message: "hello" },
 ];
 ```
-

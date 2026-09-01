@@ -1,12 +1,22 @@
-import React, { useState, useEffect } from "react"
+import * as React from "react"
+import { useState, useEffect } from "react"
 import Modal from "react-modal"
 import "../style/GlobalMenu.css"
 import GlobalMenuHeader from "./GlobalMenuHeader"
 import GlobalMenuFooter from "./GlobalMenuFooter"
 import GlobalMenuItem from "./GlobalMenuItem"
 
-const GlobalMenu = ({ isOpen, toggleMenu }) => {
+interface GlobalMenuProps {
+  isOpen: boolean
+  toggleMenu: () => void
+}
+
+const GlobalMenu = ({ isOpen, toggleMenu }: GlobalMenuProps) => {
   const [isClosing, setIsClosing] = useState(false)
+
+  useEffect(() => {
+    Modal.setAppElement("#___gatsby")
+  }, [])
 
   useEffect(() => {
     if (isOpen) {
@@ -14,9 +24,16 @@ const GlobalMenu = ({ isOpen, toggleMenu }) => {
     } else {
       document.body.classList.remove("menu-open") // 메뉴가 닫힐 때 body에서 menu-open 클래스 제거
     }
+
+    return () => document.body.classList.remove("menu-open")
   }, [isOpen])
 
   const handleCloseModal = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      toggleMenu()
+      return
+    }
+
     setIsClosing(true) // 모달이 닫히는 중임을 설정합니다.
     setTimeout(() => {
       toggleMenu() // 모달을 닫습니다.
@@ -29,6 +46,7 @@ const GlobalMenu = ({ isOpen, toggleMenu }) => {
       isOpen={isOpen}
       onRequestClose={handleCloseModal}
       contentLabel="Global Menu"
+      id="global-menu"
       className={`menu-modal ${isOpen && !isClosing ? "slideIn" : "slideOut"}`}
       overlayClassName="menu-overlay"
     >

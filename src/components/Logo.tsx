@@ -1,6 +1,11 @@
-import React from "react"
+import * as React from "react"
 
-const Logo = ({ width, height }) => {
+interface LogoProps {
+  width: string | number
+  height: string | number
+}
+
+const Logo = ({ width, height }: LogoProps) => {
   // localStorage에서 블로그 타입 가져오기
   const blogType =
     typeof window !== "undefined"
