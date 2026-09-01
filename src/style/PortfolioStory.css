@@ -16,7 +16,7 @@
 .portfolio-story {
   display: flex;
   width: 100%;
-  max-width: 1040px;
+  max-width: 1200px;
   min-height: 0;
   flex: 1 1 auto;
   flex-direction: column;

@@ -410,6 +410,7 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
       location={location}
       title={siteTitle}
       headerControls={<PortfolioModeToggle mode={mode} onChange={changeMode} />}
+      wide={mode === "story"}
     >
       {mode === "story" && (
         <div className="portfolio-story-mode">
