@@ -118,6 +118,7 @@ StoryPageContent.displayName = "StoryPageContent"
 
 const PortfolioStory = () => {
   const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)")
+  const isMobile = useMediaQuery("(max-width: 700px)")
   const bookRef = React.useRef<PageFlipHandle>(null)
   const [currentPage, setCurrentPage] = React.useState(0)
   const [orientation, setOrientation] =
@@ -214,17 +215,19 @@ const PortfolioStory = () => {
     <article className="portfolio-story" aria-label="포트폴리오 스토리">
       <div className="story-book-shell">
         <HTMLFlipBook
-          key={prefersReducedMotion ? "reduced-motion" : "animated"}
+          key={`${isMobile ? "mobile" : "desktop"}-${
+            prefersReducedMotion ? "reduced-motion" : "animated"
+          }`}
           ref={bookRef}
           className="story-flipbook"
           style={{}}
-          width={560}
-          height={680}
+          width={isMobile ? 540 : 900}
+          height={1000}
           size="stretch"
           minWidth={280}
-          maxWidth={560}
+          maxWidth={isMobile ? 540 : 1200}
           minHeight={340}
-          maxHeight={680}
+          maxHeight={isMobile ? 1000 : 1334}
           startPage={currentPage}
           drawShadow={!prefersReducedMotion}
           flippingTime={prefersReducedMotion ? 1 : 800}
