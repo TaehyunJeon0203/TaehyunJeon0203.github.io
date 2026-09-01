@@ -1,5 +1,6 @@
 import * as React from "react"
 import { ChevronLeft, ChevronRight } from "react-feather"
+import HTMLFlipBook from "react-pageflip"
 
 import "../style/PortfolioStory.css"
 
@@ -9,11 +10,33 @@ interface StoryPage {
   paragraphs: readonly string[]
 }
 
-type TurnDirection = "previous" | "next"
+type PageOrientation = "portrait" | "landscape"
 
-interface TurnState {
-  direction: TurnDirection
-  target: number
+interface PageFlipApi {
+  flip: (page: number) => void
+  flipNext: () => void
+  flipPrev: () => void
+  getCurrentPageIndex: () => number
+  turnToPage: (page: number) => void
+}
+
+interface PageFlipHandle {
+  pageFlip: () => PageFlipApi
+}
+
+interface PageFlipEvent<T> {
+  data: T
+  object: PageFlipApi
+}
+
+interface PageFlipInitData {
+  page: number
+  mode: PageOrientation
+}
+
+interface StoryPageProps {
+  page: StoryPage
+  pageNumber: number
 }
 
 // 임시 프롤로그입니다. 실제 원고로 교체할 때 이 배열의 내용만 바꾸면 됩니다.
@@ -53,7 +76,9 @@ const STORY_PAGES = [
 ] as const satisfies readonly StoryPage[]
 
 const useMediaQuery = (query: string) => {
-  const [matches, setMatches] = React.useState(false)
+  const [matches, setMatches] = React.useState(
+    () => typeof window !== "undefined" && window.matchMedia(query).matches
+  )
 
   React.useEffect(() => {
     const mediaQuery = window.matchMedia(query)
@@ -67,80 +92,75 @@ const useMediaQuery = (query: string) => {
   return matches
 }
 
-const StoryPageContent = ({
-  page,
-  pageNumber,
-  side,
-}: {
-  page: StoryPage
-  pageNumber: number
-  side?: "left" | "right"
-}) => (
-  <section className={`story-page${side ? ` story-page-${side}` : ""}`}>
-    <div className="story-page-content">
-      <p className="story-eyebrow">{page.eyebrow}</p>
-      <h2>{page.title}</h2>
-      {page.paragraphs.map((paragraph, index) => (
-        <p key={`${page.title}-${index}`}>{paragraph}</p>
-      ))}
+const StoryPageContent = React.forwardRef<HTMLDivElement, StoryPageProps>(
+  ({ page, pageNumber }, ref) => (
+    <div
+      className="story-page"
+      ref={ref}
+      role="group"
+      aria-label={`${pageNumber} / ${STORY_PAGES.length} 페이지`}
+    >
+      <section className="story-page-content">
+        <p className="story-eyebrow">{page.eyebrow}</p>
+        <h2>{page.title}</h2>
+        {page.paragraphs.map((paragraph, index) => (
+          <p key={`${page.title}-${index}`}>{paragraph}</p>
+        ))}
+      </section>
+      <span className="story-page-number" aria-hidden="true">
+        {pageNumber}
+      </span>
     </div>
-    <span className="story-page-number" aria-hidden="true">
-      {pageNumber}
-    </span>
-  </section>
+  )
 )
 
+StoryPageContent.displayName = "StoryPageContent"
+
 const PortfolioStory = () => {
-  const isSinglePage = useMediaQuery("(max-width: 700px)")
   const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)")
-  const [pageIndex, setPageIndex] = React.useState(0)
-  const [turn, setTurn] = React.useState<TurnState | null>(null)
-  const touchStart = React.useRef<{ x: number; y: number } | null>(null)
-  const pageStep = isSinglePage ? 1 : 2
-  const lastPageIndex = isSinglePage
-    ? STORY_PAGES.length - 1
-    : Math.max(0, STORY_PAGES.length - (STORY_PAGES.length % 2 || pageStep))
-  const canGoPrevious = pageIndex > 0
-  const canGoNext = pageIndex < lastPageIndex
-
-  React.useEffect(() => {
-    if (!isSinglePage) {
-      setPageIndex(index => index - (index % 2))
-    }
-    setTurn(null)
-  }, [isSinglePage])
-
-  React.useEffect(() => {
-    if (prefersReducedMotion && turn) {
-      setPageIndex(turn.target)
-      setTurn(null)
-    }
-  }, [prefersReducedMotion, turn])
+  const bookRef = React.useRef<PageFlipHandle>(null)
+  const [currentPage, setCurrentPage] = React.useState(0)
+  const [orientation, setOrientation] =
+    React.useState<PageOrientation>("landscape")
+  const lastPageIndex =
+    orientation === "portrait" ? STORY_PAGES.length - 1 : STORY_PAGES.length - 2
+  const canGoPrevious = currentPage > 0
+  const canGoNext = currentPage < lastPageIndex
 
   const goToPage = React.useCallback(
-    (target: number, direction: TurnDirection) => {
-      if (turn) return
+    (page: number) => {
+      const pageFlip = bookRef.current?.pageFlip()
+      if (!pageFlip) return
 
-      const safeTarget = Math.max(0, Math.min(target, lastPageIndex))
-      if (safeTarget === pageIndex) return
-
-      if (prefersReducedMotion) {
-        setPageIndex(safeTarget)
-        return
-      }
-
-      setTurn({ direction, target: safeTarget })
+      if (prefersReducedMotion) pageFlip.turnToPage(page)
+      else pageFlip.flip(page)
     },
-    [lastPageIndex, pageIndex, prefersReducedMotion, turn]
+    [prefersReducedMotion]
   )
 
   const goPrevious = React.useCallback(() => {
-    goToPage(pageIndex - pageStep, "previous")
-  }, [goToPage, pageIndex, pageStep])
+    const pageFlip = bookRef.current?.pageFlip()
+    if (!pageFlip || !canGoPrevious) return
+
+    if (prefersReducedMotion) {
+      const pageStep = orientation === "portrait" ? 1 : 2
+      pageFlip.turnToPage(Math.max(0, currentPage - pageStep))
+    } else {
+      pageFlip.flipPrev()
+    }
+  }, [canGoPrevious, currentPage, orientation, prefersReducedMotion])
 
   const goNext = React.useCallback(() => {
-    goToPage(pageIndex + pageStep, "next")
-  }, [goToPage, pageIndex, pageStep])
+    const pageFlip = bookRef.current?.pageFlip()
+    if (!pageFlip || !canGoNext) return
+
+    if (prefersReducedMotion) {
+      const pageStep = orientation === "portrait" ? 1 : 2
+      pageFlip.turnToPage(Math.min(lastPageIndex, currentPage + pageStep))
+    } else {
+      pageFlip.flipNext()
+    }
+  }, [canGoNext, currentPage, lastPageIndex, orientation, prefersReducedMotion])
 
   React.useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -165,10 +185,10 @@ const PortfolioStory = () => {
         goNext()
       } else if (event.key === "Home") {
         event.preventDefault()
-        goToPage(0, "previous")
+        goToPage(0)
       } else if (event.key === "End") {
         event.preventDefault()
-        goToPage(lastPageIndex, "next")
+        goToPage(lastPageIndex)
       }
     }
 
@@ -176,155 +196,78 @@ const PortfolioStory = () => {
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [goNext, goPrevious, goToPage, lastPageIndex])
 
-  const finishTurn = (event: React.AnimationEvent<HTMLDivElement>) => {
-    if (!turn) return
-
-    const expectedAnimation =
-      turn.direction === "next"
-        ? "story-turn-next"
-        : isSinglePage
-        ? "story-turn-single-previous"
-        : "story-turn-previous"
-    if (event.animationName !== expectedAnimation) return
-
-    setPageIndex(turn.target)
-    setTurn(null)
+  const handleInit = (event: PageFlipEvent<PageFlipInitData>) => {
+    setCurrentPage(event.data.page)
+    setOrientation(event.data.mode)
   }
 
-  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    const touch = event.touches[0]
-    touchStart.current = { x: touch.clientX, y: touch.clientY }
+  const handleFlip = (event: PageFlipEvent<number>) => {
+    setCurrentPage(event.data)
   }
 
-  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
-    const start = touchStart.current
-    const touch = event.changedTouches[0]
-    touchStart.current = null
-    if (!start || !touch) return
-
-    const distanceX = touch.clientX - start.x
-    const distanceY = touch.clientY - start.y
-    if (
-      Math.abs(distanceX) < 45 ||
-      Math.abs(distanceX) <= Math.abs(distanceY)
-    ) {
-      return
-    }
-
-    if (distanceX > 0) goPrevious()
-    else goNext()
-  }
-
-  const renderRestingPages = () => (
-    <>
-      <StoryPageContent
-        page={STORY_PAGES[pageIndex]}
-        pageNumber={pageIndex + 1}
-        side={isSinglePage ? undefined : "left"}
-      />
-      {!isSinglePage && STORY_PAGES[pageIndex + 1] && (
-        <StoryPageContent
-          page={STORY_PAGES[pageIndex + 1]}
-          pageNumber={pageIndex + 2}
-          side="right"
-        />
-      )}
-    </>
-  )
-
-  const renderTurningPages = () => {
-    if (!turn) return renderRestingPages()
-
-    if (isSinglePage) {
-      return (
-        <>
-          <StoryPageContent
-            page={STORY_PAGES[turn.target]}
-            pageNumber={turn.target + 1}
-          />
-          <div
-            className={`story-turning-page is-${turn.direction}`}
-            onAnimationEnd={finishTurn}
-            aria-hidden="true"
-          >
-            <StoryPageContent
-              page={STORY_PAGES[pageIndex]}
-              pageNumber={pageIndex + 1}
-            />
-          </div>
-        </>
-      )
-    }
-
-    const leftIndex = turn.direction === "next" ? pageIndex : turn.target
-    const rightIndex =
-      turn.direction === "next" ? turn.target + 1 : pageIndex + 1
-    const frontIndex =
-      turn.direction === "next" ? pageIndex + 1 : turn.target + 1
-    const backIndex = turn.direction === "next" ? turn.target : pageIndex
-
-    return (
-      <>
-        <StoryPageContent
-          page={STORY_PAGES[leftIndex]}
-          pageNumber={leftIndex + 1}
-          side="left"
-        />
-        <StoryPageContent
-          page={STORY_PAGES[rightIndex]}
-          pageNumber={rightIndex + 1}
-          side="right"
-        />
-        <div
-          className={`story-turning-page is-${turn.direction}`}
-          onAnimationEnd={finishTurn}
-          aria-hidden="true"
-        >
-          <div className="story-turn-front">
-            <StoryPageContent
-              page={STORY_PAGES[frontIndex]}
-              pageNumber={frontIndex + 1}
-              side="right"
-            />
-          </div>
-          <div className="story-turn-back">
-            <StoryPageContent
-              page={STORY_PAGES[backIndex]}
-              pageNumber={backIndex + 1}
-              side="left"
-            />
-          </div>
-        </div>
-      </>
-    )
+  const handleOrientationChange = (event: PageFlipEvent<PageOrientation>) => {
+    setOrientation(event.data)
+    setCurrentPage(event.object.getCurrentPageIndex())
   }
 
   return (
     <article className="portfolio-story" aria-label="포트폴리오 스토리">
-      <div
-        className={`story-book${isSinglePage ? " is-single-page" : ""}`}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-        onTouchCancel={() => (touchStart.current = null)}
-      >
-        <div className="story-pages">{renderTurningPages()}</div>
+      <div className="story-book-shell">
+        <HTMLFlipBook
+          key={prefersReducedMotion ? "reduced-motion" : "animated"}
+          ref={bookRef}
+          className="story-flipbook"
+          style={{}}
+          width={560}
+          height={680}
+          size="stretch"
+          minWidth={280}
+          maxWidth={560}
+          minHeight={340}
+          maxHeight={680}
+          startPage={currentPage}
+          drawShadow={!prefersReducedMotion}
+          flippingTime={prefersReducedMotion ? 1 : 800}
+          usePortrait
+          startZIndex={0}
+          autoSize
+          maxShadowOpacity={0.32}
+          showCover={false}
+          mobileScrollSupport={false}
+          clickEventForward
+          useMouseEvents
+          swipeDistance={30}
+          showPageCorners={false}
+          disableFlipByClick
+          onInit={handleInit}
+          onFlip={handleFlip}
+          onChangeOrientation={handleOrientationChange}
+        >
+          {STORY_PAGES.map((page, index) => (
+            <StoryPageContent
+              key={page.title}
+              page={page}
+              pageNumber={index + 1}
+            />
+          ))}
+        </HTMLFlipBook>
         <button
           type="button"
           className="story-page-navigation story-page-previous"
           onClick={goPrevious}
-          disabled={!canGoPrevious || Boolean(turn)}
+          disabled={!canGoPrevious}
           aria-label="이전 페이지"
         >
-          <ChevronLeft size={20} aria-hidden="true" focusable="false" />
+          <ChevronLeft size={18} aria-hidden="true" focusable="false" />
         </button>
         <button
           type="button"
           className="story-page-navigation story-page-next"
           onClick={goNext}
-          disabled={!canGoNext || Boolean(turn)}
+          disabled={!canGoNext}
           aria-label="다음 페이지"
         >
-          <ChevronRight size={20} aria-hidden="true" focusable="false" />
+          <ChevronRight size={18} aria-hidden="true" focusable="false" />
         </button>
       </div>
     </article>
