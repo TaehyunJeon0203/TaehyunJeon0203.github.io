@@ -46,7 +46,13 @@ interface SideProject {
   stacks: string[]
   list: ContentItem[]
   link?: string
-  images?: { src: string; alt: string; width: number; height: number }[]
+  images?: {
+    src: string
+    alt: string
+    width: number
+    height: number
+    size?: "default" | "wide"
+  }[]
 }
 
 interface SkillCategory {
@@ -364,6 +370,7 @@ const sideProjects: SideProject[] = [
         alt: "Grav 프로젝트 카드와 작업 시간 기록 화면",
         width: 2390,
         height: 1582,
+        size: "wide",
       },
     ],
     link: "https://github.com/TaehyunJeon0203/grav",
@@ -555,6 +562,9 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                         width={image.width}
                         height={image.height}
                         loading="lazy"
+                        className={
+                          image.size === "wide" ? "is-wide" : undefined
+                        }
                       />
                     ))}
                   </div>

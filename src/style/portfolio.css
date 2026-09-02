@@ -164,6 +164,10 @@
   border-radius: 6px;
 }
 
+.portfolio-project-images img.is-wide {
+  width: min(100%, 520px);
+}
+
 .portfolio-entry li {
   color: var(--color-text);
   font-size: 0.95rem;
