@@ -4,9 +4,6 @@ import type { PageProps } from "gatsby"
 import { GitHub, Mail, PenTool } from "react-feather"
 
 import Layout from "../components/layout"
-import PortfolioModeToggle from "../components/PortfolioModeToggle"
-import type { PortfolioMode } from "../components/PortfolioModeToggle"
-import PortfolioStory from "../components/PortfolioStory"
 import Seo from "../components/seo"
 import "../style/portfolio.css"
 
@@ -377,47 +374,17 @@ const skillCategories: SkillCategory[] = [
   },
 ]
 
-const PORTFOLIO_MODE_KEY = "portfolioMode"
-
 const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
   const siteTitle = data.site.siteMetadata.title
-  const [mode, setMode] = React.useState<PortfolioMode>("summary")
 
   React.useEffect(() => {
     document.body.classList.remove("tech-mode", "daily-mode")
     document.body.classList.add("tech-mode")
-
-    try {
-      if (localStorage.getItem(PORTFOLIO_MODE_KEY) === "story") {
-        setMode("story")
-      }
-    } catch {
-      // Storage can be unavailable in privacy-restricted browsing contexts.
-    }
   }, [])
 
-  const changeMode = (nextMode: PortfolioMode) => {
-    setMode(nextMode)
-    try {
-      localStorage.setItem(PORTFOLIO_MODE_KEY, nextMode)
-    } catch {
-      // The selected mode still applies for the current session.
-    }
-  }
-
   return (
-    <Layout
-      location={location}
-      title={siteTitle}
-      headerControls={<PortfolioModeToggle mode={mode} onChange={changeMode} />}
-      wide={mode === "story"}
-    >
-      {mode === "story" && (
-        <div className="portfolio-story-mode">
-          <PortfolioStory />
-        </div>
-      )}
-      <article className="portfolio-page" hidden={mode === "story"}>
+    <Layout location={location} title={siteTitle}>
+      <article className="portfolio-page">
         <header className="portfolio-header">
           <section className="portfolio-header-top">
             <div className="portfolio-greeting">
