@@ -149,40 +149,6 @@ const ContentList = ({ items }: { items: ContentItem[] }) => (
 
 const activities: Activity[] = [
   {
-    title: "멋쟁이 사자처럼 대학 14기",
-    role: "IT 연합동아리 · 프론트엔드",
-    period: "2026.03 - 활동중",
-    stacks: ["JavaScript", "React", "Vite"],
-    description: [
-      "다양한 전공의 팀원들과 함께 ***프론트엔드 기초 이론과 React***를 학습",
-      "매주 과제와 스터디를 통해 팀 프로젝트에 필요한 기술 기반을 다지는 중",
-    ],
-  },
-  {
-    title: "Grand-trade-Auto",
-    role: "2인 프로젝트 (Frontend, Crawling) · AWS 기반 AI 웹서비스 교육과정",
-    period: "2025.07",
-    stacks: ["React", "TypeScript", "shadcn/ui", "Machine Learning"],
-    description: [
-      "AWS 기반 AI 웹서비스 교육 과정을 수료하며 ***중고차 가격을 예측하는 웹 서비스***를 개발",
-    ],
-    projects: [
-      {
-        title: "AI 기반 중고차 가격 예측 웹 서비스",
-        content: [
-          "웹 크롤링을 통해 수집한 데이터를 모델에 학습",
-          {
-            what: "학습된 AI 모델을 활용한 가격 예측 기능 구현",
-          },
-          "머신러닝 모델 기반 가격 예측 기능 개발",
-          "AWS 환경에서의 서비스 구성",
-          "데이터 수집을 위한 크롤러 개발",
-        ],
-        link: "https://github.com/TaehyunJeon0203/grand-trade-auto",
-      },
-    ],
-  },
-  {
     title: "PICT",
     role: "국립공주대학교 SW중심대학사업 산학캡스톤디자인 · 프론트엔드 리드 (FE 1인 · BE 2인)",
     period: "2026.03 - 2026.06",
@@ -220,115 +186,57 @@ const activities: Activity[] = [
       },
     ],
   },
+  {
+    title: "멋쟁이 사자처럼 대학 14기",
+    role: "IT 연합동아리 · 프론트엔드",
+    period: "2026.03 - 활동중",
+    stacks: ["JavaScript", "React", "Vite"],
+    description: [
+      "다양한 전공의 팀원들과 함께 ***프론트엔드 기초 이론과 React***를 학습",
+      "매주 과제와 스터디를 통해 팀 프로젝트에 필요한 기술 기반을 다지는 중",
+    ],
+  },
+  {
+    title: "Grand-trade-Auto",
+    role: "2인 프로젝트 (Frontend, Crawling) · AWS 기반 AI 웹서비스 교육과정",
+    period: "2025.07",
+    stacks: ["React", "TypeScript", "shadcn/ui", "Machine Learning"],
+    description: [
+      "AWS 기반 AI 웹서비스 교육 과정을 수료하며 ***중고차 가격을 예측하는 웹 서비스***를 개발",
+    ],
+    projects: [
+      {
+        title: "AI 기반 중고차 가격 예측 웹 서비스",
+        content: [
+          "웹 크롤링을 통해 수집한 데이터를 모델에 학습",
+          {
+            what: "학습된 AI 모델을 활용한 가격 예측 기능 구현",
+          },
+          "머신러닝 모델 기반 가격 예측 기능 개발",
+          "AWS 환경에서의 서비스 구성",
+          "데이터 수집을 위한 크롤러 개발",
+        ],
+        link: "https://github.com/TaehyunJeon0203/grand-trade-auto",
+      },
+    ],
+  },
 ]
 
 const sideProjects: SideProject[] = [
   {
-    date: "2023.12",
-    title: "TH Blog",
-    subtitle: "전태현",
-    description: "Gatsby 기반으로 제작한 개인 기술 블로그",
-    stacks: ["Gatsby", "React", "GraphQL"],
-    list: [
-      "Gatsby 기반 정적 블로그 구축",
-      "Markdown 기반 콘텐츠 관리",
-      "GitHub Pages를 통한 배포",
-    ],
-    link: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io",
-  },
-  {
-    date: "2024.08",
-    title: "Grav",
-    subtitle: "전태현",
+    date: "2026.07",
+    title: "아트민",
+    subtitle: "팀 프로젝트 (Frontend) · 2일 해커톤 (FE 1인 · BE 3인)",
     description:
-      "프로젝트를 빠르게 실행하고 개발 시간을 자동으로 기록하는 프로젝트 매니저",
-    stacks: ["Electron", "TypeScript", "Tailwind CSS"],
+      "카페·식당처럼 다른 용도로 쓰이는 공간의 유휴시간을 예술인 클래스 공간으로 재활용하는 매칭 앱",
+    stacks: ["Expo", "React Native", "TypeScript"],
     list: [
-      "프로젝트 이름과 로컬 경로 등록 기능",
-      "등록된 프로젝트 목록 관리",
-      "VSCode로 빠르게 실행하는 기능",
-      "개발 시간 자동 기록 기능",
+      "Figma 디자인 시스템(컬러 토큰·텍스트 스타일) 직접 설계, 사용자·제공자 총 9개 화면 단독 구현",
+      "expo-router 기반 사용자/공간 제공자 2-모드 탭 라우팅 구조 설계",
+      "목업 데이터로 전체 화면 완성 후 백엔드 API 순차 실 연동 전환",
+      "이미지 리사이즈·압축 후 업로드하는 클라이언트 업로드 플로우 구현",
+      "로그인 없이 UUID 기반 게스트 인증(X-Guest-Id 헤더) 구조 구현",
     ],
-    link: "https://github.com/TaehyunJeon0203/grav",
-  },
-  {
-    date: "2025.06",
-    title: "Lanssenger",
-    subtitle: "팀 프로젝트 (Backend)",
-    description: "소켓 통신 기반의 메신저 프로그램",
-    stacks: ["C++", "Socket", "TCP/IP"],
-    list: [
-      "소켓 기반 클라이언트-서버 통신",
-      "다중 사용자 메시지 처리",
-      "연결 및 세션 관리 로직 구현",
-    ],
-    link: "https://github.com/TaehyunJeon0203/lanssenger",
-  },
-  {
-    date: "2025.10",
-    title: "DevChat",
-    subtitle: "팀 프로젝트 (Frontend)",
-    description: "개발자들을 위한 실시간 채팅 웹 애플리케이션",
-    stacks: [
-      "React",
-      "TypeScript",
-      "shadcn/ui",
-      "Django",
-      "WebSocket",
-      "Docker",
-    ],
-    list: [
-      "GitHub OAuth 로그인",
-      "실시간 채팅 기능",
-      "방 단위 대화 흐름 설계",
-      "프론트엔드-백엔드 협업 구조 구성",
-    ],
-    link: "https://github.com/knu-devchat",
-  },
-  {
-    date: "2025.11",
-    title: "LifeStats",
-    subtitle: "전태현",
-    description:
-      "개인 데이터를 기반으로 흥미로운 통계를 시각적으로 보여주는 웹 서비스",
-    stacks: ["React", "TypeScript", "Express", "MySQL"],
-    list: [
-      "개인 데이터 입력 및 저장",
-      "통계 정보 시각화",
-      "공유 가능한 카드 형태 UI 구성",
-      "백엔드와 데이터베이스 연동",
-    ],
-    link: "https://github.com/TaehyunJeon0203/lifestats",
-  },
-  {
-    date: "2026.04 - 2026.06",
-    title: "Pinple",
-    subtitle: "전태현",
-    description:
-      "공주대학교 천안캠퍼스 학생 전용 소모임 앱 — 지도 기반으로 소모임을 찾고 만들고 참여할 수 있는 서비스",
-    stacks: ["Flutter", "Dart", "Firebase"],
-    list: [
-      "천안캠퍼스 반경 2km 이내 위치 인증 및 학교 이메일 도메인 인증",
-      "네이버 지도 기반 소모임 탐색 및 리스트 뷰 전환",
-      "지도 핀 기반 소모임 생성/수정/삭제(CRUD)",
-      "소모임 참여 신청 및 수락/거절 기능",
-    ],
-    link: "https://github.com/TaehyunJeon0203/pinple",
-  },
-  {
-    date: "2026.05",
-    title: "Clican",
-    subtitle: "전태현",
-    description:
-      "구글 검색 결과의 신뢰도를 AI로 분석해 별점으로 보여주는 크롬 확장 프로그램",
-    stacks: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-    list: [
-      "Google 검색 결과 페이지에 콘텐츠 스크립트를 주입해 제목/URL/스니펫 파싱",
-      "백엔드 AI 분석 API 연동 및 신뢰도 점수 → 별점 변환 로직 개발",
-      "별점 호버 시 근거(reason)와 태그(tags) 툴팁 UI 구현",
-      "Manifest V3 기반 크롬 확장 프로그램 빌드 환경(CRXJS) 구성",
-    ],
-    link: "https://github.com/TaehyunJeon0203/clican-front",
   },
   {
     date: "2026.06 - 진행중",
@@ -347,19 +255,77 @@ const sideProjects: SideProject[] = [
     link: "https://github.com/TaehyunJeon0203/driend",
   },
   {
-    date: "2026.07",
-    title: "Borrow",
-    subtitle: "팀 프로젝트 (Frontend) · 2일 해커톤 (FE 1인 · BE 3인)",
+    date: "2026.05",
+    title: "Clican",
+    subtitle: "전태현",
     description:
-      "카페·식당처럼 다른 용도로 쓰이는 공간의 유휴시간을 예술인 클래스 공간으로 재활용하는 매칭 앱",
-    stacks: ["Expo", "React Native", "TypeScript"],
+      "구글 검색 결과의 신뢰도를 AI로 분석해 별점으로 보여주는 크롬 확장 프로그램",
+    stacks: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     list: [
-      "Figma 디자인 시스템(컬러 토큰·텍스트 스타일) 직접 설계, 사용자·제공자 총 9개 화면 단독 구현",
-      "expo-router 기반 사용자/공간 제공자 2-모드 탭 라우팅 구조 설계",
-      "목업 데이터로 전체 화면 완성 후 백엔드 API 순차 실 연동 전환",
-      "이미지 리사이즈·압축 후 업로드하는 클라이언트 업로드 플로우 구현",
-      "로그인 없이 UUID 기반 게스트 인증(X-Guest-Id 헤더) 구조 구현",
+      "Google 검색 결과 페이지에 콘텐츠 스크립트를 주입해 제목/URL/스니펫 파싱",
+      "백엔드 AI 분석 API 연동 및 신뢰도 점수 → 별점 변환 로직 개발",
+      "별점 호버 시 근거(reason)와 태그(tags) 툴팁 UI 구현",
+      "Manifest V3 기반 크롬 확장 프로그램 빌드 환경(CRXJS) 구성",
     ],
+    link: "https://github.com/TaehyunJeon0203/clican-front",
+  },
+  {
+    date: "2026.04 - 2026.06",
+    title: "Pinple",
+    subtitle: "전태현",
+    description:
+      "공주대학교 천안캠퍼스 학생 전용 소모임 앱 — 지도 기반으로 소모임을 찾고 만들고 참여할 수 있는 서비스",
+    stacks: ["Flutter", "Dart", "Firebase"],
+    list: [
+      "천안캠퍼스 반경 2km 이내 위치 인증 및 학교 이메일 도메인 인증",
+      "네이버 지도 기반 소모임 탐색 및 리스트 뷰 전환",
+      "지도 핀 기반 소모임 생성/수정/삭제(CRUD)",
+      "소모임 참여 신청 및 수락/거절 기능",
+    ],
+    link: "https://github.com/TaehyunJeon0203/pinple",
+  },
+  {
+    date: "2025.11",
+    title: "LifeStats",
+    subtitle: "전태현",
+    description:
+      "개인 데이터를 기반으로 흥미로운 통계를 시각적으로 보여주는 웹 서비스",
+    stacks: ["React", "TypeScript", "Express", "MySQL"],
+    list: [
+      "개인 데이터 입력 및 저장",
+      "통계 정보 시각화",
+      "공유 가능한 카드 형태 UI 구성",
+      "백엔드와 데이터베이스 연동",
+    ],
+    link: "https://github.com/TaehyunJeon0203/lifestats",
+  },
+  {
+    date: "2024.08",
+    title: "Grav",
+    subtitle: "전태현",
+    description:
+      "프로젝트를 빠르게 실행하고 개발 시간을 자동으로 기록하는 프로젝트 매니저",
+    stacks: ["Electron", "TypeScript", "Tailwind CSS"],
+    list: [
+      "프로젝트 이름과 로컬 경로 등록 기능",
+      "등록된 프로젝트 목록 관리",
+      "VSCode로 빠르게 실행하는 기능",
+      "개발 시간 자동 기록 기능",
+    ],
+    link: "https://github.com/TaehyunJeon0203/grav",
+  },
+  {
+    date: "2023.12",
+    title: "TH Blog",
+    subtitle: "전태현",
+    description: "Gatsby 기반으로 제작한 개인 기술 블로그",
+    stacks: ["Gatsby", "React", "GraphQL"],
+    list: [
+      "Gatsby 기반 정적 블로그 구축",
+      "Markdown 기반 콘텐츠 관리",
+      "GitHub Pages를 통한 배포",
+    ],
+    link: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io",
   },
 ]
 
