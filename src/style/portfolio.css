@@ -181,21 +181,17 @@
 .portfolio-stack-badges {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.4rem;
+  min-height: 20px;
   margin: 0.5rem 0 1rem;
 }
 
 .portfolio-stack-badge {
-  font-family: var(--font-heading);
-  font-size: 0.72rem;
-  font-weight: var(--fontWeight-bold);
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  color: #ffffff;
-}
-
-.portfolio-stack-badge.is-light {
-  color: #111111;
+  display: block;
+  width: auto;
+  height: 20px;
+  max-width: 100%;
 }
 
 /* Other Experience */
