@@ -209,16 +209,6 @@ const activities: Activity[] = [
     ],
   },
   {
-    title: "멋쟁이 사자처럼 대학 14기",
-    role: "IT 연합동아리 · 프론트엔드",
-    period: "2026.03 - 활동중",
-    stacks: ["JavaScript", "React", "Vite"],
-    description: [
-      "다양한 전공의 팀원들과 함께 ***프론트엔드 기초 이론과 React***를 학습",
-      "매주 과제와 스터디를 통해 팀 프로젝트에 필요한 기술 기반을 다지는 중",
-    ],
-  },
-  {
     title: "Grand-trade-Auto",
     role: "2인 프로젝트 (Frontend, Crawling) · AWS 기반 AI 웹서비스 교육과정",
     period: "2025.07",
@@ -253,7 +243,7 @@ const activities: Activity[] = [
   },
 ]
 
-const sideProjects: SideProject[] = [
+const likeLionProjects: SideProject[] = [
   {
     date: "2026.07",
     title: "아트민",
@@ -269,6 +259,24 @@ const sideProjects: SideProject[] = [
       "로그인 없이 UUID 기반 게스트 인증(X-Guest-Id 헤더) 구조 구현",
     ],
   },
+  {
+    date: "2026.05",
+    title: "Clican",
+    subtitle: "전태현",
+    description:
+      "구글 검색 결과의 신뢰도를 AI로 분석해 별점으로 보여주는 크롬 확장 프로그램",
+    stacks: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    list: [
+      "Google 검색 결과 페이지에 콘텐츠 스크립트를 주입해 제목/URL/스니펫 파싱",
+      "백엔드 AI 분석 API 연동 및 신뢰도 점수 → 별점 변환 로직 개발",
+      "별점 호버 시 근거(reason)와 태그(tags) 툴팁 UI 구현",
+      "Manifest V3 기반 크롬 확장 프로그램 빌드 환경(CRXJS) 구성",
+    ],
+    link: "https://github.com/TaehyunJeon0203/clican-front",
+  },
+]
+
+const sideProjects: SideProject[] = [
   {
     date: "2026.06 - 진행중",
     title: "Driend",
@@ -322,21 +330,6 @@ const sideProjects: SideProject[] = [
       },
     ],
     link: "https://github.com/TaehyunJeon0203/driend",
-  },
-  {
-    date: "2026.05",
-    title: "Clican",
-    subtitle: "전태현",
-    description:
-      "구글 검색 결과의 신뢰도를 AI로 분석해 별점으로 보여주는 크롬 확장 프로그램",
-    stacks: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-    list: [
-      "Google 검색 결과 페이지에 콘텐츠 스크립트를 주입해 제목/URL/스니펫 파싱",
-      "백엔드 AI 분석 API 연동 및 신뢰도 점수 → 별점 변환 로직 개발",
-      "별점 호버 시 근거(reason)와 태그(tags) 툴팁 UI 구현",
-      "Manifest V3 기반 크롬 확장 프로그램 빌드 환경(CRXJS) 구성",
-    ],
-    link: "https://github.com/TaehyunJeon0203/clican-front",
   },
   {
     date: "2026.04 - 2026.06",
@@ -561,6 +554,59 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                       )}
                     </div>
                   ))}
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <section className="portfolio-section">
+          <h2>멋쟁이 사자처럼 대학 14기.</h2>
+          <p className="portfolio-section-caption">
+            IT 연합동아리 프론트엔드 활동에서 진행한 프로젝트입니다.
+          </p>
+          {likeLionProjects.map((project, index) => (
+            <div
+              className={`portfolio-entry ${
+                index !== likeLionProjects.length - 1 ? "has-border" : ""
+              }`}
+              key={project.title}
+            >
+              <div className="portfolio-entry-summary">
+                <h3>{project.title}</h3>
+                <p className="portfolio-entry-role">{project.subtitle}</p>
+                <span className="portfolio-entry-period">{project.date}</span>
+                <StackBadges stacks={project.stacks} />
+              </div>
+              <div className="portfolio-entry-details">
+                <p>{project.description}</p>
+                {project.images && (
+                  <div className="portfolio-project-images">
+                    {project.images.map(image => (
+                      <img
+                        key={image.src}
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width}
+                        height={image.height}
+                        loading="lazy"
+                        className={
+                          image.size === "wide" ? "is-wide" : undefined
+                        }
+                      />
+                    ))}
+                  </div>
+                )}
+                <ContentList items={project.list} />
+                {project.link && (
+                  <a
+                    className="portfolio-entry-link"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub Repository →
+                  </a>
+                )}
               </div>
             </div>
           ))}
