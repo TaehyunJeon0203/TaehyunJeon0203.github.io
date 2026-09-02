@@ -5,13 +5,15 @@ import { GitHub, Mail, PenTool } from "react-feather"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import StackBadge from "../components/StackBadge"
 import "../style/portfolio.css"
 
 type ContentItem = string | { what: string; result?: string }
 
-interface StackColor {
-  bg: string
-  light?: boolean
+interface StackBadgeStyle {
+  backgroundColor: string
+  logo?: string
+  blackLogo?: boolean
 }
 
 interface ActivityProject {
@@ -52,33 +54,57 @@ interface PortfolioPageData {
   }
 }
 
-const STACK_COLORS: Record<string, StackColor> = {
-  JavaScript: { bg: "#F0DB4F", light: true },
-  TypeScript: { bg: "#3178C6" },
-  React: { bg: "#61DAFB", light: true },
-  Vite: { bg: "#646CFF" },
-  Gatsby: { bg: "#663399" },
-  GraphQL: { bg: "#E10098" },
-  Electron: { bg: "#47848F" },
-  "Tailwind CSS": { bg: "#38BDF8", light: true },
-  "shadcn/ui": { bg: "#000000" },
-  "React Router": { bg: "#CA4245" },
-  "Machine Learning": { bg: "#7C3AED" },
-  "C++": { bg: "#00599C" },
-  Socket: { bg: "#4B5563" },
-  "TCP/IP": { bg: "#4B5563" },
-  Django: { bg: "#092E20" },
-  WebSocket: { bg: "#4B5563" },
-  Docker: { bg: "#2496ED" },
-  Express: { bg: "#000000" },
-  MySQL: { bg: "#4479A1" },
-  PWA: { bg: "#5A0FC8" },
-  Expo: { bg: "#000020" },
-  "React Native": { bg: "#61DAFB", light: true },
-  Supabase: { bg: "#3ECF8E", light: true },
-  Flutter: { bg: "#02569B" },
-  Dart: { bg: "#0175C2" },
-  Firebase: { bg: "#FFCA28", light: true },
+const STACK_BADGE_STYLES: Record<string, StackBadgeStyle> = {
+  JavaScript: {
+    backgroundColor: "#F0DB4F",
+    logo: "javascript",
+    blackLogo: true,
+  },
+  TypeScript: { backgroundColor: "#3178C6", logo: "typescript" },
+  React: { backgroundColor: "#61DAFB", logo: "react", blackLogo: true },
+  Vite: { backgroundColor: "#646CFF", logo: "vite" },
+  Gatsby: { backgroundColor: "#663399", logo: "gatsby" },
+  GraphQL: { backgroundColor: "#E10098", logo: "graphql" },
+  Electron: { backgroundColor: "#47848F", logo: "electron" },
+  "Tailwind CSS": {
+    backgroundColor: "#38BDF8",
+    logo: "tailwindcss",
+    blackLogo: true,
+  },
+  "shadcn/ui": { backgroundColor: "#000000", logo: "shadcnui" },
+  "React Router": { backgroundColor: "#CA4245", logo: "reactrouter" },
+  "Machine Learning": {
+    backgroundColor: "#7C3AED",
+    logo: "scikitlearn",
+  },
+  "C++": { backgroundColor: "#00599C", logo: "cplusplus" },
+  Socket: { backgroundColor: "#4B5563", logo: "socketdotio" },
+  "TCP/IP": { backgroundColor: "#4B5563", logo: "cisco" },
+  Django: { backgroundColor: "#092E20", logo: "django" },
+  WebSocket: { backgroundColor: "#4B5563", logo: "socketdotio" },
+  Docker: { backgroundColor: "#2496ED", logo: "docker" },
+  Express: { backgroundColor: "#000000", logo: "express" },
+  MySQL: { backgroundColor: "#4479A1", logo: "mysql" },
+  PWA: { backgroundColor: "#5A0FC8", logo: "pwa" },
+  Expo: { backgroundColor: "#000020", logo: "expo" },
+  "React Native": {
+    backgroundColor: "#61DAFB",
+    logo: "react",
+    blackLogo: true,
+  },
+  Supabase: {
+    backgroundColor: "#3ECF8E",
+    logo: "supabase",
+    blackLogo: true,
+  },
+  Flutter: { backgroundColor: "#02569B", logo: "flutter" },
+  Dart: { backgroundColor: "#0175C2", logo: "dart" },
+  Firebase: {
+    backgroundColor: "#FFCA28",
+    logo: "firebase",
+    blackLogo: true,
+  },
+  Zustand: { backgroundColor: "#374151", logo: "zustand" },
 }
 
 const renderRich = (text: string): React.ReactNode => {
@@ -91,16 +117,10 @@ const renderRich = (text: string): React.ReactNode => {
 const StackBadges = ({ stacks }: { stacks: string[] }) => (
   <div className="portfolio-stack-badges">
     {stacks.map(name => {
-      const color = STACK_COLORS[name] || { bg: "#374151" }
-      return (
-        <span
-          className={`portfolio-stack-badge ${color.light ? "is-light" : ""}`}
-          style={{ backgroundColor: color.bg }}
-          key={name}
-        >
-          {name}
-        </span>
-      )
+      const style = STACK_BADGE_STYLES[name] ?? {
+        backgroundColor: "#374151",
+      }
+      return <StackBadge name={name} {...style} key={name} />
     })}
   </div>
 )
