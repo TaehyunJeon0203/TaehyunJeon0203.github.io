@@ -6,6 +6,7 @@ import { GitHub, Mail, PenTool } from "react-feather"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import StackBadge from "../components/StackBadge"
+import GravPreview from "../images/portfolio/grav-preview.gif"
 import DriendScreenshotOne from "../images/portfolio/driend-screenshot-01.png"
 import DriendScreenshotTwo from "../images/portfolio/driend-screenshot-02.png"
 import DriendScreenshotThree from "../images/portfolio/driend-screenshot-03.png"
@@ -356,6 +357,14 @@ const sideProjects: SideProject[] = [
       "등록된 프로젝트 목록 관리",
       "VSCode로 빠르게 실행하는 기능",
       "개발 시간 자동 기록 기능",
+    ],
+    images: [
+      {
+        src: GravPreview,
+        alt: "Grav 프로젝트 카드와 작업 시간 기록 화면",
+        width: 2390,
+        height: 1582,
+      },
     ],
     link: "https://github.com/TaehyunJeon0203/grav",
   },
