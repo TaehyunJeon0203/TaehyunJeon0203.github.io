@@ -601,60 +601,49 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
               </div>
             </div>
           ))}
-        </section>
-
-        <section className="portfolio-section">
-          <h2>멋쟁이 사자처럼 대학 14기.</h2>
-          <p className="portfolio-section-caption">
-            IT 연합동아리 프론트엔드 활동에서 진행한 프로젝트입니다.
-          </p>
-          {likeLionProjects.map((project, index) => (
-            <div
-              className={`portfolio-entry ${
-                index !== likeLionProjects.length - 1 ? "has-border" : ""
-              }`}
-              key={project.title}
-            >
-              <div className="portfolio-entry-summary">
-                <h3>{project.title}</h3>
-                <p className="portfolio-entry-role">{project.subtitle}</p>
-                <span className="portfolio-entry-period">{project.date}</span>
-                <StackBadges stacks={project.stacks} />
-              </div>
-              <div className="portfolio-entry-details">
-                <p>{project.description}</p>
-                {project.images && (
-                  <div className="portfolio-project-images">
-                    {project.images.map(image => (
-                      <img
-                        key={image.src}
-                        src={image.src}
-                        alt={image.alt}
-                        width={image.width}
-                        height={image.height}
-                        loading="lazy"
-                        className={
-                          image.size === "wide" ? "is-wide" : undefined
-                        }
-                      />
-                    ))}
+          <div className="portfolio-entry portfolio-activity-group">
+            <div className="portfolio-entry-summary">
+              <h3>멋쟁이 사자처럼 대학 14기</h3>
+              <p className="portfolio-entry-role">IT 연합동아리 · 프론트엔드</p>
+              <span className="portfolio-entry-period">2026.03 - 활동중</span>
+              <StackBadges stacks={["JavaScript", "React", "Vite"]} />
+            </div>
+            <div className="portfolio-entry-details">
+              <p>
+                다양한 전공의 팀원들과 함께 프론트엔드 기초 이론과 React를
+                학습하고, 팀 프로젝트를 진행했습니다.
+              </p>
+              <div className="portfolio-subprojects">
+                {likeLionProjects.map(project => (
+                  <div className="portfolio-subproject" key={project.title}>
+                    <div className="portfolio-subproject-head">
+                      <h4>{project.title}</h4>
+                      <span className="portfolio-entry-period">
+                        {project.date}
+                      </span>
+                    </div>
+                    <p className="portfolio-entry-role">{project.subtitle}</p>
+                    <StackBadges stacks={project.stacks} />
+                    <p>{project.description}</p>
+                    <ContentList items={project.list} />
+                    {project.link && (
+                      <a
+                        className="portfolio-entry-link"
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        GitHub Repository →
+                      </a>
+                    )}
                   </div>
-                )}
-                <ContentList items={project.list} />
-                {project.link && (
-                  <a
-                    className="portfolio-entry-link"
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub Repository →
-                  </a>
-                )}
+                ))}
               </div>
             </div>
-          ))}
+          </div>
         </section>
+
+        <section className="portfolio-section"></section>
 
         <section className="portfolio-section">
           <h2>Side Projects.</h2>
