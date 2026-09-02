@@ -6,8 +6,12 @@ import { GitHub, Mail, PenTool } from "react-feather"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import StackBadge from "../components/StackBadge"
-import DriendRunningOne from "../images/portfolio/driend-running-1.png"
-import DriendRunningTwo from "../images/portfolio/driend-running-2.png"
+import DriendScreenshotOne from "../images/portfolio/driend-screenshot-01.png"
+import DriendScreenshotTwo from "../images/portfolio/driend-screenshot-02.png"
+import DriendScreenshotThree from "../images/portfolio/driend-screenshot-03.png"
+import DriendScreenshotFour from "../images/portfolio/driend-screenshot-04.png"
+import DriendScreenshotFive from "../images/portfolio/driend-screenshot-05.png"
+import DriendScreenshotSix from "../images/portfolio/driend-screenshot-06.png"
 import "../style/portfolio.css"
 
 type ContentItem = string | { what: string; result?: string }
@@ -257,16 +261,40 @@ const sideProjects: SideProject[] = [
     ],
     images: [
       {
-        src: DriendRunningOne,
-        alt: "Driend 야간 러닝 기록 화면",
-        width: 1290,
-        height: 2796,
+        src: DriendScreenshotOne,
+        alt: "Driend 지도 화면",
+        width: 1284,
+        height: 2778,
       },
       {
-        src: DriendRunningTwo,
-        alt: "Driend 러닝 기록 화면",
-        width: 1290,
-        height: 2796,
+        src: DriendScreenshotTwo,
+        alt: "Driend 방문 지역 지도 화면",
+        width: 1284,
+        height: 2778,
+      },
+      {
+        src: DriendScreenshotThree,
+        alt: "Driend 랭킹 화면",
+        width: 1284,
+        height: 2778,
+      },
+      {
+        src: DriendScreenshotFour,
+        alt: "Driend 통계 화면",
+        width: 1284,
+        height: 2778,
+      },
+      {
+        src: DriendScreenshotFive,
+        alt: "Driend 프로필 화면",
+        width: 1284,
+        height: 2778,
+      },
+      {
+        src: DriendScreenshotSix,
+        alt: "Driend 주행 기록 결과 화면",
+        width: 1194,
+        height: 1493,
       },
     ],
     link: "https://github.com/TaehyunJeon0203/driend",
