@@ -6,6 +6,7 @@ import { GitHub, Mail, PenTool } from "react-feather"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import StackBadge from "../components/StackBadge"
+import GrandTradeAutoPreview from "../images/portfolio/grand-trade-auto.gif"
 import GravPreview from "../images/portfolio/grav-preview.gif"
 import DriendScreenshotOne from "../images/portfolio/driend-screenshot-01.png"
 import DriendScreenshotTwo from "../images/portfolio/driend-screenshot-02.png"
@@ -27,6 +28,13 @@ interface ActivityProject {
   title: string
   content: ContentItem[]
   link?: string
+  images?: {
+    src: string
+    alt: string
+    width: number
+    height: number
+    size?: "default" | "wide"
+  }[]
 }
 
 interface Activity {
@@ -229,6 +237,15 @@ const activities: Activity[] = [
           "머신러닝 모델 기반 가격 예측 기능 개발",
           "AWS 환경에서의 서비스 구성",
           "데이터 수집을 위한 크롤러 개발",
+        ],
+        images: [
+          {
+            src: GrandTradeAutoPreview,
+            alt: "Grand-trade-Auto 중고차 가격 예측 화면",
+            width: 1300,
+            height: 920,
+            size: "wide",
+          },
         ],
         link: "https://github.com/TaehyunJeon0203/grand-trade-auto",
       },
@@ -514,6 +531,23 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                       key={project.title}
                     >
                       <h4>{project.title}</h4>
+                      {project.images && (
+                        <div className="portfolio-project-images">
+                          {project.images.map(image => (
+                            <img
+                              key={image.src}
+                              src={image.src}
+                              alt={image.alt}
+                              width={image.width}
+                              height={image.height}
+                              loading="lazy"
+                              className={
+                                image.size === "wide" ? "is-wide" : undefined
+                              }
+                            />
+                          ))}
+                        </div>
+                      )}
                       <ContentList items={project.content} />
                       {project.link && (
                         <a
