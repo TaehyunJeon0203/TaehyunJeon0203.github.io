@@ -8,6 +8,12 @@ import Seo from "../components/seo"
 import StackBadge from "../components/StackBadge"
 import GrandTradeAutoPreview from "../images/portfolio/grand-trade-auto.gif"
 import GravPreview from "../images/portfolio/grav-preview.gif"
+import LifeStatsImageOne from "../images/portfolio/lifestats-01.png"
+import LifeStatsImageTwo from "../images/portfolio/lifestats-02.png"
+import LifeStatsImageThree from "../images/portfolio/lifestats-03.jpg"
+import LifeStatsImageFour from "../images/portfolio/lifestats-04.png"
+import LifeStatsImageFive from "../images/portfolio/lifestats-05.png"
+import LifeStatsImageSix from "../images/portfolio/lifestats-06.png"
 import DriendScreenshotOne from "../images/portfolio/driend-screenshot-01.png"
 import DriendScreenshotTwo from "../images/portfolio/driend-screenshot-02.png"
 import DriendScreenshotThree from "../images/portfolio/driend-screenshot-03.png"
@@ -358,6 +364,44 @@ const sideProjects: SideProject[] = [
       "통계 정보 시각화",
       "공유 가능한 카드 형태 UI 구성",
       "백엔드와 데이터베이스 연동",
+    ],
+    images: [
+      {
+        src: LifeStatsImageOne,
+        alt: "LifeStats 화면 1",
+        width: 721,
+        height: 1558,
+      },
+      {
+        src: LifeStatsImageTwo,
+        alt: "LifeStats 화면 2",
+        width: 675,
+        height: 1457,
+      },
+      {
+        src: LifeStatsImageThree,
+        alt: "LifeStats 화면 3",
+        width: 458,
+        height: 1588,
+      },
+      {
+        src: LifeStatsImageFour,
+        alt: "LifeStats 화면 4",
+        width: 666,
+        height: 1439,
+      },
+      {
+        src: LifeStatsImageFive,
+        alt: "LifeStats 화면 5",
+        width: 666,
+        height: 1439,
+      },
+      {
+        src: LifeStatsImageSix,
+        alt: "LifeStats 화면 6",
+        width: 699,
+        height: 1509,
+      },
     ],
     link: "https://github.com/TaehyunJeon0203/lifestats",
   },
