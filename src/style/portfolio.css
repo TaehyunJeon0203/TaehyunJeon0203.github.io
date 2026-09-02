@@ -1,5 +1,5 @@
 .portfolio-page {
-  max-width: 760px;
+  max-width: 880px;
   margin: 0 auto;
   padding: 2rem 0 6rem;
 }
@@ -102,25 +102,26 @@
 /* Entries (Activity / Side Projects) */
 
 .portfolio-entry {
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  gap: 3rem;
+  padding-bottom: 2.25rem;
+  margin-bottom: 2.25rem;
 }
 
 .portfolio-entry.has-border {
-  border-bottom: 1px solid var(--color-accent);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.portfolio-entry-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
+.portfolio-entry-summary,
+.portfolio-entry-details {
+  min-width: 0;
 }
 
-.portfolio-entry-head h3 {
+.portfolio-entry-summary h3 {
   margin: 0;
   font-size: var(--fontSize-3);
+  overflow-wrap: break-word;
 }
 
 .portfolio-entry-period {
@@ -133,7 +134,7 @@
 .portfolio-entry-role {
   font-size: 0.9rem;
   color: var(--color-text-light);
-  margin: 0.35rem 0 0.9rem;
+  margin: 0.4rem 0 0.25rem;
 }
 
 .portfolio-entry p {
@@ -143,6 +144,10 @@
 
 .portfolio-entry ul {
   margin-bottom: 0;
+}
+
+.portfolio-entry-details > :first-child {
+  margin-top: 0;
 }
 
 .portfolio-entry li {
@@ -184,7 +189,7 @@
   align-items: center;
   gap: 0.4rem;
   min-height: 20px;
-  margin: 0.5rem 0 1rem;
+  margin: 0.85rem 0 0;
 }
 
 .portfolio-stack-badge {
@@ -250,8 +255,12 @@
     font-size: var(--fontSize-3);
   }
 
-  .portfolio-entry-head {
-    flex-direction: column;
-    gap: 0.2rem;
+  .portfolio-entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .portfolio-stack-badges {
+    margin-bottom: 0;
   }
 }

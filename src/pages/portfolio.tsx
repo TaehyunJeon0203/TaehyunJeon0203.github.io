@@ -470,32 +470,37 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
               }`}
               key={activity.title}
             >
-              <div className="portfolio-entry-head">
+              <div className="portfolio-entry-summary">
                 <h3>{activity.title}</h3>
+                <p className="portfolio-entry-role">{activity.role}</p>
                 <span className="portfolio-entry-period">
                   {activity.period}
                 </span>
+                <StackBadges stacks={activity.stacks} />
               </div>
-              <p className="portfolio-entry-role">{activity.role}</p>
-              <StackBadges stacks={activity.stacks} />
-              <ContentList items={activity.description} />
-              {activity.projects &&
-                activity.projects.map(project => (
-                  <div className="portfolio-project-block" key={project.title}>
-                    <h4>{project.title}</h4>
-                    <ContentList items={project.content} />
-                    {project.link && (
-                      <a
-                        className="portfolio-entry-link"
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        GitHub Repository →
-                      </a>
-                    )}
-                  </div>
-                ))}
+              <div className="portfolio-entry-details">
+                <ContentList items={activity.description} />
+                {activity.projects &&
+                  activity.projects.map(project => (
+                    <div
+                      className="portfolio-project-block"
+                      key={project.title}
+                    >
+                      <h4>{project.title}</h4>
+                      <ContentList items={project.content} />
+                      {project.link && (
+                        <a
+                          className="portfolio-entry-link"
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          GitHub Repository →
+                        </a>
+                      )}
+                    </div>
+                  ))}
+              </div>
             </div>
           ))}
         </section>
@@ -512,24 +517,26 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
               }`}
               key={project.title}
             >
-              <div className="portfolio-entry-head">
+              <div className="portfolio-entry-summary">
                 <h3>{project.title}</h3>
+                <p className="portfolio-entry-role">{project.subtitle}</p>
                 <span className="portfolio-entry-period">{project.date}</span>
+                <StackBadges stacks={project.stacks} />
               </div>
-              <p className="portfolio-entry-role">{project.subtitle}</p>
-              <StackBadges stacks={project.stacks} />
-              <p>{project.description}</p>
-              <ContentList items={project.list} />
-              {project.link && (
-                <a
-                  className="portfolio-entry-link"
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub Repository →
-                </a>
-              )}
+              <div className="portfolio-entry-details">
+                <p>{project.description}</p>
+                <ContentList items={project.list} />
+                {project.link && (
+                  <a
+                    className="portfolio-entry-link"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub Repository →
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </section>
