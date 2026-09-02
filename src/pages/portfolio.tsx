@@ -6,6 +6,8 @@ import { GitHub, Mail, PenTool } from "react-feather"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import StackBadge from "../components/StackBadge"
+import DriendRunningOne from "../images/portfolio/driend-running-1.png"
+import DriendRunningTwo from "../images/portfolio/driend-running-2.png"
 import "../style/portfolio.css"
 
 type ContentItem = string | { what: string; result?: string }
@@ -39,6 +41,7 @@ interface SideProject {
   stacks: string[]
   list: ContentItem[]
   link?: string
+  images?: { src: string; alt: string; width: number; height: number }[]
 }
 
 interface SkillCategory {
@@ -251,6 +254,20 @@ const sideProjects: SideProject[] = [
       "가속도계·GPS 기반 제로백(0→100km/h) 자동 측정",
       "누적 거리·최고속도·제로백·방문 도시 기준 랭킹 및 친구 시스템",
       "카카오 로그인 및 Supabase 인증 연동",
+    ],
+    images: [
+      {
+        src: DriendRunningOne,
+        alt: "Driend 야간 러닝 기록 화면",
+        width: 1290,
+        height: 2796,
+      },
+      {
+        src: DriendRunningTwo,
+        alt: "Driend 러닝 기록 화면",
+        width: 1290,
+        height: 2796,
+      },
     ],
     link: "https://github.com/TaehyunJeon0203/driend",
   },
@@ -491,6 +508,20 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
               </div>
               <div className="portfolio-entry-details">
                 <p>{project.description}</p>
+                {project.images && (
+                  <div className="portfolio-project-images">
+                    {project.images.map(image => (
+                      <img
+                        key={image.src}
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width}
+                        height={image.height}
+                        loading="lazy"
+                      />
+                    ))}
+                  </div>
+                )}
                 <ContentList items={project.list} />
                 {project.link && (
                   <a
