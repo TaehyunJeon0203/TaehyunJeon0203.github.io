@@ -606,7 +606,9 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
               <h3>멋쟁이 사자처럼 대학 14기</h3>
               <p className="portfolio-entry-role">IT 연합동아리 · 프론트엔드</p>
               <span className="portfolio-entry-period">2026.03 - 활동중</span>
-              <StackBadges stacks={["JavaScript", "React", "Vite"]} />
+              <StackBadges
+                stacks={["JavaScript", "TypeScript", "React", "Vite"]}
+              />
             </div>
             <div className="portfolio-entry-details">
               <p>
