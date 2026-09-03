@@ -536,6 +536,7 @@ const skillCategories: SkillCategory[] = [
     items: [
       "Docker, AWS(Lambda 등)를 활용한 배포 환경을 구성한 경험이 있습니다.",
       "GitHub Actions를 활용해 빌드 및 배포 자동화 파이프라인을 구성할 수 있습니다.",
+      "Vercel과 같은 서버리스 플랫폼을 통해 배포 환경을 구축할 수 있습니다.",
     ],
   },
   {
