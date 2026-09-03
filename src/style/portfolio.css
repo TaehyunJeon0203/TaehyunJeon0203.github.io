@@ -167,6 +167,10 @@
   margin-top: 0;
 }
 
+.portfolio-entry-details > p {
+  white-space: pre-line;
+}
+
 .portfolio-project-images {
   display: flex;
   flex-wrap: wrap;

@@ -292,7 +292,7 @@ const sideProjects: SideProject[] = [
     title: "Driend",
     subtitle: "전태현",
     description:
-      "드라이브를 자동으로 기록하고, 방문한 지역을 모으고, 친구와 랭킹을 겨루는 드라이브 기록 앱입니다. 애플 앱스토어에 배포했으며 자동차 동호회 카페에 공유하고 좋은 호응을 얻었습니다.",
+      "드라이브 경로를 기록하고, 방문한 지역에 사진을 등록하며, 친구와 랭킹을 겨루는 드라이브 기록 앱입니다.\n애플 앱스토어에 배포했으며 자동차 동호회 카페에 공유하고 좋은 호응을 얻었습니다.",
     stacks: ["Expo", "React Native", "TypeScript", "Supabase", "Zustand"],
     list: [
       "백그라운드 자동 주행 감지 및 map-matching 기반 경로 스냅",
