@@ -190,6 +190,10 @@
   width: min(100%, 520px);
 }
 
+.portfolio-project-images img.is-medium {
+  width: min(100%, 520px);
+}
+
 .portfolio-project-video {
   display: block;
   width: min(100%, 520px);

@@ -43,7 +43,7 @@ interface ActivityProject {
     alt: string
     width: number
     height: number
-    size?: "default" | "wide"
+    size?: "default" | "medium" | "wide"
   }[]
 }
 
@@ -71,7 +71,7 @@ interface SideProject {
     alt: string
     width: number
     height: number
-    size?: "default" | "wide"
+    size?: "default" | "medium" | "wide"
   }[]
 }
 
@@ -277,6 +277,7 @@ const likeLionProjects: SideProject[] = [
         alt: "아트민 무드보드",
         width: 1131,
         height: 1600,
+        size: "medium",
       },
     ],
     video: { src: ArtminDemoVideo, width: 1280, height: 720 },
@@ -592,7 +593,11 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                               height={image.height}
                               loading="lazy"
                               className={
-                                image.size === "wide" ? "is-wide" : undefined
+                                image.size === "wide"
+                                  ? "is-wide"
+                                  : image.size === "medium"
+                                  ? "is-medium"
+                                  : undefined
                               }
                             />
                           ))}
@@ -662,7 +667,11 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                             height={image.height}
                             loading="lazy"
                             className={
-                              image.size === "wide" ? "is-wide" : undefined
+                              image.size === "wide"
+                                ? "is-wide"
+                                : image.size === "medium"
+                                ? "is-medium"
+                                : undefined
                             }
                           />
                         ))}
@@ -730,7 +739,11 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                         height={image.height}
                         loading="lazy"
                         className={
-                          image.size === "wide" ? "is-wide" : undefined
+                          image.size === "wide"
+                            ? "is-wide"
+                            : image.size === "medium"
+                            ? "is-medium"
+                            : undefined
                         }
                       />
                     ))}
