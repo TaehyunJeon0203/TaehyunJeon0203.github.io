@@ -341,21 +341,6 @@ const sideProjects: SideProject[] = [
     link: "https://github.com/TaehyunJeon0203/driend",
   },
   {
-    date: "2026.04 - 2026.06",
-    title: "Pinple",
-    subtitle: "전태현",
-    description:
-      "공주대학교 천안캠퍼스 학생 전용 소모임 앱 — 지도 기반으로 소모임을 찾고 만들고 참여할 수 있는 서비스",
-    stacks: ["Flutter", "Dart", "Firebase"],
-    list: [
-      "천안캠퍼스 반경 2km 이내 위치 인증 및 학교 이메일 도메인 인증",
-      "네이버 지도 기반 소모임 탐색 및 리스트 뷰 전환",
-      "지도 핀 기반 소모임 생성/수정/삭제(CRUD)",
-      "소모임 참여 신청 및 수락/거절 기능",
-    ],
-    link: "https://github.com/TaehyunJeon0203/pinple",
-  },
-  {
     date: "2025.11",
     title: "LifeStats",
     subtitle: "전태현",
