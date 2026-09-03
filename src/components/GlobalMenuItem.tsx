@@ -16,14 +16,12 @@ const GlobalMenuItem = () => {
           우측 상단 버튼을 사용하여 블로그의 테마를 변경할 수 있습니다.
           <br />
           <br />
-          <Link to="/portfolio" style={{ color: '#0070f3', textDecoration: 'underline' }}>
+          <Link
+            to="/portfolio"
+            style={{ color: "#0070f3", textDecoration: "underline" }}
+          >
             포트폴리오
           </Link>
-          <br />
-          <br />
-          <a href="https://lifestats-sepia.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: '#0070f3', textDecoration: 'underline' }}>
-            LifeStats
-          </a>
         </p>
       </div>
     </div>

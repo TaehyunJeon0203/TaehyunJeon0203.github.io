@@ -412,6 +412,12 @@ const sideProjects: SideProject[] = [
       },
     ],
     link: "https://github.com/TaehyunJeon0203/lifestats",
+    additionalLinks: [
+      {
+        label: "LifeStats 서비스",
+        href: "https://lifestats-sepia.vercel.app/",
+      },
+    ],
   },
   {
     date: "2024.08",
