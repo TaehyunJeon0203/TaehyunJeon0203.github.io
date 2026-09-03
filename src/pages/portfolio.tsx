@@ -503,6 +503,7 @@ const sideProjects: SideProject[] = [
       "Gatsby 기반 정적 블로그 구축",
       "Markdown 기반 콘텐츠 관리",
       "GitHub Pages를 통한 배포",
+      "GitHub Actions를 활용한 빌드 및 배포 자동화",
     ],
     link: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io",
   },
@@ -518,15 +519,17 @@ const skillCategories: SkillCategory[] = [
     title: "Frontend",
     items: [
       "React, TypeScript를 기반으로 컴포넌트 단위의 웹 서비스를 구축할 수 있습니다.",
-      "Vite, Tailwind CSS 등 프론트엔드 개발 도구를 설정하고 활용할 수 있습니다.",
-      "Vanilla JS/CSS만으로도 스크롤 기반 인터랙션 등 인터랙티브한 UI를 구현할 수 있습니다.",
+      "Vite, Tailwind CSS, shadnc/ui등 프론트엔드 개발 도구를 설정하고 활용할 수 있습니다.",
+      "Zustand를 활용해 클라이언트 상태를 관리하고 화면 간 상태를 공유할 수 있습니다.",
     ],
   },
   {
     title: "Backend & Infra",
     items: [
       "Express, MySQL을 활용해 간단한 API 서버와 데이터베이스를 구축할 수 있습니다.",
+      "Supabase를 활용해 인증, 데이터베이스, Storage를 연동할 수 있습니다.",
       "Docker, AWS(Lambda 등)를 활용한 배포 환경을 구성한 경험이 있습니다.",
+      "GitHub Actions를 활용해 빌드 및 배포 자동화 파이프라인을 구성할 수 있습니다.",
       "C++ 기반 소켓 통신으로 클라이언트-서버 프로그램을 구현한 경험이 있습니다.",
     ],
   },
