@@ -564,88 +564,91 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
 
         <section className="portfolio-section portfolio-activity-section">
           <h2>Activity.</h2>
-          {activities.map((activity, index) => (
-            <div
-              className={`portfolio-entry ${
-                index !== activities.length - 1 ? "has-border" : ""
-              }`}
-              key={activity.title}
-            >
-              <div className="portfolio-entry-summary">
-                <h3>{activity.title}</h3>
-                <p className="portfolio-entry-role">{activity.role}</p>
-                <span className="portfolio-entry-period">
-                  {activity.period}
-                </span>
-                <StackBadges stacks={activity.stacks} />
+          {activities
+            .slice()
+            .reverse()
+            .map((activity, index) => (
+              <div
+                className={`portfolio-entry ${
+                  index !== activities.length - 1 ? "has-border" : ""
+                }`}
+                key={activity.title}
+              >
+                <div className="portfolio-entry-summary">
+                  <h3>{activity.title}</h3>
+                  <p className="portfolio-entry-role">{activity.role}</p>
+                  <span className="portfolio-entry-period">
+                    {activity.period}
+                  </span>
+                  <StackBadges stacks={activity.stacks} />
+                </div>
+                <div className="portfolio-entry-details">
+                  <ContentList items={activity.description} />
+                  {activity.projects &&
+                    activity.projects.map(project => (
+                      <div
+                        className="portfolio-project-block"
+                        key={project.title}
+                      >
+                        <h4>{project.title}</h4>
+                        {project.images && (
+                          <div className="portfolio-project-images">
+                            {project.images.map(image => (
+                              <a
+                                className="portfolio-project-image-link"
+                                href={image.src}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={image.src}
+                              >
+                                <img
+                                  src={image.src}
+                                  alt={image.alt}
+                                  width={image.width}
+                                  height={image.height}
+                                  loading="lazy"
+                                  className={
+                                    image.size === "wide"
+                                      ? "is-wide"
+                                      : image.size === "compact"
+                                      ? "is-compact"
+                                      : image.size === "medium"
+                                      ? "is-medium"
+                                      : undefined
+                                  }
+                                />
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                        {project.video && (
+                          <video
+                            className="portfolio-project-video"
+                            controls
+                            preload="metadata"
+                            width={project.video.width}
+                            height={project.video.height}
+                          >
+                            <source src={project.video.src} type="video/mp4" />
+                            브라우저가 동영상 재생을 지원하지 않습니다.
+                          </video>
+                        )}
+                        <ContentList items={project.content} />
+                        {project.link && (
+                          <a
+                            className="portfolio-entry-link"
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            GitHub Repository →
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                </div>
               </div>
-              <div className="portfolio-entry-details">
-                <ContentList items={activity.description} />
-                {activity.projects &&
-                  activity.projects.map(project => (
-                    <div
-                      className="portfolio-project-block"
-                      key={project.title}
-                    >
-                      <h4>{project.title}</h4>
-                      {project.images && (
-                        <div className="portfolio-project-images">
-                          {project.images.map(image => (
-                            <a
-                              className="portfolio-project-image-link"
-                              href={image.src}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              key={image.src}
-                            >
-                              <img
-                                src={image.src}
-                                alt={image.alt}
-                                width={image.width}
-                                height={image.height}
-                                loading="lazy"
-                                className={
-                                  image.size === "wide"
-                                    ? "is-wide"
-                                    : image.size === "compact"
-                                    ? "is-compact"
-                                    : image.size === "medium"
-                                    ? "is-medium"
-                                    : undefined
-                                }
-                              />
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                      {project.video && (
-                        <video
-                          className="portfolio-project-video"
-                          controls
-                          preload="metadata"
-                          width={project.video.width}
-                          height={project.video.height}
-                        >
-                          <source src={project.video.src} type="video/mp4" />
-                          브라우저가 동영상 재생을 지원하지 않습니다.
-                        </video>
-                      )}
-                      <ContentList items={project.content} />
-                      {project.link && (
-                        <a
-                          className="portfolio-entry-link"
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          GitHub Repository →
-                        </a>
-                      )}
-                    </div>
-                  ))}
-              </div>
-            </div>
-          ))}
+            ))}
           <div className="portfolio-entry portfolio-activity-group">
             <div className="portfolio-entry-summary">
               <h3>멋쟁이 사자처럼 대학 14기</h3>
