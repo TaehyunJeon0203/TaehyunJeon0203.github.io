@@ -15,6 +15,10 @@ import LifeStatsImageThree from "../images/portfolio/lifestats-03.jpg"
 import LifeStatsImageFour from "../images/portfolio/lifestats-04.png"
 import LifeStatsImageFive from "../images/portfolio/lifestats-05.png"
 import LifeStatsImageSix from "../images/portfolio/lifestats-06.png"
+import PinpleImageOne from "../images/portfolio/pinple-01.png"
+import PinpleImageTwo from "../images/portfolio/pinple-02.png"
+import PinpleImageThree from "../images/portfolio/pinple-03.png"
+import PinpleImageFour from "../images/portfolio/pinple-04.png"
 import ArtminDemoVideo from "../videos/artmin-demo.mp4"
 import PictDemoVideo from "../videos/pict-demo.mp4"
 import DriendScreenshotOne from "../images/portfolio/driend-screenshot-01.png"
@@ -359,6 +363,47 @@ const sideProjects: SideProject[] = [
         href: "https://apps.apple.com/kr/app/driend/id6794620035",
       },
     ],
+  },
+  {
+    date: "2026.04 - 2026.06",
+    title: "Pinple",
+    subtitle: "전태현",
+    description:
+      "공주대학교 천안캠퍼스 학생 전용 소모임 앱 — 지도 기반으로 소모임을 찾고 만들고 참여할 수 있는 서비스",
+    stacks: ["Flutter", "Dart", "Firebase"],
+    list: [
+      "천안캠퍼스 반경 2km 이내 위치 인증 및 학교 이메일 도메인 인증",
+      "네이버 지도 기반 소모임 탐색 및 리스트 뷰 전환",
+      "지도 핀 기반 소모임 생성/수정/삭제(CRUD)",
+      "소모임 참여 신청 및 수락/거절 기능",
+    ],
+    images: [
+      {
+        src: PinpleImageOne,
+        alt: "Pinple 화면 1",
+        width: 1380,
+        height: 2800,
+      },
+      {
+        src: PinpleImageTwo,
+        alt: "Pinple 화면 2",
+        width: 1468,
+        height: 2888,
+      },
+      {
+        src: PinpleImageThree,
+        alt: "Pinple 화면 3",
+        width: 1468,
+        height: 2888,
+      },
+      {
+        src: PinpleImageFour,
+        alt: "Pinple 화면 4",
+        width: 1468,
+        height: 2888,
+      },
+    ],
+    link: "https://github.com/TaehyunJeon0203/pinple",
   },
   {
     date: "2025.11",
