@@ -311,7 +311,7 @@ const sideProjects: SideProject[] = [
     status: "서비스 중",
     subtitle: "전태현",
     description:
-      "드라이브 경로 기록, 방문 지역 사진 등록, SNS 주행 기록 공유가 가능한 드라이브 기록 앱\n애플 앱스토어 배포 및 자동차 동호회 카페 공유, 사용자 호응 확보\n90+ 다운로드 기록 중",
+      "드라이브 경로 기록, 방문 지역 사진 등록, SNS 주행 기록 공유가 가능한 드라이브 기록 앱\n애플 앱스토어 배포 및 자동차 동호회 카페 공유, 사용자 호응 확보\n현재까지 90+ 다운로드를 기록,\n 47명의 사용자가 총 392회 주행하고 누적 13,418.3km의 데이터를 기록",
     stacks: ["Expo", "React Native", "TypeScript", "Supabase", "Zustand"],
     list: [
       "백그라운드 자동 주행 감지 및 map-matching 기반 경로 스냅",
@@ -421,6 +421,7 @@ const sideProjects: SideProject[] = [
       "통계 정보 시각화",
       "공유 가능한 카드 형태 UI 구성",
       "백엔드와 데이터베이스 연동",
+      "Web Share API 미지원 환경을 고려한 다운로드 fallback 구현",
     ],
     images: [
       {
