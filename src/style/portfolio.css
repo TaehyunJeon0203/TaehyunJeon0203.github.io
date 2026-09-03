@@ -187,16 +187,16 @@
 }
 
 .portfolio-project-images img.is-wide {
-  width: min(100%, 520px);
+  width: 100%;
 }
 
 .portfolio-project-images img.is-medium {
-  width: min(100%, 520px);
+  width: 100%;
 }
 
 .portfolio-project-video {
   display: block;
-  width: min(100%, 520px);
+  width: 100%;
   height: auto;
   margin: 1rem 0;
   border: 1px solid var(--color-border);
