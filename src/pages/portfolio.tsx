@@ -6,6 +6,7 @@ import { GitHub, Mail, PenTool } from "react-feather"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import StackBadge from "../components/StackBadge"
+import ArtminMoodboard from "../images/portfolio/artmin-moodboard.webp"
 import GrandTradeAutoPreview from "../images/portfolio/grand-trade-auto.gif"
 import GravPreview from "../images/portfolio/grav-preview.gif"
 import LifeStatsImageOne from "../images/portfolio/lifestats-01.png"
@@ -14,6 +15,7 @@ import LifeStatsImageThree from "../images/portfolio/lifestats-03.jpg"
 import LifeStatsImageFour from "../images/portfolio/lifestats-04.png"
 import LifeStatsImageFive from "../images/portfolio/lifestats-05.png"
 import LifeStatsImageSix from "../images/portfolio/lifestats-06.png"
+import ArtminDemoVideo from "../videos/artmin-demo.mp4"
 import PictDemoVideo from "../videos/pict-demo.mp4"
 import DriendScreenshotOne from "../images/portfolio/driend-screenshot-01.png"
 import DriendScreenshotTwo from "../images/portfolio/driend-screenshot-02.png"
@@ -63,6 +65,7 @@ interface SideProject {
   list: ContentItem[]
   link?: string
   additionalLinks?: { label: string; href: string }[]
+  video?: { src: string; width: number; height: number }
   images?: {
     src: string
     alt: string
@@ -268,6 +271,15 @@ const likeLionProjects: SideProject[] = [
       "이미지 리사이즈·압축 후 업로드하는 클라이언트 업로드 플로우 구현",
       "로그인 없이 UUID 기반 게스트 인증(X-Guest-Id 헤더) 구조 구현",
     ],
+    images: [
+      {
+        src: ArtminMoodboard,
+        alt: "아트민 무드보드",
+        width: 1131,
+        height: 1600,
+      },
+    ],
+    video: { src: ArtminDemoVideo, width: 1280, height: 720 },
   },
   {
     date: "2026.05",
@@ -292,7 +304,7 @@ const sideProjects: SideProject[] = [
     title: "Driend",
     subtitle: "전태현",
     description:
-      "드라이브 경로를 기록하고, 방문한 지역에 사진을 등록하며, 친구와 랭킹을 겨루는 드라이브 기록 앱입니다.\n애플 앱스토어에 배포했으며 자동차 동호회 카페에 공유하고 좋은 호응을 얻었습니다.",
+      "드라이브 경로를 기록하고, 방문한 지역에 사진을 등록하며, SNS에 주행 기록을 공유할 수 있는 드라이브 기록 앱입니다.\n애플 앱스토어에 배포했으며 자동차 동호회 카페에 공유하고 좋은 호응을 얻었습니다.\n현재 90+의 다운로드를 기록 중입니다.",
     stacks: ["Expo", "React Native", "TypeScript", "Supabase", "Zustand"],
     list: [
       "백그라운드 자동 주행 감지 및 map-matching 기반 경로 스냅",
@@ -522,12 +534,18 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
             </div>
           </section>
           <div className="portfolio-intro-box">
+            <p>"아 망했다.." 에이전트형 AI를 보고 제가 처음 한 말입니다.</p>
+            <p>
+              내가 할 일을 위협한다는 생각에 사용을 거부하기도 했지만 현재는
+              어떻게 하면 더욱 효율적으로 활용할 수 있을지 고민합니다.
+            </p>
+            <hr></hr>
             <p>
               장소에 구애받지 않고, 개발이라는 기술 하나로 살아갈 수 있는
               개발자를 목표로 합니다.
             </p>
             <p>
-              프론트엔드를 중심으로 사용자에게 직접 가닿는 서비스를 만드는 것에
+              프론트엔드를 중심으로 사용자에게 직접 와닿는 서비스를 만드는 것에
               흥미를 느낍니다.
             </p>
             <p>
@@ -633,6 +651,35 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                     </div>
                     <p className="portfolio-entry-role">{project.subtitle}</p>
                     <StackBadges stacks={project.stacks} />
+                    {project.images && (
+                      <div className="portfolio-project-images">
+                        {project.images.map(image => (
+                          <img
+                            key={image.src}
+                            src={image.src}
+                            alt={image.alt}
+                            width={image.width}
+                            height={image.height}
+                            loading="lazy"
+                            className={
+                              image.size === "wide" ? "is-wide" : undefined
+                            }
+                          />
+                        ))}
+                      </div>
+                    )}
+                    {project.video && (
+                      <video
+                        className="portfolio-project-video"
+                        controls
+                        preload="metadata"
+                        width={project.video.width}
+                        height={project.video.height}
+                      >
+                        <source src={project.video.src} type="video/mp4" />
+                        브라우저가 동영상 재생을 지원하지 않습니다.
+                      </video>
+                    )}
                     <p>{project.description}</p>
                     <ContentList items={project.list} />
                     {project.link && (
