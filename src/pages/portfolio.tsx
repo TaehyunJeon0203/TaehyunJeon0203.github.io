@@ -527,8 +527,8 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Backend",
     items: [
-      "Express, MySQL을 활용해 간단한 API 서버와 데이터베이스를 구축할 수 있습니다.",
-      "Supabase를 활용해 인증, 데이터베이스, Storage를 연동할 수 있습니다.",
+      "Express, MySQL을 활용해 간단한 API 서버와 데이터베이스를 구축한 경험이 있습니다.",
+      "Supabase를 활용해 인증, 데이터베이스, Storage를 연동한 경험이 있습니다.",
     ],
   },
   {
