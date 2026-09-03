@@ -144,6 +144,11 @@ const STACK_BADGE_STYLES: Record<string, StackBadgeStyle> = {
     blackLogo: true,
   },
   Zustand: { backgroundColor: "#374151", logo: "zustand" },
+  OpenCode: { backgroundColor: "#6B4FBB" },
+  "AI Agent": { backgroundColor: "#374151" },
+  MCP: { backgroundColor: "#111827" },
+  Figma: { backgroundColor: "#F24E1E", logo: "figma" },
+  Git: { backgroundColor: "#F05032", logo: "git" },
 }
 
 const renderRich = (text: string): React.ReactNode => {
@@ -306,12 +311,28 @@ const likeLionProjects: SideProject[] = [
 
 const sideProjects: SideProject[] = [
   {
+    date: "2026.08 - 진행중",
+    title: "OpenCode AI 개발 하네스",
+    subtitle: "전태현",
+    description:
+      "역할 기반 에이전트와 모델 라우팅을 구성해 AI 기반 개발 프로세스를 표준화한 개발 생산성 도구",
+    stacks: ["OpenCode", "AI Agent", "MCP", "Figma", "Git"],
+    list: [
+      "PM, FE, BE, QA, Figma analyzer 역할별 에이전트 설계",
+      "작업 성격에 따른 OpenAI·OpenCode Go 모델 라우팅",
+      "쿼터·모델 장애에 대응하는 fallback subagent 구조 문서화",
+      "feature, fix, review, test, handoff 작업 명령 표준화",
+      "Figma MCP 연동을 통한 디자인·개발 워크플로 연결",
+    ],
+    link: "https://github.com/TaehyunJeon0203/.opencode",
+  },
+  {
     date: "2026.06 - 진행중",
     title: "Driend",
     status: "서비스 중",
     subtitle: "전태현",
     description:
-      "드라이브 경로 기록, 방문 지역 사진 등록, SNS 주행 기록 공유가 가능한 드라이브 기록 앱\n애플 앱스토어 배포 및 자동차 동호회 카페 공유, 사용자 호응 확보\n현재까지 90+ 다운로드를 기록,\n 47명의 사용자가 총 392회 주행하고 누적 13,418.3km의 데이터를 기록",
+      "드라이브 경로 기록, 방문 지역 사진 등록, SNS 주행 기록 공유가 가능한 드라이브 기록 앱\n애플 앱스토어 배포 및 자동차 동호회 카페 공유, 사용자 호응 확보\n8월 7일 출시 후 한 달 간 90+ 다운로드를 기록,\n 47명의 사용자가 총 392회 주행하고 누적 13,418.3km의 데이터를 기록",
     stacks: ["Expo", "React Native", "TypeScript", "Supabase", "Zustand"],
     list: [
       "백그라운드 자동 주행 감지 및 map-matching 기반 경로 스냅",
@@ -512,11 +533,11 @@ const sideProjects: SideProject[] = [
 
 const otherExperience = [
   "공주대학교 정보통신공학과 (2021.03 ~ 2024.11)",
-  "공주대학교 소프트웨어학과 (2025.03 ~ 현재)",
-  "AWS 기반 AI 웹서비스 교육 과정 수료 (2025.07)",
-  "Striking Arts 게임개발동아리 활동 / C언어 강의 (2022.03 ~ 2024.06)",
   "군 복무 중 여단 인트라넷 D-day 카운터 개발 → 포상휴가 획득",
-  "군 복무 중 행정반 현황판 개발 및 당직 근무자 피드백 기반 개선",
+  "군 복무 중 당직 현황판 개발 및 당직 근무자 피드백 기반 개선 경험",
+  "Striking Arts 게임개발동아리 활동 / C언어 강의 (2022.03 ~ 2024.06)",
+  "AWS 기반 AI 웹서비스 교육 과정 수료 (2025.07)",
+  "공주대학교 소프트웨어학과 (2025.03 ~ 현재)",
 ]
 
 const skillCategories: SkillCategory[] = [
@@ -524,9 +545,9 @@ const skillCategories: SkillCategory[] = [
     title: "Frontend",
     items: [
       "React, TypeScript를 기반으로 컴포넌트 단위의 웹 서비스를 구축할 수 있습니다.",
-      "Vite, Tailwind CSS, shadnc/ui등 프론트엔드 개발 도구를 설정하고 활용할 수 있습니다.",
-      "React Native와 Expo를 활용해 모바일 앱 화면과 라우팅을 구현할 수 있습니다.",
+      "Vite, Tailwind CSS, shadcn/ui등 프론트엔드 개발 도구를 설정하고 활용할 수 있습니다.",
       "Zustand를 활용해 클라이언트 상태를 관리하고 화면 간 상태를 공유할 수 있습니다.",
+      "React Native와 Expo를 활용해 모바일 앱 화면과 라우팅을 구현할 수 있습니다.",
     ],
   },
   {
@@ -539,7 +560,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "DevOps",
     items: [
-      "Docker, AWS(Lambda 등)를 활용한 배포 환경을 구성한 경험이 있습니다.",
+      "Docker, AWS S3·CloudFront 를 활용한 배포 환경을 구성한 경험이 있습니다.",
       "GitHub Actions를 활용해 빌드 및 배포 자동화 파이프라인을 구성할 수 있습니다.",
       "Vercel과 같은 서버리스 플랫폼을 통해 배포 환경을 구축할 수 있습니다.",
     ],
