@@ -530,7 +530,6 @@ const skillCategories: SkillCategory[] = [
       "Supabase를 활용해 인증, 데이터베이스, Storage를 연동할 수 있습니다.",
       "Docker, AWS(Lambda 등)를 활용한 배포 환경을 구성한 경험이 있습니다.",
       "GitHub Actions를 활용해 빌드 및 배포 자동화 파이프라인을 구성할 수 있습니다.",
-      "C++ 기반 소켓 통신으로 클라이언트-서버 프로그램을 구현한 경험이 있습니다.",
     ],
   },
   {
