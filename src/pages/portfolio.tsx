@@ -43,7 +43,7 @@ interface ActivityProject {
     alt: string
     width: number
     height: number
-    size?: "default" | "medium" | "wide"
+    size?: "default" | "compact" | "medium" | "wide"
   }[]
 }
 
@@ -71,7 +71,7 @@ interface SideProject {
     alt: string
     width: number
     height: number
-    size?: "default" | "medium" | "wide"
+    size?: "default" | "compact" | "medium" | "wide"
   }[]
 }
 
@@ -432,7 +432,7 @@ const sideProjects: SideProject[] = [
         alt: "Grav 프로젝트 카드와 작업 시간 기록 화면",
         width: 2390,
         height: 1582,
-        size: "wide",
+        size: "compact",
       },
     ],
     link: "https://github.com/TaehyunJeon0203/grav",
@@ -595,6 +595,8 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                               className={
                                 image.size === "wide"
                                   ? "is-wide"
+                                  : image.size === "compact"
+                                  ? "is-compact"
                                   : image.size === "medium"
                                   ? "is-medium"
                                   : undefined
@@ -669,6 +671,8 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                             className={
                               image.size === "wide"
                                 ? "is-wide"
+                                : image.size === "compact"
+                                ? "is-compact"
                                 : image.size === "medium"
                                 ? "is-medium"
                                 : undefined
@@ -741,6 +745,8 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                         className={
                           image.size === "wide"
                             ? "is-wide"
+                            : image.size === "compact"
+                            ? "is-compact"
                             : image.size === "medium"
                             ? "is-medium"
                             : undefined

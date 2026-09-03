@@ -190,6 +190,10 @@
   width: 100%;
 }
 
+.portfolio-project-images img.is-compact {
+  width: min(100%, 520px);
+}
+
 .portfolio-project-images img.is-medium {
   width: 100%;
 }
