@@ -530,7 +530,7 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
           </div>
         </header>
 
-        <section className="portfolio-section">
+        <section className="portfolio-section portfolio-activity-section">
           <h2>Activity.</h2>
           {activities.map((activity, index) => (
             <div
@@ -645,9 +645,7 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
           </div>
         </section>
 
-        <section className="portfolio-section"></section>
-
-        <section className="portfolio-section">
+        <section className="portfolio-section portfolio-side-projects-section">
           <h2>Side Projects.</h2>
           <p className="portfolio-section-caption">
             개인 성장과 불편함을 해소하기 위해 개발한 사이드 프로젝트입니다.
