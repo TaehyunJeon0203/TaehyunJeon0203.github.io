@@ -63,6 +63,7 @@ interface Activity {
 interface SideProject {
   date: string
   title: string
+  status?: string
   subtitle: string
   description: string
   stacks: string[]
@@ -307,6 +308,7 @@ const sideProjects: SideProject[] = [
   {
     date: "2026.06 - 진행중",
     title: "Driend",
+    status: "서비스 중",
     subtitle: "전태현",
     description:
       "드라이브 경로 기록, 방문 지역 사진 등록, SNS 주행 기록 공유가 가능한 드라이브 기록 앱\n애플 앱스토어 배포 및 자동차 동호회 카페 공유, 사용자 호응 확보\n90+ 다운로드 기록 중",
@@ -409,6 +411,7 @@ const sideProjects: SideProject[] = [
   {
     date: "2025.11",
     title: "LifeStats",
+    status: "서비스 중",
     subtitle: "전태현",
     description:
       "개인 데이터를 기반으로 흥미로운 통계를 시각적으로 보여주는 웹 서비스",
@@ -492,6 +495,7 @@ const sideProjects: SideProject[] = [
   {
     date: "2023.12",
     title: "TH Blog",
+    status: "서비스 중",
     subtitle: "전태현",
     description: "Gatsby 기반으로 제작한 개인 기술 블로그",
     stacks: ["Gatsby", "React", "TypeScript", "GraphQL"],
@@ -794,7 +798,14 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
               key={project.title}
             >
               <div className="portfolio-entry-summary">
-                <h3>{project.title}</h3>
+                <h3>
+                  {project.title}
+                  {project.status && (
+                    <span className="portfolio-status-badge">
+                      {project.status}
+                    </span>
+                  )}
+                </h3>
                 <p className="portfolio-entry-role">{project.subtitle}</p>
                 <span className="portfolio-entry-period">{project.date}</span>
                 <StackBadges stacks={project.stacks} />

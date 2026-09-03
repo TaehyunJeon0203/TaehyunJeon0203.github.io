@@ -230,6 +230,19 @@
   text-decoration: underline;
 }
 
+.portfolio-status-badge {
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 999px;
+  color: var(--color-primary);
+  font-size: 0.68em;
+  font-weight: var(--fontWeight-bold);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 /* Nested project block inside Activity */
 
 .portfolio-project-block {
