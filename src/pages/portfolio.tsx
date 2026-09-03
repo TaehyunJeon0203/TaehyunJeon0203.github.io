@@ -448,7 +448,7 @@ const sideProjects: SideProject[] = [
     title: "TH Blog",
     subtitle: "전태현",
     description: "Gatsby 기반으로 제작한 개인 기술 블로그",
-    stacks: ["Gatsby", "React", "GraphQL"],
+    stacks: ["Gatsby", "React", "TypeScript", "GraphQL"],
     list: [
       "Gatsby 기반 정적 블로그 구축",
       "Markdown 기반 콘텐츠 관리",
