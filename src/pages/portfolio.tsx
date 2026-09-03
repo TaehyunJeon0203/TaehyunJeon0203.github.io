@@ -520,14 +520,20 @@ const skillCategories: SkillCategory[] = [
     items: [
       "React, TypeScript를 기반으로 컴포넌트 단위의 웹 서비스를 구축할 수 있습니다.",
       "Vite, Tailwind CSS, shadnc/ui등 프론트엔드 개발 도구를 설정하고 활용할 수 있습니다.",
+      "React Native와 Expo를 활용해 모바일 앱 화면과 라우팅을 구현할 수 있습니다.",
       "Zustand를 활용해 클라이언트 상태를 관리하고 화면 간 상태를 공유할 수 있습니다.",
     ],
   },
   {
-    title: "Backend & Infra",
+    title: "Backend",
     items: [
       "Express, MySQL을 활용해 간단한 API 서버와 데이터베이스를 구축할 수 있습니다.",
       "Supabase를 활용해 인증, 데이터베이스, Storage를 연동할 수 있습니다.",
+    ],
+  },
+  {
+    title: "DevOps",
+    items: [
       "Docker, AWS(Lambda 등)를 활용한 배포 환경을 구성한 경험이 있습니다.",
       "GitHub Actions를 활용해 빌드 및 배포 자동화 파이프라인을 구성할 수 있습니다.",
     ],
