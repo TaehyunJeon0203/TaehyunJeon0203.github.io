@@ -14,6 +14,7 @@ import LifeStatsImageThree from "../images/portfolio/lifestats-03.jpg"
 import LifeStatsImageFour from "../images/portfolio/lifestats-04.png"
 import LifeStatsImageFive from "../images/portfolio/lifestats-05.png"
 import LifeStatsImageSix from "../images/portfolio/lifestats-06.png"
+import PictDemoVideo from "../videos/pict-demo.mp4"
 import DriendScreenshotOne from "../images/portfolio/driend-screenshot-01.png"
 import DriendScreenshotTwo from "../images/portfolio/driend-screenshot-02.png"
 import DriendScreenshotThree from "../images/portfolio/driend-screenshot-03.png"
@@ -34,6 +35,7 @@ interface ActivityProject {
   title: string
   content: ContentItem[]
   link?: string
+  video?: { src: string; width: number; height: number }
   images?: {
     src: string
     alt: string
@@ -211,6 +213,7 @@ const activities: Activity[] = [
             result: "33개 PR 병합",
           },
         ],
+        video: { src: PictDemoVideo, width: 960, height: 540 },
       },
     ],
   },
@@ -584,6 +587,18 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                             />
                           ))}
                         </div>
+                      )}
+                      {project.video && (
+                        <video
+                          className="portfolio-project-video"
+                          controls
+                          preload="metadata"
+                          width={project.video.width}
+                          height={project.video.height}
+                        >
+                          <source src={project.video.src} type="video/mp4" />
+                          브라우저가 동영상 재생을 지원하지 않습니다.
+                        </video>
                       )}
                       <ContentList items={project.content} />
                       {project.link && (
