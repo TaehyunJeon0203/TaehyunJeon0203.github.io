@@ -62,6 +62,7 @@ interface SideProject {
   stacks: string[]
   list: ContentItem[]
   link?: string
+  additionalLinks?: { label: string; href: string }[]
   images?: {
     src: string
     alt: string
@@ -291,7 +292,7 @@ const sideProjects: SideProject[] = [
     title: "Driend",
     subtitle: "전태현",
     description:
-      "드라이브를 자동으로 기록하고, 방문한 지역을 모으고, 친구와 랭킹을 겨루는 드라이브 기록 앱",
+      "드라이브를 자동으로 기록하고, 방문한 지역을 모으고, 친구와 랭킹을 겨루는 드라이브 기록 앱입니다. 애플 앱스토어에 배포했으며 자동차 동호회 카페에 공유하고 좋은 호응을 얻었습니다.",
     stacks: ["Expo", "React Native", "TypeScript", "Supabase", "Zustand"],
     list: [
       "백그라운드 자동 주행 감지 및 map-matching 기반 경로 스냅",
@@ -339,6 +340,12 @@ const sideProjects: SideProject[] = [
       },
     ],
     link: "https://github.com/TaehyunJeon0203/driend",
+    additionalLinks: [
+      {
+        label: "Apple App Store",
+        href: "https://apps.apple.com/kr/app/driend/id6794620035",
+      },
+    ],
   },
   {
     date: "2025.11",
@@ -693,6 +700,17 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                     GitHub Repository →
                   </a>
                 )}
+                {project.additionalLinks?.map(additionalLink => (
+                  <a
+                    className="portfolio-entry-link"
+                    href={additionalLink.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={additionalLink.href}
+                  >
+                    {additionalLink.label} →
+                  </a>
+                ))}
               </div>
             </div>
           ))}
