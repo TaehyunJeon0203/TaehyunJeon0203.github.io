@@ -305,7 +305,7 @@ const sideProjects: SideProject[] = [
     title: "Driend",
     subtitle: "전태현",
     description:
-      "드라이브 경로를 기록하고, 방문한 지역에 사진을 등록하며, SNS에 주행 기록을 공유할 수 있는 드라이브 기록 앱입니다.\n애플 앱스토어에 배포했으며 자동차 동호회 카페에 공유하고 좋은 호응을 얻었습니다.\n현재 90+의 다운로드를 기록 중입니다.",
+      "드라이브 경로 기록, 방문 지역 사진 등록, SNS 주행 기록 공유가 가능한 드라이브 기록 앱\n애플 앱스토어 배포 및 자동차 동호회 카페 공유, 사용자 호응 확보\n90+ 다운로드 기록 중",
     stacks: ["Expo", "React Native", "TypeScript", "Supabase", "Zustand"],
     list: [
       "백그라운드 자동 주행 감지 및 map-matching 기반 경로 스냅",
@@ -644,8 +644,8 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
             </div>
             <div className="portfolio-entry-details">
               <p>
-                다양한 전공의 팀원들과 함께 프론트엔드 기초 이론과 React를
-                학습하고, 팀 프로젝트를 진행했습니다.
+                다양한 전공의 팀원들과 함께 프론트엔드 기초 이론 및 React 학습,
+                팀 프로젝트 진행
               </p>
               <div className="portfolio-subprojects">
                 {likeLionProjects.map(project => (
