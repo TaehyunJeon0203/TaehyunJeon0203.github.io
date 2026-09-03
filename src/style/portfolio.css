@@ -191,7 +191,7 @@
 }
 
 .portfolio-project-images img.is-compact {
-  width: min(100%, 560px);
+  width: min(100%, 600px);
 }
 
 .portfolio-project-images img.is-medium {
