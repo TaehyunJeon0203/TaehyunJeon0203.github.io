@@ -186,6 +186,11 @@
   border-radius: 6px;
 }
 
+.portfolio-project-image-link {
+  display: block;
+  max-width: 100%;
+}
+
 .portfolio-project-images img.is-wide {
   width: 100%;
 }

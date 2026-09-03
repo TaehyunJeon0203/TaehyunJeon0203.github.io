@@ -585,23 +585,30 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                       {project.images && (
                         <div className="portfolio-project-images">
                           {project.images.map(image => (
-                            <img
+                            <a
+                              className="portfolio-project-image-link"
+                              href={image.src}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               key={image.src}
-                              src={image.src}
-                              alt={image.alt}
-                              width={image.width}
-                              height={image.height}
-                              loading="lazy"
-                              className={
-                                image.size === "wide"
-                                  ? "is-wide"
-                                  : image.size === "compact"
-                                  ? "is-compact"
-                                  : image.size === "medium"
-                                  ? "is-medium"
-                                  : undefined
-                              }
-                            />
+                            >
+                              <img
+                                src={image.src}
+                                alt={image.alt}
+                                width={image.width}
+                                height={image.height}
+                                loading="lazy"
+                                className={
+                                  image.size === "wide"
+                                    ? "is-wide"
+                                    : image.size === "compact"
+                                    ? "is-compact"
+                                    : image.size === "medium"
+                                    ? "is-medium"
+                                    : undefined
+                                }
+                              />
+                            </a>
                           ))}
                         </div>
                       )}
@@ -661,23 +668,30 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                     {project.images && (
                       <div className="portfolio-project-images">
                         {project.images.map(image => (
-                          <img
+                          <a
+                            className="portfolio-project-image-link"
+                            href={image.src}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             key={image.src}
-                            src={image.src}
-                            alt={image.alt}
-                            width={image.width}
-                            height={image.height}
-                            loading="lazy"
-                            className={
-                              image.size === "wide"
-                                ? "is-wide"
-                                : image.size === "compact"
-                                ? "is-compact"
-                                : image.size === "medium"
-                                ? "is-medium"
-                                : undefined
-                            }
-                          />
+                          >
+                            <img
+                              src={image.src}
+                              alt={image.alt}
+                              width={image.width}
+                              height={image.height}
+                              loading="lazy"
+                              className={
+                                image.size === "wide"
+                                  ? "is-wide"
+                                  : image.size === "compact"
+                                  ? "is-compact"
+                                  : image.size === "medium"
+                                  ? "is-medium"
+                                  : undefined
+                              }
+                            />
+                          </a>
                         ))}
                       </div>
                     )}
