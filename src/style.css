@@ -52,7 +52,7 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #22c55e;
+  --color-primary: #5f8f73;
   --color-text: #ffffff;
   --color-text-light: #9aa5b1;
   --color-heading: #d1dce5;
@@ -668,7 +668,7 @@ a:focus {
 
 /* 기술 블로그 모드 */
 body.tech-mode {
-  --color-primary: #22c55e;
+  --color-primary: #5f8f73;
   --color-text: #ffffff;
   --color-text-light: #9aa5b1;
   --color-heading: #d1dce5;
