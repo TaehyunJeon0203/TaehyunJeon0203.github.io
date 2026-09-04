@@ -204,7 +204,7 @@ const ContentParagraphs = ({ items }: { items: ContentItem[] }) => (
 const activities: Activity[] = [
   {
     title: "PICT",
-    role: "국립공주대학교 SW중심대학사업 산학캡스톤디자인 · 프론트엔드 리드 (FE 1인 · BE 2인)",
+    role: "국립공주대학교 SW중심대학사업 산학캡스톤디자인 · 프론트엔드 (FE 1인 · BE 2인 · AI 1인)",
     period: "2026.03 - 2026.06",
     stacks: [
       "React",
@@ -229,10 +229,6 @@ const activities: Activity[] = [
           "AI 매칭 채용 공고 추천 및 AI 생성 이력서(직무 중심/성과 중심) 챗봇 UI 기반 수정·적용 기능 개발",
           "외부 사이트 세션 연결 → 자동 지원 → 진행 상태 폴링까지 이어지는 비동기 플로우 구현",
           "2026 AI·SW중심대학 디지털 경진대회에 학교 대표로 참가해 총 57개 팀 중 29위로 마감",
-          {
-            what: "AWS S3 + CloudFront + GitHub Actions 배포 인프라 구축",
-            result: "push 시 자동 빌드·배포",
-          },
           {
             what: "8주간 단독으로 16개 화면 구현",
             result: "33개 PR 병합",
@@ -286,11 +282,10 @@ const likeLionProjects: SideProject[] = [
       "카페·식당처럼 다른 용도로 쓰이는 공간의 유휴시간을 예술인 클래스 공간으로 재활용하는 매칭 앱",
     stacks: ["Expo", "React Native", "TypeScript"],
     list: [
-      "Figma 디자인 시스템(컬러 토큰·텍스트 스타일) 직접 설계, 사용자·제공자 총 9개 화면 단독 구현",
+      "Claude Figma MCP 활용하여 디자인 및 와이어프레임 구현, 사용자·제공자 총 9개 화면 구현",
       "expo-router 기반 사용자/공간 제공자 2-모드 탭 라우팅 구조 설계",
       "목업 데이터로 전체 화면 완성 후 백엔드 API 순차 실 연동 전환",
       "이미지 리사이즈·압축 후 업로드하는 클라이언트 업로드 플로우 구현",
-      "로그인 없이 UUID 기반 게스트 인증(X-Guest-Id 헤더) 구조 구현",
     ],
     images: [
       {
@@ -314,7 +309,6 @@ const likeLionProjects: SideProject[] = [
       "Google 검색 결과 페이지에 콘텐츠 스크립트를 주입해 제목/URL/스니펫 파싱",
       "백엔드 AI 분석 API 연동 및 신뢰도 점수 → 별점 변환 로직 개발",
       "별점 호버 시 근거(reason)와 태그(tags) 툴팁 UI 구현",
-      "Manifest V3 기반 크롬 확장 프로그램 빌드 환경(CRXJS) 구성",
     ],
     link: "https://github.com/TaehyunJeon0203/clican-front",
   },
@@ -343,7 +337,7 @@ const sideProjects: SideProject[] = [
     status: "서비스 중",
     subtitle: "전태현",
     description:
-      "드라이브 경로 기록, 방문 지역 사진 등록, SNS 주행 기록 공유가 가능한 드라이브 기록 앱\n애플 앱스토어 배포 및 자동차 동호회 카페 공유, 사용자 호응 확보\n8월 7일 출시 후 한 달 간 90+ 다운로드를 기록,\n 47명의 사용자가 총 392회 주행하고 누적 13,418.3km의 데이터를 기록",
+      "드라이브 경로 기록, 방문 지역 사진 등록, SNS 주행 기록 공유가 가능한 드라이브 기록 앱\n애플 앱스토어 배포 및 자동차 동호회 카페에 공유하여 좋은 호응을 얻음\n8월 7일 출시 후 한 달 간 90+ 다운로드,\n 47명의 사용자가 총 392회 주행하고 누적 13,418.3km의 데이터를 기록",
     stacks: ["Expo", "React Native", "TypeScript", "Supabase", "Zustand"],
     list: [
       "백그라운드 자동 주행 감지 및 map-matching 기반 경로 스냅",
