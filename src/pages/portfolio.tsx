@@ -218,6 +218,7 @@ const activities: Activity[] = [
           },
           "AI 매칭 채용 공고 추천 및 AI 생성 이력서(직무 중심/성과 중심) 챗봇 UI 기반 수정·적용 기능 개발",
           "외부 사이트 세션 연결 → 자동 지원 → 진행 상태 폴링까지 이어지는 비동기 플로우 구현",
+          "2026 AI·SW중심대학 디지털 경진대회에 학교 대표로 참가해 총 57개 팀 중 29위로 마감",
           {
             what: "AWS S3 + CloudFront + GitHub Actions 배포 인프라 구축",
             result: "push 시 자동 빌드·배포",
