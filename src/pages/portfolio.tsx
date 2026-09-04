@@ -191,6 +191,16 @@ const ContentList = ({ items }: { items: ContentItem[] }) => (
   </ul>
 )
 
+const ContentParagraphs = ({ items }: { items: ContentItem[] }) => (
+  <>
+    {items.map((item, index) => (
+      <p key={index}>
+        {typeof item === "string" ? renderRich(item) : renderRich(item.what)}
+      </p>
+    ))}
+  </>
+)
+
 const activities: Activity[] = [
   {
     title: "PICT",
@@ -669,7 +679,7 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                   <StackBadges stacks={activity.stacks} />
                 </div>
                 <div className="portfolio-entry-details">
-                  <ContentList items={activity.description} />
+                  <ContentParagraphs items={activity.description} />
                   {activity.projects &&
                     activity.projects.map(project => (
                       <div
@@ -760,6 +770,7 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                     </div>
                     <p className="portfolio-entry-role">{project.subtitle}</p>
                     <StackBadges stacks={project.stacks} />
+                    <p>{project.description}</p>
                     {project.images && (
                       <div className="portfolio-project-images">
                         {project.images.map(image => (
@@ -802,7 +813,6 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                         브라우저가 동영상 재생을 지원하지 않습니다.
                       </video>
                     )}
-                    <p>{project.description}</p>
                     <ContentList items={project.list} />
                     {project.link && (
                       <a
