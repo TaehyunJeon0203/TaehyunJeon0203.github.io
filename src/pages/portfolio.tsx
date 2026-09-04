@@ -317,7 +317,7 @@ const likeLionProjects: SideProject[] = [
 const sideProjects: SideProject[] = [
   {
     date: "2026.08 - 진행중",
-    title: "OpenCode AI 개발 하네스",
+    title: "개인용 OpenCode 하네스",
     subtitle: "전태현",
     description:
       "역할 기반 에이전트와 모델 라우팅을 구성해 요구사항 분석, 구현, 검증 과정을 표준화한 AI 개발 생산성 도구",
