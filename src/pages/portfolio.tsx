@@ -325,7 +325,6 @@ const sideProjects: SideProject[] = [
     list: [
       "PM, FE, BE, QA, Figma analyzer 역할별 에이전트 설계",
       "작업 성격에 따른 OpenAI·OpenCode Go 모델 라우팅",
-      "사용 가능한 모델을 분석해 각 서브에이전트의 역할과 작업 특성에 맞춰 개인화된 모델 할당",
       "구독 환경을 고려한 모델 분배 및 쿼터·모델 장애 대응 구조 문서화",
       "feature, fix, review, test, handoff, report 작업 명령 표준화",
       "Figma MCP 연동을 통한 디자인·개발 워크플로 연결",
