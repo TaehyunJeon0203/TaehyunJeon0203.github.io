@@ -227,6 +227,7 @@ const activities: Activity[] = [
             body: "**AI가 Figma 디자인을 읽어 구현을 보조**하도록 구성. 디자인·구현·디버깅 전반에 AI 활용",
           },
         ],
+        link: "https://github.com/PICT-knu/client",
         video: { src: PictDemoVideo, width: 960, height: 540 },
       },
     ],
@@ -290,6 +291,7 @@ const likeLionProjects: SideProject[] = [
         body: "**Claude 크롬 확장을 활용해 전체 기능의 정상 동작 확인**. 구현부터 브라우저 기능 검증까지 AI 활용",
       },
     ],
+    link: "https://github.com/Kongju-KKMLJH/artmin",
     images: [
       {
         src: ArtminMoodboard,
@@ -588,11 +590,11 @@ const sideProjects: SideProject[] = [
 
 const otherExperience = [
   "공주대학교 정보통신공학과 (2021.03 ~ 2024.11)",
+  "공주대학교 소프트웨어학과 (2025.03 ~ 현재)",
   "군 복무 중 여단 인트라넷 D-day 카운터 개발 → 포상휴가 획득",
   "군 복무 중 당직 현황판 개발 및 당직 근무자 피드백 기반 개선 경험",
   "Striking Arts 게임개발동아리 활동 / C언어 강의 (2022.03 ~ 2024.06)",
   "AWS 기반 AI 웹서비스 교육 과정 수료 (2025.07)",
-  "공주대학교 소프트웨어학과 (2025.03 ~ 현재)",
 ]
 
 const skillCategories: SkillCategory[] = [
@@ -708,10 +710,23 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                 <div className="portfolio-entry-summary">
                   <h3>{activity.title}</h3>
                   <p className="portfolio-entry-role">{activity.role}</p>
-                  <span className="portfolio-entry-period">
-                    {activity.period}
-                  </span>
-                  <StackBadges stacks={activity.stacks} />
+                   <span className="portfolio-entry-period">
+                     {activity.period}
+                   </span>
+                   <StackBadges stacks={activity.stacks} />
+                    {activity.projects?.map(project =>
+                      project.link ? (
+                        <a
+                          className="portfolio-entry-link"
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          key={project.link}
+                        >
+                          GitHub Repository →
+                        </a>
+                      ) : null
+                    )}
                 </div>
                 <div className="portfolio-entry-details">
                   <ContentParagraphs items={activity.description} />
@@ -764,16 +779,6 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                             <source src={project.video.src} type="video/mp4" />
                             브라우저가 동영상 재생을 지원하지 않습니다.
                           </video>
-                        )}
-                        {project.link && (
-                          <a
-                            className="portfolio-entry-link"
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            GitHub Repository →
-                          </a>
                         )}
                       </div>
                     ))}
@@ -890,6 +895,27 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                 <p className="portfolio-entry-role">{project.subtitle}</p>
                 <span className="portfolio-entry-period">{project.date}</span>
                 <StackBadges stacks={project.stacks} />
+                {project.link && (
+                  <a
+                    className="portfolio-entry-link"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub Repository →
+                  </a>
+                )}
+                {project.additionalLinks?.map(additionalLink => (
+                  <a
+                    className="portfolio-entry-link"
+                    href={additionalLink.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={additionalLink.href}
+                  >
+                    {additionalLink.label} →
+                  </a>
+                ))}
               </div>
               <div className="portfolio-entry-details">
                 <p>{project.description}</p>
@@ -917,27 +943,6 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                     ))}
                   </div>
                 )}
-                {project.link && (
-                  <a
-                    className="portfolio-entry-link"
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub Repository →
-                  </a>
-                )}
-                {project.additionalLinks?.map(additionalLink => (
-                  <a
-                    className="portfolio-entry-link"
-                    href={additionalLink.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    key={additionalLink.href}
-                  >
-                    {additionalLink.label} →
-                  </a>
-                ))}
               </div>
             </div>
           ))}
