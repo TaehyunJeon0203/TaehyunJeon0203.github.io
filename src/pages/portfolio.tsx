@@ -29,7 +29,9 @@ import DriendScreenshotFive from "../images/portfolio/driend-screenshot-05.png"
 import DriendScreenshotSix from "../images/portfolio/driend-screenshot-06.png"
 import "../style/portfolio.css"
 
-type ContentItem = string | { what: string; result?: string }
+interface NarrativeSection {
+  body: string | string[]
+}
 
 interface StackBadgeStyle {
   backgroundColor: string
@@ -39,7 +41,7 @@ interface StackBadgeStyle {
 
 interface ActivityProject {
   title: string
-  content: ContentItem[]
+  narrative: NarrativeSection[]
   link?: string
   video?: { src: string; width: number; height: number }
   images?: {
@@ -56,7 +58,7 @@ interface Activity {
   role: string
   period: string
   stacks: string[]
-  description: ContentItem[]
+  description: string[]
   projects?: ActivityProject[]
 }
 
@@ -67,7 +69,7 @@ interface SideProject {
   subtitle: string
   description: string
   stacks: string[]
-  list: ContentItem[]
+  narrative: NarrativeSection[]
   link?: string
   additionalLinks?: { label: string; href: string }[]
   video?: { src: string; width: number; height: number }
@@ -111,6 +113,7 @@ const STACK_BADGE_STYLES: Record<string, StackBadgeStyle> = {
     blackLogo: true,
   },
   "shadcn/ui": { backgroundColor: "#000000", logo: "shadcnui" },
+  Vercel: { backgroundColor: "#000000", logo: "vercel" },
   "React Router": { backgroundColor: "#CA4245", logo: "reactrouter" },
   "Machine Learning": {
     backgroundColor: "#7C3AED",
@@ -169,34 +172,24 @@ const StackBadges = ({ stacks }: { stacks: string[] }) => (
   </div>
 )
 
-const ContentList = ({ items }: { items: ContentItem[] }) => (
-  <ul>
-    {items.map((item, index) => (
-      <li key={index}>
-        {typeof item === "string" ? (
-          renderRich(item)
-        ) : (
-          <>
-            {renderRich(item.what)}
-            {item.result && (
-              <>
-                {" "}
-                → <strong>{item.result}</strong>
-              </>
-            )}
-          </>
-        )}
-      </li>
-    ))}
+const Narrative = ({ sections }: { sections: NarrativeSection[] }) => (
+  <ul className="portfolio-narrative">
+    {sections.flatMap(section => {
+      const paragraphs = Array.isArray(section.body)
+        ? section.body
+        : [section.body]
+
+      return paragraphs.map(paragraph => (
+        <li key={paragraph}>{renderRich(paragraph)}</li>
+      ))
+    })}
   </ul>
 )
 
-const ContentParagraphs = ({ items }: { items: ContentItem[] }) => (
+const ContentParagraphs = ({ items }: { items: string[] }) => (
   <>
     {items.map((item, index) => (
-      <p key={index}>
-        {typeof item === "string" ? renderRich(item) : renderRich(item.what)}
-      </p>
+      <p key={index}>{renderRich(item)}</p>
     ))}
   </>
 )
@@ -205,7 +198,7 @@ const activities: Activity[] = [
   {
     title: "PICT",
     role: "국립공주대학교 SW중심대학사업 산학캡스톤디자인 · 프론트엔드 (FE 1인 · BE 2인 · AI 1인)",
-    period: "2026.03 - 2026.06",
+    period: "2026.03 - 2026.07",
     stacks: [
       "React",
       "TypeScript",
@@ -215,23 +208,23 @@ const activities: Activity[] = [
       "Zustand",
     ],
     description: [
-      "구직자가 채용 공고를 탐색하고 AI가 이력서를 자동 최적화해 외부 채용 사이트까지 자동 지원하는 ***구직 관리 대시보드***를 프론트엔드 단독으로 설계·구현",
+      "구직자가 채용 공고를 탐색하고 AI가 이력서를 자동 최적화해 외부 채용 사이트까지 자동 지원하는 **구직 관리 대시보드**를 프론트엔드 단독으로 설계·구현",
     ],
     projects: [
       {
         title: "PICT — 맞춤형 취업 AI Agent 프론트엔드",
-        content: [
-          "Figma 와이어프레임 16개 화면 전체를 React로 단독 구현, 상태 관리·라우팅·API 연동 아키텍처 설계",
+        narrative: [
           {
-            what: "백엔드 API 미완성 구간은 Swagger 명세 기반 mock 인프라를 구축해 개발",
-            result: "기능 단위로 실 API로 순차 전환",
+            body: "**8주간 FE 1인으로 16개 화면 구현 · 33개 PR 병합**. AI·SW중심대학 디지털 경진대회 학교 대표 참가 및 **57개 대학 중 29위** 기록",
           },
-          "AI 매칭 채용 공고 추천 및 AI 생성 이력서(직무 중심/성과 중심) 챗봇 UI 기반 수정·적용 기능 개발",
-          "외부 사이트 세션 연결 → 자동 지원 → 진행 상태 폴링까지 이어지는 비동기 플로우 구현",
-          "2026 AI·SW중심대학 디지털 경진대회에 학교 대표로 참가해 총 57개 팀 중 29위로 마감",
           {
-            what: "8주간 단독으로 16개 화면 구현",
-            result: "33개 PR 병합",
+            body: "**Swagger 기반 mock으로 화면 구성 후 기능별 실제 API 연동**. 백엔드 요청사항과 API 변경에 맞춰 응답 데이터 매핑·화면 동작 수정",
+          },
+          {
+            body: "**AI 이력서 수정 제안의 적용·거절 UI**와 외부 채용 사이트 세션 연결·자동 지원 진행 상태 표시 구현",
+          },
+          {
+            body: "**AI가 Figma 디자인을 읽어 구현을 보조**하도록 구성. 디자인·구현·디버깅 전반에 AI 활용",
           },
         ],
         video: { src: PictDemoVideo, width: 960, height: 540 },
@@ -242,21 +235,23 @@ const activities: Activity[] = [
     title: "Grand-trade-Auto",
     role: "2인 프로젝트 (Frontend, Crawling) · AWS 기반 AI 웹서비스 교육과정",
     period: "2025.07",
-    stacks: ["React", "TypeScript", "shadcn/ui", "Machine Learning"],
+    stacks: ["React", "TypeScript", "shadcn/ui"],
     description: [
-      "AWS 기반 AI 웹서비스 교육 과정을 수료하며 ***중고차 가격을 예측하는 웹 서비스***를 개발",
+      "AWS 기반 AI 웹서비스 교육 과정을 수료하며 **중고차 가격을 예측하는 웹 서비스**를 개발",
     ],
     projects: [
       {
         title: "AI 기반 중고차 가격 예측 웹 서비스",
-        content: [
-          "웹 크롤링을 통해 수집한 데이터를 모델에 학습",
+        narrative: [
           {
-            what: "학습된 AI 모델을 활용한 가격 예측 기능 구현",
+            body: "학습용 공개 데이터셋 확보의 어려움으로 **Selenium 기반 엔카 크롤러 제작 및 데이터 수집**. **900페이지·중고차 매물 62,000개 수집**",
           },
-          "머신러닝 모델 기반 가격 예측 기능 개발",
-          "AWS 환경에서의 서비스 구성",
-          "데이터 수집을 위한 크롤러 개발",
+          {
+            body: "차량 정보를 입력하고 모델의 예측 가격을 확인할 수 있는 **React 프론트엔드 개발 담당**",
+          },
+          {
+            body: "짧은 개발 기간에 맞춰 **컴포넌트를 빠르게 조합할 수 있는 shadcn/ui 선택**",
+          },
         ],
         images: [
           {
@@ -277,15 +272,23 @@ const likeLionProjects: SideProject[] = [
   {
     date: "2026.07",
     title: "아트민",
-    subtitle: "팀 프로젝트 (Frontend) · 2일 해커톤 (FE 1인 · BE 3인)",
+    subtitle: "팀 프로젝트 (Frontend) · 무박 2일 해커톤 (FE 1인 · BE 3인)",
     description:
       "카페·식당처럼 다른 용도로 쓰이는 공간의 유휴시간을 예술인 클래스 공간으로 재활용하는 매칭 앱",
     stacks: ["Expo", "React Native", "TypeScript"],
-    list: [
-      "Claude Figma MCP 활용하여 디자인 및 와이어프레임 구현, 사용자·제공자 총 9개 화면 구현",
-      "expo-router 기반 사용자/공간 제공자 2-모드 탭 라우팅 구조 설계",
-      "목업 데이터로 전체 화면 완성 후 백엔드 API 순차 실 연동 전환",
-      "이미지 리사이즈·압축 후 업로드하는 클라이언트 업로드 플로우 구현",
+    narrative: [
+      {
+        body: "**무박 2일 동안 FE 1인으로 사용자·공간 제공자 화면 9개 구현**",
+      },
+      {
+        body: "짧은 개발 기간에 맞춰 **빠른 구현과 기존 Figma 디자인의 충실한 재현을 우선**. Figma MCP로 디자인을 읽어 **AI와 대화하며 프론트엔드 전 과정 구현**",
+      },
+      {
+        body: "백엔드에서 전달받은 **Swagger 명세를 바탕으로 AI를 활용해 API 연동**",
+      },
+      {
+        body: "**Claude 크롬 확장을 활용해 전체 기능의 정상 동작 확인**. 구현부터 브라우저 기능 검증까지 AI 활용",
+      },
     ],
     images: [
       {
@@ -301,14 +304,17 @@ const likeLionProjects: SideProject[] = [
   {
     date: "2026.05",
     title: "Clican",
-    subtitle: "전태현",
+    subtitle: "아이디어톤 · MVP 구현 (Frontend)",
     description:
       "구글 검색 결과의 신뢰도를 AI로 분석해 별점으로 보여주는 크롬 확장 프로그램",
     stacks: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-    list: [
-      "Google 검색 결과 페이지에 콘텐츠 스크립트를 주입해 제목/URL/스니펫 파싱",
-      "백엔드 AI 분석 API 연동 및 신뢰도 점수 → 별점 변환 로직 개발",
-      "별점 호버 시 근거(reason)와 태그(tags) 툴팁 UI 구현",
+    narrative: [
+      {
+        body: "**백엔드와 소통하며 초기 구조 설계** 후, **AI와 대화하는 바이브 코딩 방식으로 MVP 구현**",
+      },
+      {
+        body: "검색 결과 수집·분석 API 연동 및 **신뢰도 별점과 분석 근거를 보여주는 핵심 UI 구현**",
+      },
     ],
     link: "https://github.com/TaehyunJeon0203/clican-front",
   },
@@ -320,15 +326,24 @@ const sideProjects: SideProject[] = [
     title: "개인용 OpenCode 하네스",
     subtitle: "전태현",
     description:
-      "역할 기반 에이전트와 모델 라우팅을 구성해 요구사항 분석, 구현, 검증 과정을 표준화한 AI 개발 생산성 도구",
+      "보유 구독 모델과 작업 규모에 맞춰 에이전트 역할·모델·진행 방식을 구성한 개인용 AI 개발 하네스",
     stacks: ["OpenCode", "AI Agent", "MCP", "Git"],
-    list: [
-      "PM, FE, BE, QA, Figma analyzer 역할별 에이전트 설계",
-      "작업 성격에 따른 OpenAI·OpenCode Go 모델 라우팅",
-      "구독 환경을 고려한 모델 분배 및 쿼터·모델 장애 대응 구조 문서화",
-      "feature, fix, review, test, handoff, report 작업 명령 표준화",
-      "Figma MCP 연동을 통한 디자인·개발 워크플로 연결",
-      "프롬프트와 세션 내용을 출력하지 않는 개인정보 보호형 사용량 리포트 구현",
+    narrative: [
+      {
+        body: "공개 하네스 사용 중 간단한 작업도 규모가 커져 토큰과 시간이 많이 소요되는 불편 체감. **보유 구독 모델을 작업에 맞게 활용하기 위해 개인용 하네스 구성**",
+      },
+      {
+        body: "작업 규모 확대를 줄이기 위해 **작은 작업은 오케스트레이터가 직접 처리**, 필요한 경우에만 전문 에이전트로 위임. **하위 에이전트의 재위임 제한**",
+      },
+      {
+        body: "**프론트엔드 구현은 OpenAI Plus, 요구사항 정리·백엔드·QA·Figma 분석은 OpenCode Go 모델로 배분**. Figma MCP 분석과 읽기 전용 QA를 구현 역할에서 분리",
+      },
+      {
+        body: "**deep-interview 스킬로 모호한 요구사항과 부족한 정보를 먼저 질문**하고, 답변을 바탕으로 작업을 진행하도록 구성",
+      },
+      {
+        body: "실제 사용에서 **간단한 작업의 진행 과정이 간결해진 점 체감**. 개인 작업 방식에 맞춰 지속 보완 중",
+      },
     ],
     link: "https://github.com/TaehyunJeon0203/.opencode",
   },
@@ -338,15 +353,24 @@ const sideProjects: SideProject[] = [
     status: "서비스 중",
     subtitle: "전태현",
     description:
-      "드라이브 경로 기록, 방문 지역 사진 등록, SNS 주행 기록 공유가 가능한 드라이브 기록 앱\n애플 앱스토어 배포 및 자동차 동호회 카페에 공유하여 좋은 호응을 얻음\n8월 7일 출시 후 한 달 간 90+ 다운로드,\n 47명의 사용자가 총 392회 주행하고 누적 13,418.3km의 데이터를 기록",
+      "드라이브 경로 기록, 방문 지역 사진 등록, SNS 주행 기록 공유가 가능한 드라이브 기록 앱",
     stacks: ["Expo", "React Native", "TypeScript", "Supabase", "Zustand"],
-    list: [
-      "백그라운드 자동 주행 감지 및 map-matching 기반 경로 스냅",
-      "통과 빈도 기반 그라데이션 도로 지도 + 방문 지역(시/군/구) 사진 스탬프 지도",
-      "가속도계·GPS 기반 제로백(0→100km/h) 자동 측정",
-      "누적 거리·최고속도·제로백·방문 도시 기준 랭킹 및 친구 시스템",
-      "카카오 로그인 및 Supabase 인증 연동",
-      "네이버 지도 API 연동을 통한 주행 경로 및 방문 지역 지도 시각화",
+    narrative: [
+      {
+        body: "**애플 앱스토어 출시 및 자동차 동호회 공유**, 동호회 이용자들의 긍정적인 반응 확보",
+      },
+      {
+        body: "출시 한 달 **90+ 다운로드 · 사용자 47명 · 주행 392회 · 누적 13,418.3km**",
+      },
+      {
+        body: "매번 주행 시작 버튼을 눌러야 하는 불편함에 대해 **사용자 피드백을 반영해 주행 시작 위젯 추가**",
+      },
+      {
+        body: "GPS 수신 간격으로 100km/h 도달 감지가 늦어지는 문제 확인. **최근 구간의 평균 가속률로 도달 시각을 추정하는 방식 직접 제안 및 AI를 통한 구현**",
+      },
+      {
+        body: "**실측값과 앱 기록 비교 검증**으로 고정 지연 보정 적용 시 약 0.2초 빠른 기록 확인. 보정값 **980 → 780ms 조정 직접 제안 및 반영**. 기기·GPS 환경에 따른 잔여 오차 존재",
+      },
     ],
     images: [
       {
@@ -397,15 +421,20 @@ const sideProjects: SideProject[] = [
   {
     date: "2026.04 - 2026.06",
     title: "Pinple",
-    subtitle: "전태현",
+    subtitle: "3인 팀 프로젝트 · 개발 대부분 담당",
     description:
       "공주대학교 천안캠퍼스 학생 전용 소모임 앱 — 지도 기반으로 소모임을 찾고 만들고 참여할 수 있는 서비스",
     stacks: ["Flutter", "Dart", "Firebase"],
-    list: [
-      "천안캠퍼스 반경 2km 이내 위치 인증 및 학교 이메일 도메인 인증",
-      "네이버 지도 기반 소모임 탐색 및 리스트 뷰 전환",
-      "지도 핀 기반 소모임 생성/수정/삭제(CRUD)",
-      "소모임 참여 신청 및 수락/거절 기능",
+    narrative: [
+      {
+        body: "**개발 대부분을 담당하고 개발 전반에 AI 활용**",
+      },
+      {
+        body: "캠퍼스 구성원 대상 이용 제한을 위해 **반경 2km 위치 인증과 학교 이메일 도메인 인증 적용**",
+      },
+      {
+        body: "**네이버 지도 API를 활용한 지도·목록 기반 소모임 탐색**과 지도 핀 기반 소모임 관리 구현. 참여 신청 및 수락·거절 흐름 연결",
+      },
     ],
     images: [
       {
@@ -442,13 +471,20 @@ const sideProjects: SideProject[] = [
     subtitle: "전태현",
     description:
       "개인 데이터를 기반으로 흥미로운 통계를 시각적으로 보여주는 웹 서비스",
-    stacks: ["React", "TypeScript", "Express", "MySQL"],
-    list: [
-      "개인 데이터 입력 및 저장",
-      "통계 정보 시각화",
-      "공유 가능한 카드 형태 UI 구성",
-      "백엔드와 데이터베이스 연동",
-      "Web Share API 미지원 환경을 고려한 다운로드 fallback 구현",
+    stacks: ["React", "TypeScript", "shadcn/ui", "Express", "MySQL", "Vercel"],
+    narrative: [
+      {
+        body: "**SNS에서의 유행과 공유를 목표로 기획**. 개인 통계 결과를 깔끔하게 보여주는 **공유 카드 디자인에 집중**",
+      },
+      {
+        body: "**인스타그램 스토리에 편리하게 공유할 수 있도록 카드 공유 흐름 구현**. Web Share API 미지원 환경에서는 이미지 다운로드로 대체",
+      },
+      {
+        body: "**shadcn/ui를 활용해 디자인 진행**. 기능 구현·디버깅에 AI 활용",
+      },
+      {
+        body: "**Vercel을 활용해 서비스 배포 진행**",
+      },
     ],
     images: [
       {
@@ -503,11 +539,19 @@ const sideProjects: SideProject[] = [
     description:
       "프로젝트를 빠르게 실행하고 개발 시간을 자동으로 기록하는 프로젝트 매니저",
     stacks: ["Electron", "TypeScript", "Tailwind CSS"],
-    list: [
-      "프로젝트 이름과 로컬 경로 등록 기능",
-      "등록된 프로젝트 목록 관리",
-      "VSCode로 빠르게 실행하는 기능",
-      "개발 시간 자동 기록 기능",
+    narrative: [
+      {
+        body: "매번 에디터를 열고 프로젝트를 찾아 여는 불편함을 줄이기 위해 **등록한 프로젝트를 VSCode로 바로 실행하는 도구 개발**",
+      },
+      {
+        body: "Chromium의 무게를 감수하더라도 **웹 기술로 빠르게 데스크톱 앱을 만들 수 있는 Electron 선택**",
+      },
+      {
+        body: "별도 타이머 조작 없이 **작업 시간이 자연스럽게 기록되도록 자동 기록 구현**. lsof로 VSCode 프로세스와 열린 경로를 확인해 해당 프로젝트 실행 중에만 시간 기록",
+      },
+      {
+        body: "카드의 그림자·광택·애니메이션 반복 조정. 개발 중 궁금한 점은 **채팅형 LLM에 질문하며 해결**",
+      },
     ],
     images: [
       {
@@ -525,13 +569,18 @@ const sideProjects: SideProject[] = [
     title: "TH Blog",
     status: "서비스 중",
     subtitle: "전태현",
-    description: "Gatsby 기반으로 제작한 개인 기술 블로그",
+    description: "Gatsby 기반으로 제작한 개인 일상·기술 블로그",
     stacks: ["Gatsby", "React", "TypeScript", "GraphQL"],
-    list: [
-      "Gatsby 기반 정적 블로그 구축",
-      "Markdown 기반 콘텐츠 관리",
-      "GitHub Pages를 통한 배포",
-      "GitHub Actions를 활용한 빌드 및 배포 자동화",
+    narrative: [
+      {
+        body: "**원하는 디자인과 구조를 직접 구성할 수 있는 개인 블로그 제작**. Gatsby·GraphQL 기반으로 Markdown 글 작성·관리 환경 구축",
+      },
+      {
+        body: "**Tech·Daily 전환 버튼으로 기술·일상 블로그를 오가는 구조 구상 및 구현**. 선택에 따라 글 목록과 테마 전환, 마지막 선택 상태 저장",
+      },
+      {
+        body: "**Markdown으로 글 작성 후 GitHub Actions로 빌드·배포하는 흐름 구성**. GitHub Pages를 통해 블로그 공개",
+      },
     ],
     link: "https://github.com/TaehyunJeon0203/TaehyunJeon0203.github.io",
   },
@@ -574,8 +623,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Interest",
     items: [
-      "역할이 다른 여러 AI 에이전트를 동시에 활용해 결과를 합쳐내는 개발 워크플로에 관심이 있습니다.",
-      "홈서버를 직접 운영하며 Self-hosted Infrastructure를 구축하는 것에 관심이 있습니다.",
+      "개인용 AI 하네스를 구성해 PM·FE·BE·QA 등 역할이 다른 에이전트를 작업에 맞게 활용하고, 각 에이전트의 결과를 검증·조합하는 개발 워크플로에 관심이 있습니다.",
     ],
   },
 ]
@@ -595,11 +643,9 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
           <section className="portfolio-header-top">
             <div className="portfolio-greeting">
               <h1>
-                안녕하세요!
+                AI와 함께 아이디어를 구현하는
                 <br />
-                아이디어를 서비스로 만드는 개발자
-                <br />
-                <strong>전태현</strong>입니다.
+                프론트엔드 개발자 <strong>전태현</strong>입니다.
               </h1>
             </div>
             <div className="portfolio-link-groups">
@@ -632,33 +678,27 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
             </div>
           </section>
           <div className="portfolio-intro-box">
-            <p>"아 망했다.." 에이전트형 AI를 보고 제가 처음 한 말입니다.</p>
             <p>
-              내가 할 일을 위협한다는 생각에 사용을 거부하기도 했지만 현재는
-              어떻게 하면 더욱 효율적으로 활용할 수 있을지 고민합니다.
-            </p>
-            <hr></hr>
-            <p>
-              장소에 구애받지 않고, 개발이라는 기술 하나로 살아갈 수 있는
-              개발자를 목표로 합니다.
+              <strong>아이디어가 사용자가 직접 만지는 화면으로 바뀌는 과정</strong>에
+              흥미를 느낍니다. React·TypeScript를 중심으로 웹과 모바일
+              서비스를 만들고, 실제 사용과 피드백을 바탕으로 개선합니다.
             </p>
             <p>
-              프론트엔드를 중심으로 사용자에게 직접 와닿는 서비스를 만드는 것에
-              흥미를 느낍니다.
+              <strong>AI를 개발 과정에 적극적으로 활용하며, 작업에 맞게 활용 방식을
+              고민합니다.</strong> 구현할 방향을 정하고 결과를 확인하며, 필요한
+              부분을 개선해 나갑니다.
             </p>
             <p>
-              불편함을 직접 만들어 해결하는 과정과, 서버 운영·인프라 영역에도
-              관심이 있습니다.
+              보유 구독 모델과 작업 규모에 맞춘 <strong>개인용 AI 하네스를 구성하고 있습니다</strong>.
+              에이전트별 모델 배분과 요구사항 인터뷰를 연결하고, 간단한 작업은
+              간결하게 진행하도록 지속적으로 보완하고 있습니다.
             </p>
           </div>
         </header>
 
         <section className="portfolio-section portfolio-activity-section">
           <h2>Activity.</h2>
-          {activities
-            .slice()
-            .reverse()
-            .map((activity, index) => (
+          {activities.map((activity, index) => (
               <div
                 className={`portfolio-entry ${
                   index !== activities.length - 1 ? "has-border" : ""
@@ -682,6 +722,7 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                         key={project.title}
                       >
                         <h4>{project.title}</h4>
+                        <Narrative sections={project.narrative} />
                         {project.images && (
                           <div className="portfolio-project-images">
                             {project.images.map(image => (
@@ -724,7 +765,6 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                             브라우저가 동영상 재생을 지원하지 않습니다.
                           </video>
                         )}
-                        <ContentList items={project.content} />
                         {project.link && (
                           <a
                             className="portfolio-entry-link"
@@ -766,6 +806,7 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                     <p className="portfolio-entry-role">{project.subtitle}</p>
                     <StackBadges stacks={project.stacks} />
                     <p>{project.description}</p>
+                    <Narrative sections={project.narrative} />
                     {project.images && (
                       <div className="portfolio-project-images">
                         {project.images.map(image => (
@@ -808,7 +849,6 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                         브라우저가 동영상 재생을 지원하지 않습니다.
                       </video>
                     )}
-                    <ContentList items={project.list} />
                     {project.link && (
                       <a
                         className="portfolio-entry-link"
@@ -853,6 +893,7 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
               </div>
               <div className="portfolio-entry-details">
                 <p>{project.description}</p>
+                <Narrative sections={project.narrative} />
                 {project.images && (
                   <div className="portfolio-project-images">
                     {project.images.map(image => (
@@ -876,7 +917,6 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
                     ))}
                   </div>
                 )}
-                <ContentList items={project.list} />
                 {project.link && (
                   <a
                     className="portfolio-entry-link"

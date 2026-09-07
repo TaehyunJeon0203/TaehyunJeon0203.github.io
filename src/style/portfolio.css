@@ -171,6 +171,24 @@
   white-space: pre-line;
 }
 
+.portfolio-narrative {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.portfolio-narrative li {
+  margin: 0;
+  padding-left: 0.15rem;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.portfolio-narrative li + li {
+  margin-top: 0.65rem;
+}
+
 .portfolio-project-images {
   display: flex;
   flex-wrap: wrap;
