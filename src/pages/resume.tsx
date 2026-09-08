@@ -16,7 +16,7 @@ interface ResumePageData {
 
 const activities = [
   {
-    period: "2026.03 ~ 활동중",
+    period: "2026.03 ~ 활동 중",
     title: "멋쟁이 사자처럼 대학 14기",
     description: "프론트엔드 파트 활동 및 팀 프로젝트 참여",
     children: [
@@ -52,8 +52,8 @@ const activities = [
   },
   {
     period: "2022.03 ~ 2024.06",
-    title: "Striking Arts 게임개발동아리",
-    description: "게임개발동아리 교육 참여 및 C언어 교육 진행",
+    title: "Striking Arts 게임 개발 동아리",
+    description: "게임 개발 동아리 교육 참여 및 C 언어 교육 진행",
   },
 ]
 
@@ -136,8 +136,8 @@ const ResumePage = ({ data, location }: PageProps<ResumePageData>) => {
                   <div>
                         <dt>포트폴리오</dt>
                     <dd>
-                      <a href="https://taehyunjeon0203.github.io/">
-                        taehyunjeon0203.github.io
+                      <a href="https://taehyunjeon0203.github.io/portfolio">
+                        taehyunjeon0203.github.io/portfolio
                       </a>
                     </dd>
                   </div>
@@ -183,6 +183,10 @@ const ResumePage = ({ data, location }: PageProps<ResumePageData>) => {
                 프로젝트별 역할, 구현 내용과 결과는 포트폴리오에서 확인할 수
                 있습니다.
               </p>
+              <p>
+                포트폴리오에는 시연 영상과 GIF가 포함되어 있어 웹에서 보시는 것을
+                권장합니다.
+              </p>
               <a href="https://taehyunjeon0203.github.io/portfolio">
                 taehyunjeon0203.github.io/portfolio →
               </a>
@@ -226,7 +230,7 @@ const ResumePage = ({ data, location }: PageProps<ResumePageData>) => {
                     <span>2025.03 ~</span>
                     <span className="resume-period-end">
                       2027.02
-                      <small>(졸업예정)</small>
+                      <small>(졸업 예정)</small>
                     </span>
                   </p>
                   <div>

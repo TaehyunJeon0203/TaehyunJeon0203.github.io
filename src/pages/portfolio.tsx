@@ -234,7 +234,7 @@ const activities: Activity[] = [
   },
   {
     title: "Grand-trade-Auto",
-    role: "2인 프로젝트 (Frontend, Crawling) · AWS 기반 AI 웹서비스 교육과정",
+    role: "2인 프로젝트 (Frontend, Crawling) · AWS 기반 AI 웹서비스 교육 과정",
     period: "2025.07",
     stacks: ["React", "TypeScript", "shadcn/ui"],
     description: [
@@ -324,7 +324,7 @@ const likeLionProjects: SideProject[] = [
 
 const sideProjects: SideProject[] = [
   {
-    date: "2026.08 - 진행중",
+    date: "2026.08 - 진행 중",
     title: "개인용 OpenCode 하네스",
     subtitle: "전태현",
     description:
@@ -332,25 +332,25 @@ const sideProjects: SideProject[] = [
     stacks: ["OpenCode", "AI Agent", "MCP", "Git"],
     narrative: [
       {
-        body: "공개 하네스 사용 중 간단한 작업도 규모가 커져 토큰과 시간이 많이 소요되는 불편 체감. **보유 구독 모델을 작업에 맞게 활용하기 위해 개인용 하네스 구성**",
+        body: "공개 하네스 사용 중 간단한 작업에도 많은 토큰과 시간이 소요되는 불편함 경험. **보유 구독 모델을 작업에 맞게 활용하기 위해 개인용 하네스 구성**",
       },
       {
-        body: "작업 규모 확대를 줄이기 위해 **작은 작업은 오케스트레이터가 직접 처리**, 필요한 경우에만 전문 에이전트로 위임. **하위 에이전트의 재위임 제한**",
+        body: "불필요한 작업 확대를 줄이기 위해 **작은 작업은 오케스트레이터가 직접 처리**, 필요한 경우에만 전문 에이전트로 위임. **하위 에이전트의 재위임 제한**",
       },
       {
-        body: "**프론트엔드 구현은 OpenAI Plus, 요구사항 정리·백엔드·QA·Figma 분석은 OpenCode Go 모델로 배분**. Figma MCP 분석과 읽기 전용 QA를 구현 역할에서 분리",
+        body: "**프론트엔드 구현은 ChatGPT Plus, 요구사항 정리·백엔드·QA·Figma 분석은 OpenCode Go 모델로 배분**. Figma MCP 분석과 읽기 전용 QA를 구현 역할에서 분리",
       },
       {
         body: "**deep-interview 스킬로 모호한 요구사항과 부족한 정보를 먼저 질문**하고, 답변을 바탕으로 작업을 진행하도록 구성",
       },
       {
-        body: "실제 사용에서 **간단한 작업의 진행 과정이 간결해진 점 체감**. 개인 작업 방식에 맞춰 지속 보완 중",
+        body: "실제 사용 과정에서 **간단한 작업의 처리 절차가 간결해진 점 체감**. 개인 작업 방식에 맞춰 지속 보완 중",
       },
     ],
     link: "https://github.com/TaehyunJeon0203/.opencode",
   },
   {
-    date: "2026.06 - 진행중",
+    date: "2026.06 - 진행 중",
     title: "Driend",
     status: "서비스 중",
     subtitle: "전태현",
@@ -359,13 +359,13 @@ const sideProjects: SideProject[] = [
     stacks: ["Expo", "React Native", "TypeScript", "Supabase", "Zustand"],
     narrative: [
       {
-        body: "**애플 앱스토어 출시 및 자동차 동호회 공유**, 동호회 이용자들의 긍정적인 반응 확보",
+        body: "**애플 앱스토어 출시 및 자동차 동호회 공유**, 동호회 이용자들의 긍정적인 반응 확인",
       },
       {
-        body: "출시 한 달 **90+ 다운로드 · 사용자 47명 · 주행 392회 · 누적 13,418.3km**",
+        body: "출시 후 한 달간 **90회 이상 다운로드 · 사용자 47명 · 주행 392회 · 누적 13,418.3km**",
       },
       {
-        body: "매번 주행 시작 버튼을 눌러야 하는 불편함에 대해 **사용자 피드백을 반영해 주행 시작 위젯 추가**",
+        body: "매번 주행 시작 버튼을 눌러야 하는 불편함을 줄이기 위해 **사용자 피드백을 반영한 주행 시작 위젯 추가**",
       },
       {
         body: "GPS 수신 간격으로 100km/h 도달 감지가 늦어지는 문제 확인. **최근 구간의 평균 가속률로 도달 시각을 추정하는 방식 직접 제안 및 AI를 통한 구현**",
@@ -432,7 +432,7 @@ const sideProjects: SideProject[] = [
         body: "**개발 대부분을 담당하고 개발 전반에 AI 활용**",
       },
       {
-        body: "캠퍼스 구성원 대상 이용 제한을 위해 **반경 2km 위치 인증과 학교 이메일 도메인 인증 적용**",
+        body: "캠퍼스 구성원만 이용할 수 있도록 **반경 2km 위치 인증과 학교 이메일 도메인 인증 적용**",
       },
       {
         body: "**네이버 지도 API를 활용한 지도·목록 기반 소모임 탐색**과 지도 핀 기반 소모임 관리 구현. 참여 신청 및 수락·거절 흐름 연결",
@@ -543,13 +543,13 @@ const sideProjects: SideProject[] = [
     stacks: ["Electron", "TypeScript", "Tailwind CSS"],
     narrative: [
       {
-        body: "매번 에디터를 열고 프로젝트를 찾아 여는 불편함을 줄이기 위해 **등록한 프로젝트를 VSCode로 바로 실행하는 도구 개발**",
+        body: "매번 에디터를 열고 프로젝트를 찾아 여는 불편함을 줄이기 위해 **등록한 프로젝트를 VS Code로 바로 실행하는 도구 개발**",
       },
       {
-        body: "Chromium의 무게를 감수하더라도 **웹 기술로 빠르게 데스크톱 앱을 만들 수 있는 Electron 선택**",
+        body: "Chromium 기반의 리소스 부담을 감수하더라도 **웹 기술로 빠르게 데스크톱 앱을 만들 수 있는 Electron 선택**",
       },
       {
-        body: "별도 타이머 조작 없이 **작업 시간이 자연스럽게 기록되도록 자동 기록 구현**. lsof로 VSCode 프로세스와 열린 경로를 확인해 해당 프로젝트 실행 중에만 시간 기록",
+        body: "별도 타이머 조작 없이 **작업 시간이 자연스럽게 기록되도록 자동 기록 구현**. lsof로 VS Code 프로세스와 열린 경로를 확인해 해당 프로젝트 실행 중에만 시간 기록",
       },
       {
         body: "카드의 그림자·광택·애니메이션 반복 조정. 개발 중 궁금한 점은 **채팅형 LLM에 질문하며 해결**",
@@ -593,7 +593,7 @@ const otherExperience = [
   "공주대학교 소프트웨어학과 (2025.03 ~ 현재)",
   "군 복무 중 여단 인트라넷 D-day 카운터 개발 → 포상휴가 획득",
   "군 복무 중 당직 현황판 개발 및 당직 근무자 피드백 기반 개선 경험",
-  "Striking Arts 게임개발동아리 활동 / C언어 강의 (2022.03 ~ 2024.06)",
+  "Striking Arts 게임 개발 동아리 활동 / C 언어 강의 (2022.03 ~ 2024.06)",
   "AWS 기반 AI 웹서비스 교육 과정 수료 (2025.07)",
 ]
 
@@ -602,7 +602,7 @@ const skillCategories: SkillCategory[] = [
     title: "Frontend",
     items: [
       "React, TypeScript를 기반으로 컴포넌트 단위의 웹 서비스를 구축할 수 있습니다.",
-      "Vite, Tailwind CSS, shadcn/ui등 프론트엔드 개발 도구를 설정하고 활용할 수 있습니다.",
+      "Vite, Tailwind CSS, shadcn/ui 등 프론트엔드 개발 도구를 설정하고 활용할 수 있습니다.",
       "Zustand를 활용해 클라이언트 상태를 관리하고 화면 간 상태를 공유할 수 있습니다.",
       "React Native와 Expo를 활용해 모바일 앱 화면과 라우팅을 구현할 수 있습니다.",
     ],
@@ -617,7 +617,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "DevOps",
     items: [
-      "Docker, AWS S3·CloudFront 를 활용한 배포 환경을 구성한 경험이 있습니다.",
+      "Docker, AWS S3·CloudFront를 활용한 배포 환경을 구성한 경험이 있습니다.",
       "GitHub Actions를 활용해 빌드 및 배포 자동화 파이프라인을 구성할 수 있습니다.",
       "Vercel과 같은 서버리스 플랫폼을 통해 배포 환경을 구축할 수 있습니다.",
     ],
@@ -681,7 +681,7 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
           </section>
           <div className="portfolio-intro-box">
             <p>
-              <strong>아이디어가 사용자가 직접 만지는 화면으로 바뀌는 과정</strong>에
+              <strong>아이디어를 사용자가 직접 이용하는 화면으로 구현하는 과정</strong>에
               흥미를 느낍니다. React·TypeScript를 중심으로 웹과 모바일
               서비스를 만들고, 실제 사용과 피드백을 바탕으로 개선합니다.
             </p>
@@ -789,7 +789,7 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
             <div className="portfolio-entry-summary">
               <h3>멋쟁이 사자처럼 대학 14기</h3>
               <p className="portfolio-entry-role">IT 연합동아리 · 프론트엔드</p>
-              <span className="portfolio-entry-period">2026.03 - 활동중</span>
+              <span className="portfolio-entry-period">2026.03 - 활동 중</span>
               <StackBadges
                 stacks={["JavaScript", "TypeScript", "React", "Vite"]}
               />
@@ -874,7 +874,7 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
         <section className="portfolio-section portfolio-side-projects-section">
           <h2>Side Projects.</h2>
           <p className="portfolio-section-caption">
-            개인 성장과 불편함을 해소하기 위해 개발한 사이드 프로젝트입니다.
+            개인적인 관심과 일상의 불편함에서 출발한 사이드 프로젝트입니다.
           </p>
           {sideProjects.map((project, index) => (
             <div
