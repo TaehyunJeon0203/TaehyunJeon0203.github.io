@@ -137,7 +137,19 @@ const ResumePage = ({ data, location }: PageProps<ResumePageData>) => {
                         <dt>포트폴리오</dt>
                     <dd>
                       <a href="https://taehyunjeon0203.github.io/portfolio">
-                        taehyunjeon0203.github.io/portfolio
+                        <span className="resume-url-part">taehyunjeon0203.github.io</span>
+                        <wbr />
+                        <span className="resume-url-part">/portfolio</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>이력서</dt>
+                    <dd>
+                      <a href="https://taehyunjeon0203.github.io/resume">
+                        <span className="resume-url-part">taehyunjeon0203.github.io</span>
+                        <wbr />
+                        <span className="resume-url-part">/resume</span>
                       </a>
                     </dd>
                   </div>
@@ -179,17 +191,24 @@ const ResumePage = ({ data, location }: PageProps<ResumePageData>) => {
           <div className="resume-main">
             <section className="resume-section resume-projects">
               <h2>프로젝트</h2>
-              <p>
-                프로젝트별 역할, 구현 내용과 결과는 포트폴리오에서 확인할 수
-                있습니다.
-              </p>
-              <p>
-                포트폴리오에는 시연 영상과 GIF가 포함되어 있어 웹에서 보시는 것을
-                권장합니다.
-              </p>
-              <a href="https://taehyunjeon0203.github.io/portfolio">
-                taehyunjeon0203.github.io/portfolio →
-              </a>
+              <div className="resume-portfolio-callout">
+                <a href="https://taehyunjeon0203.github.io/portfolio">
+                  프로젝트 상세 내용 · 포트폴리오 보기 → taehyunjeon0203.github.io/portfolio
+                </a>
+                <p>시연 영상과 GIF가 포함되어 있어 웹 열람을 권장합니다.</p>
+              </div>
+              <ul className="resume-project-list">
+                <li><strong>개인용 OpenCode 하네스</strong> — 구독 모델별 에이전트 배분·요구사항 인터뷰·Figma MCP 연동</li>
+                <li><strong>아트민</strong> — 유휴 공간 매칭 앱 FE 단독 개발, 무박 2일간 9개 화면 구현</li>
+                <li><strong>Driend</strong> — 드라이브 기록 앱 개발·앱스토어 출시, 한 달간 90회 이상 다운로드</li>
+                <li><strong>Clican</strong> — 검색 결과 신뢰도를 별점과 근거로 표시하는 크롬 확장 MVP 개발</li>
+                <li><strong>Pinple</strong> — 3인 팀에서 캠퍼스 소모임 앱 개발 대부분 담당, 네이버 지도·인증 연동</li>
+                <li><strong>PICT</strong> — AI 구직 관리 대시보드 FE 단독 개발, 8주간 16개 화면 구현</li>
+                <li><strong>LifeStats</strong> — 개인 통계의 SNS 공유 카드 구현 및 Vercel 배포</li>
+                <li><strong>Grand-trade-Auto</strong> — 중고차 가격 예측 서비스 FE·크롤러 개발, 매물 62,000개 수집</li>
+                <li><strong>Grav</strong> — 프로젝트 바로 실행과 작업 시간 자동 기록을 지원하는 Electron 앱 개발</li>
+                <li><strong>TH Blog</strong> — 일상·기술 전환형 Gatsby 블로그 제작, Markdown 관리·배포 자동화</li>
+              </ul>
             </section>
 
             <section className="resume-section">

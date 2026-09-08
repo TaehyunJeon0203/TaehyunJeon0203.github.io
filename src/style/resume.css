@@ -132,6 +132,11 @@
   text-decoration: underline;
 }
 
+.resume-url-part {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
 .resume-skill-group {
   margin-bottom: var(--spacing-5);
 }
@@ -270,6 +275,48 @@
   margin: 0 0 var(--spacing-3);
   color: var(--color-text-light);
   font-size: 0.84rem;
+}
+
+.resume-project-summary {
+  margin-bottom: 0.85rem;
+  break-inside: avoid;
+}
+
+.resume-portfolio-callout {
+  margin-bottom: 1.25rem;
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--color-primary);
+  background: var(--color-background-light);
+  break-inside: avoid;
+  break-after: avoid;
+}
+
+.resume-portfolio-callout a {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.resume-portfolio-callout p {
+  margin: 0;
+}
+
+.resume-project-summary h3 {
+  margin: 0 0 0.3rem;
+  font-size: 0.95rem;
+}
+
+.resume-project-summary h3 span {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--color-text-light);
+  font-size: 0.72rem;
+  font-weight: normal;
+}
+
+@media print {
+  .resume-project-summary { margin-bottom: 3mm; }
+  .resume-project-summary h3 { font-size: 9pt; }
+  .resume-project-summary h3 span { font-size: 7pt; }
 }
 
 .resume-projects a {
@@ -418,6 +465,10 @@
     font-size: 9pt;
   }
 
+  .resume-subentry strong {
+    font-size: 8pt;
+  }
+
   .resume-entry p,
   .resume-detail-list li,
   .resume-projects p,
@@ -453,5 +504,29 @@
 
   .resume-page a {
     color: inherit;
+  }
+}
+
+.resume-project-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.resume-project-list li {
+  margin-bottom: 0.6rem;
+  color: var(--color-text-light);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  break-inside: avoid;
+}
+
+.resume-project-list strong {
+  color: var(--color-heading);
+}
+
+@media print {
+  .resume-project-list li {
+    font-size: 7.5pt;
+    margin-bottom: 2mm;
   }
 }

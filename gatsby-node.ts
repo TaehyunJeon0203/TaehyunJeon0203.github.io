@@ -165,9 +165,25 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     // blog posts are stored inside "content/blog" instead of returning an error
     createTypes(`
     type SiteSiteMetadata {
+      title: String
+      description: String
       author: Author
       siteUrl: String
       social: Social
+      profile: SiteProfile
+    }
+
+    type SiteProfile {
+      name: String
+      image: String
+      bio: String
+      links: SiteProfileLinks
+    }
+
+    type SiteProfileLinks {
+      github: String
+      email: String
+      instagram: String
     }
 
     type Author {

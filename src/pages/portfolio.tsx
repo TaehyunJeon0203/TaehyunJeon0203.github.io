@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import type { PageProps } from "gatsby"
-import { GitHub, Mail, PenTool } from "react-feather"
+import { FileText, GitHub, Mail, PenTool } from "react-feather"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -663,6 +663,13 @@ const PortfolioPage = ({ data, location }: PageProps<PortfolioPageData>) => {
               </div>
               <div className="portfolio-link-group">
                 <p className="portfolio-link-group-title">Channel.</p>
+                <a
+                  className="portfolio-link-item"
+                  href="https://taehyunjeon0203.github.io/resume"
+                >
+                  <FileText size={16} />
+                  이력서 → taehyunjeon0203.github.io/resume
+                </a>
                 <a className="portfolio-link-item" href="/">
                   <PenTool size={16} />
                   taehyunjeon0203.github.io
