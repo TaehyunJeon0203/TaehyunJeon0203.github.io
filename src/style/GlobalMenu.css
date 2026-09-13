@@ -10,6 +10,8 @@
 
 .menu {
   position: relative;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .slideIn {
@@ -124,13 +126,56 @@ body.menu-open {
   font-size: 13px;
 }
 .menu-items {
-  padding: 2rem;
+  padding: 0 1rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  margin-top: 1rem;
+  gap: 1.5rem;
+  margin-top: 0;
   border-top: none;
 }
+
+.menu-section h2 {
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem;
+  color: var(--color-heading);
+}
+
+.menu-recent-posts, .menu-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-recent-posts li { margin: 0; }
+.menu-recent-posts li + li { border-top: 1px solid var(--color-border); }
+.menu-recent-posts a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.7rem 0;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.menu-recent-posts time { font-size: 0.8rem; color: var(--color-text-light); }
+.menu-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.menu-tags li { margin: 0; max-width: 100%; }
+.menu-tags a {
+  display: block;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+.menu-all-posts { color: var(--color-heading); font-size: 0.9rem; font-weight: 600; }
+.menu-empty { font-size: 0.9rem; color: var(--color-text-light); }
+.menu-items a:hover { color: var(--color-primary); }
+.menu-items a:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
 
 .menu-intro {
   text-align: center;

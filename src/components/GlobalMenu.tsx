@@ -7,11 +7,12 @@ import GlobalMenuFooter from "./GlobalMenuFooter"
 import GlobalMenuItem from "./GlobalMenuItem"
 
 interface GlobalMenuProps {
+  blogType: "tech" | "daily"
   isOpen: boolean
   toggleMenu: () => void
 }
 
-const GlobalMenu = ({ isOpen, toggleMenu }: GlobalMenuProps) => {
+const GlobalMenu = ({ isOpen, toggleMenu, blogType }: GlobalMenuProps) => {
   const [isClosing, setIsClosing] = useState(false)
 
   useEffect(() => {
@@ -53,7 +54,7 @@ const GlobalMenu = ({ isOpen, toggleMenu }: GlobalMenuProps) => {
       <div className="menu">
         <GlobalMenuHeader />
         <hr />
-        <GlobalMenuItem />
+        <GlobalMenuItem blogType={blogType} onNavigate={toggleMenu} />
         <GlobalMenuFooter />
       </div>
     </Modal>

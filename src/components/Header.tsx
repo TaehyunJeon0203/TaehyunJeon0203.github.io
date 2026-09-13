@@ -101,7 +101,7 @@ const Header = ({ isRootPath = false, pageControls }: HeaderProps) => {
           </button>
         </div>
       </div>
-      <GlobalMenu isOpen={isOpen} toggleMenu={toggleMenu} />
+      <GlobalMenu isOpen={isOpen} toggleMenu={toggleMenu} blogType={blogType} />
     </header>
   )
 }
