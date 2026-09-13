@@ -1,10 +1,11 @@
 import * as React from "react"
 import { useState, useEffect } from "react"
 import Modal from "react-modal"
+import { graphql, useStaticQuery } from "gatsby"
 import "../style/GlobalMenu.css"
 import GlobalMenuHeader from "./GlobalMenuHeader"
 import GlobalMenuFooter from "./GlobalMenuFooter"
-import GlobalMenuItem from "./GlobalMenuItem"
+import GlobalMenuItem, { MenuPost } from "./GlobalMenuItem"
 
 interface GlobalMenuProps {
   blogType: "tech" | "daily"
@@ -13,6 +14,23 @@ interface GlobalMenuProps {
 }
 
 const GlobalMenu = ({ isOpen, toggleMenu, blogType }: GlobalMenuProps) => {
+  const data = useStaticQuery<{ allMarkdownRemark: { nodes: MenuPost[] } }>(graphql`
+    query GlobalMenuPosts {
+      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+        nodes {
+          fields { slug }
+          frontmatter {
+            title
+            date
+            displayDate: date(formatString: "YYYY.MM.DD")
+            category
+            tags
+          }
+        }
+      }
+    }
+  `)
+
   const [isClosing, setIsClosing] = useState(false)
 
   useEffect(() => {
@@ -54,7 +72,11 @@ const GlobalMenu = ({ isOpen, toggleMenu, blogType }: GlobalMenuProps) => {
       <div className="menu">
         <GlobalMenuHeader />
         <hr />
-        <GlobalMenuItem blogType={blogType} onNavigate={toggleMenu} />
+        <GlobalMenuItem
+          blogType={blogType}
+          onNavigate={toggleMenu}
+          posts={data.allMarkdownRemark.nodes}
+        />
         <GlobalMenuFooter />
       </div>
     </Modal>

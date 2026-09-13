@@ -1,8 +1,8 @@
 import * as React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import "../style/GlobalMenu.css"
 
-interface MenuPost {
+export interface MenuPost {
   fields: { slug: string } | null
   frontmatter: {
     title: string
@@ -16,26 +16,11 @@ interface MenuPost {
 interface GlobalMenuItemProps {
   blogType: "tech" | "daily"
   onNavigate: () => void
+  posts: MenuPost[]
 }
 
-const GlobalMenuItem = ({ blogType, onNavigate }: GlobalMenuItemProps) => {
-  const data = useStaticQuery<{ allMarkdownRemark: { nodes: MenuPost[] } }>(graphql`
-    query GlobalMenuPosts {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-        nodes {
-          fields { slug }
-          frontmatter {
-            title
-            date
-            displayDate: date(formatString: "YYYY.MM.DD")
-            category
-            tags
-          }
-        }
-      }
-    }
-  `)
-  const posts = data.allMarkdownRemark.nodes.filter(
+const GlobalMenuItem = ({ blogType, onNavigate, posts: allPosts }: GlobalMenuItemProps) => {
+  const posts = allPosts.filter(
     post => post.fields?.slug && post.frontmatter.category === blogType
   )
   const tags = Array.from(new Set(posts.flatMap(post => post.frontmatter.tags ?? [])))
